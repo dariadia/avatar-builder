@@ -40,9 +40,13 @@ const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
       </Head>
       <AnimateSharedLayout>
         <ThemeProvider theme={theme}>
-          <Layout {...pageProps}>
+          {Component.Layout ? (
+            <Layout {...pageProps}>
+              <Component {...pageProps} />
+            </Layout>
+          ) : (
             <Component {...pageProps} />
-          </Layout>
+          )}
         </ThemeProvider>
       </AnimateSharedLayout>
       <GlobalStyle />
