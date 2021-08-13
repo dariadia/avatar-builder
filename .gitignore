@@ -1,0 +1,23 @@
+# ignore IDE project configurations
+*.sublime-project
+*.sublime-workspace
+*.vscode
+.idea
+coverage
+
+# ignore macOS Desktop Services Store files
+*.DS_Store
+
+# ignore logs
+*.log
+
+# ignore .env local settings
+.env
+.env.local
+
+# ignore modules
+node_modules
+
+# ignore build folders
+.next
+build

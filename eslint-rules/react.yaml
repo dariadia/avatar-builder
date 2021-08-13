@@ -1,0 +1,26 @@
+rules:
+  react/display-name: off
+  react/forbid-prop-types: off
+  react/jsx-closing-bracket-location: off
+  react/jsx-filename-extension: off
+  react/jsx-first-prop-new-line: off
+  react/jsx-indent-props: [off, error]
+  react/jsx-indent: [off, error]
+  react/jsx-no-target-blank: off
+  react/jsx-uses-react: error
+  react/jsx-uses-vars: error
+  react/jsx-boolean-value: warn
+  react/no-array-index-key: off
+  react/no-danger: off
+  react/no-did-mount-set-state: off
+  react/no-find-dom-node: off
+  react/no-multi-comp: off
+  react/no-string-refs: off
+  react/no-typos: warn
+  react/no-unescaped-entities: warn
+  react/no-unused-prop-types: off
+  react/no-unused-state: warn
+  react/prop-types: off
+  react/require-default-props: off
+  react-hooks/rules-of-hooks: warn
+  react-hooks/exhaustive-deps: warn
