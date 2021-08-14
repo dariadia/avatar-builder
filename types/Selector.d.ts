@@ -22,6 +22,8 @@ type AvatarOptionKey = keyof AvatarOptions
 export type SelectorRow = {
   onSelect: (event: Event) => void
   selectorItems: SelectorItem[]
+  role?: string
+  ariaLabel?: string
 }
 
 export type SelectorItem = {
