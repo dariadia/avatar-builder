@@ -59,6 +59,7 @@ const HomePage: Page<SinglePageProps> = () => {
     <MediaContextProvider>
       <Media greaterThanOrEqual="tablet">
         <Grid
+          p="m"
           sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
         >
           <Box my="m" mx="auto" width="300px" height="300px">
@@ -76,9 +77,35 @@ const HomePage: Page<SinglePageProps> = () => {
         </Grid>
       </Media>
       <Media lessThan="tablet">
-        <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
-          <Box></Box>
-          <Box></Box>
+        <Grid p="m" sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
+          <Box my="m" mx="auto" width="300px" height="300px">
+            <Background id="avatar" colour={avatar.background}>
+              <Skin colour={avatar.skin} />
+            </Background>
+          </Box>
+          <Box>
+            <HeadingH3 as="h1" kind="serif">
+              {t('builder_heading')}
+            </HeadingH3>
+            <Selector {...{ avatar, setAvatarItem }} />
+            <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
+          </Box>
+        </Grid>
+      </Media>
+      <Media lessThan="mobile">
+        <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.xs }}>
+          <Box my="m" mx="auto" width="300px" height="300px">
+            <Background id="avatar" colour={avatar.background}>
+              <Skin colour={avatar.skin} />
+            </Background>
+          </Box>
+          <Box>
+            <HeadingH3 as="h1" kind="serif">
+              {t('builder_heading')}
+            </HeadingH3>
+            <Selector {...{ avatar, setAvatarItem }} />
+            <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
+          </Box>
         </Grid>
       </Media>
     </MediaContextProvider>

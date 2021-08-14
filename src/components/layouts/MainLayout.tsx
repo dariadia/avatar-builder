@@ -30,7 +30,7 @@ export const MainLayout: React.FC<Layout> = ({ children }) => {
           {...{ currentLocale: locale as Locale, locales: locales as Locale[] }}
         />
       )}
-      <Box minHeight={`calc(100vh - ${baseTheme.space.elephant}px)`} p="l">
+      <Box minHeight={`calc(100vh - ${baseTheme.space.elephant}px)`} p="s">
         {loading ? (
           <Loader
             py="elephant"
