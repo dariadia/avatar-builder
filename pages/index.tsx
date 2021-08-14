@@ -22,7 +22,9 @@ const HomePage: Page<SinglePageProps> = () => {
         <Grid
           sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
         >
-          {avatar.background}
+          <Box my="m" mx="auto" width="300px" height="300px">
+            {avatar.background}
+          </Box>
           <Box>
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
