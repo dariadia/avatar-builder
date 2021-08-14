@@ -17,6 +17,7 @@ import type {
   SelectorItem as SelectorItemProps,
   AvatarOptions,
   Selector as SelectorProps,
+  Event,
 } from 'types'
 
 const NavigationWrapper: React.FC = ({ children }) => (
@@ -70,6 +71,8 @@ const BackgroundWrapper: React.FC = ({ children }) => (
   <Box
     height={`${baseTheme.space.xxxl}px`}
     width={`${baseTheme.space.xxxl}px`}
+    my="m"
+    mr="m"
     inlineBlock
   >
     {children}
@@ -100,7 +103,16 @@ export const Selector: React.FC<SelectorProps> = ({
   const { t } = useTranslation(['avatar'])
   const [shownSelector, setShowSelector] = useState(BACKGROUND)
 
-  const makeSelection = (value: string) => {
+  const makeSelection = (event: Event) => {
+    let { value } = event.target
+    const { target } = event
+
+    if (!value) {
+      value = target.parentNode.value
+        ? target.parentNode.value
+        : target.parentNode.parentNode.parentNode.children[0]?.value
+    }
+
     if (typeof value === 'string' && SELECTOR_NAMES.includes(value)) {
       setShowSelector(value)
     }
@@ -111,10 +123,7 @@ export const Selector: React.FC<SelectorProps> = ({
   return (
     <>
       <SelectorRow
-        // TODO: Fix Event typing: Property 'value' does not exist on type 'EventTarget'
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        onSelect={event => makeSelection(event?.target?.value)}
+        onSelect={event => makeSelection(event)}
         selectorItems={navigation}
         role={t('navigation')}
         ariaLabel={t('background')}
