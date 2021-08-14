@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { darken } from 'polished'
-import { baseTheme, Box } from 'danni-s-design-system'
+import { baseTheme, Box, Circle } from 'danni-s-design-system'
 
-import type { Skin as SkinProps } from 'types'
+import { SKIN_COLOURS, SKIN } from 'constants/body'
+
+import type { Skin as SkinProps, SkinColourKey, SelectorItem } from 'types'
 
 export const Skin: React.FC<SkinProps> = ({ colour }) => (
   <Box>
@@ -46,3 +48,27 @@ const Face = styled(Box)<SkinProps>`
   top: calc(50% - 50px);
   z-index: ${baseTheme.zIndices.upAbove};
 `
+
+export const SKINS = (): SelectorItem[] => {
+  const skinNodesArray = []
+
+  for (const skinColour in SKIN_COLOURS) {
+    skinNodesArray.push({
+      name: SKIN,
+      id: skinColour,
+      children: (
+        <Circle
+          size={`${baseTheme.space.xxxl}px`}
+          my="m"
+          mr="m"
+          inlineBlock
+          sx={{
+            background: SKIN_COLOURS[skinColour as SkinColourKey],
+            border: skinColour === 'MILK' ? '1px solid grey' : 'none',
+          }}
+        />
+      ),
+    })
+  }
+  return skinNodesArray
+}

@@ -4,7 +4,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { Media, MediaContextProvider } from 'utils/media'
 
-import { MainLayout, Background, Selector } from '@/components'
+import { BACKGROUND_COLOURS, SKIN_COLOURS } from 'constants/body'
+
+import { MainLayout, Selector, Skin, Background } from '@/components'
 import { baseTheme, Grid, Box, HeadingH3 } from 'danni-s-design-system'
 
 import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
@@ -12,8 +14,8 @@ import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
 const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
   const [avatar, setAvatarItem] = useState({
-    background: <Background />,
-    skin: '',
+    background: BACKGROUND_COLOURS.MIST,
+    skin: SKIN_COLOURS.CHOCOLATE,
   })
 
   return (
@@ -23,7 +25,9 @@ const HomePage: Page<SinglePageProps> = () => {
           sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
         >
           <Box my="m" mx="auto" width="300px" height="300px">
-            {avatar.background}
+            <Background colour={avatar.background}>
+              <Skin colour={avatar.skin} />
+            </Background>
           </Box>
           <Box>
             <HeadingH3 as="h1" kind="serif">

@@ -3,9 +3,17 @@ import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 
 import { isString } from 'utils/basic'
+import {
+  BACKGROUND,
+  SELECTOR_NAMES,
+  SelectorName,
+  SKIN,
+  SKIN_COLOURS,
+  BACKGROUND_COLOURS,
+} from 'constants/body'
 
 import { List, HoverableText, Button } from 'danni-s-design-system'
-import { BackgroundKey, BACKGROUNDS, BACKGROUND_OPTIONS } from '.'
+import { BACKGROUNDS, SKINS } from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -13,6 +21,8 @@ import type {
   AvatarOptions,
   Selector as SelectorProps,
   Event,
+  SkinColourKey,
+  BackgroundColourKey,
 } from 'types'
 
 const NavigationWrapper: React.FC = ({ children }) => (
@@ -45,13 +55,6 @@ const NavigationOptions = () => {
     },
   ] as SelectorItemProps[]
 }
-
-export const BACKGROUND = 'background'
-const SKIN = 'skin'
-
-const SELECTOR_NAMES = [BACKGROUND, SKIN]
-
-type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const Selector: React.FC<SelectorProps> = ({
   avatar,
@@ -98,6 +101,7 @@ export const Selector: React.FC<SelectorProps> = ({
 
 const Selection = ({
   name,
+  avatar,
   setAvatarItem,
 }: {
   name: SelectorName
@@ -107,7 +111,13 @@ const Selection = ({
   const { t } = useTranslation('avatar')
 
   const select = (id: string): void => {
-    setAvatarItem({ background: BACKGROUND_OPTIONS[id as BackgroundKey] })
+    if (!id) return
+    setAvatarItem({
+      ...avatar,
+      [name]:
+        SKIN_COLOURS[id as SkinColourKey] ||
+        BACKGROUND_COLOURS[id as BackgroundColourKey],
+    })
   }
 
   switch (name) {
@@ -115,9 +125,18 @@ const Selection = ({
       return (
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
-          selectorItems={BACKGROUNDS}
+          selectorItems={BACKGROUNDS()}
           role={t('navigation')}
           ariaLabel={t('background')}
+        />
+      )
+    case SKIN:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={SKINS()}
+          role={t('navigation')}
+          ariaLabel={t('skin')}
         />
       )
     default:
