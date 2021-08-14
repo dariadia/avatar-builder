@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 
-import { mainTheme, List } from 'danni-s-design-system'
+import {
+  mainTheme,
+  List,
+  Box,
+  baseTheme,
+  HoverableText,
+  Button,
+} from 'danni-s-design-system'
 import { Background } from '.'
 
 import type {
@@ -11,6 +19,19 @@ import type {
   Selector as SelectorProps,
 } from 'types'
 
+const NavigationWrapper: React.FC = ({ children }) => (
+  <Button activeColour="accentLight" mr="xl" mb="xl" p="s">
+    <HoverableText
+      activeColour="black"
+      color="accentDark"
+      sx={{ fontWeight: 'bold' }}
+      inlineBlock
+    >
+      {children}
+    </HoverableText>
+  </Button>
+)
+
 const NavigationOptions = () => {
   const { t } = useTranslation(['avatar'])
   return [
@@ -18,13 +39,13 @@ const NavigationOptions = () => {
       name: 'selector',
       id: 'background',
       value: 'background',
-      children: t('background'),
+      children: <NavigationWrapper>{t('background')}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: 'skin',
       value: 'skin',
-      children: t('skin'),
+      children: <NavigationWrapper>{t('skin')}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -45,16 +66,30 @@ const BACKGROUND_OPTIONS = {
 
 type BackgroundKey = keyof typeof BACKGROUND_OPTIONS
 
+const BackgroundWrapper: React.FC = ({ children }) => (
+  <Box
+    height={`${baseTheme.space.xxxl}px`}
+    width={`${baseTheme.space.xxxl}px`}
+    inlineBlock
+  >
+    {children}
+  </Box>
+)
+
 const BACKGROUNDS = [
   {
     name: BACKGROUND,
     id: GREEN,
-    children: BACKGROUND_OPTIONS[GREEN],
+    children: (
+      <BackgroundWrapper>{BACKGROUND_OPTIONS[GREEN]}</BackgroundWrapper>
+    ),
   },
   {
     name: BACKGROUND,
     id: YELLOW,
-    children: BACKGROUND_OPTIONS[YELLOW],
+    children: (
+      <BackgroundWrapper>{BACKGROUND_OPTIONS[YELLOW]}</BackgroundWrapper>
+    ),
   },
 ]
 
@@ -62,6 +97,7 @@ export const Selector: React.FC<SelectorProps> = ({
   avatar,
   setAvatarItem,
 }) => {
+  const { t } = useTranslation(['avatar'])
   const [shownSelector, setShowSelector] = useState(BACKGROUND)
 
   const makeSelection = (value: string) => {
@@ -80,8 +116,10 @@ export const Selector: React.FC<SelectorProps> = ({
         // @ts-ignore
         onSelect={event => makeSelection(event?.target?.value)}
         selectorItems={navigation}
+        role={t('navigation')}
+        ariaLabel={t('background')}
       />
-      {getShowSelector({
+      {Selection({
         name: shownSelector as SelectorName,
         avatar: avatar as AvatarOptions,
         setAvatarItem,
@@ -90,7 +128,7 @@ export const Selector: React.FC<SelectorProps> = ({
   )
 }
 
-const getShowSelector = ({
+const Selection = ({
   name,
   setAvatarItem,
 }: {
@@ -98,6 +136,8 @@ const getShowSelector = ({
   avatar: AvatarOptions
   setAvatarItem: (arg: any) => void
 }) => {
+  const { t } = useTranslation('avatar')
+
   const select = (id: string): void => {
     setAvatarItem({ background: BACKGROUND_OPTIONS[id as BackgroundKey] })
   }
@@ -111,6 +151,8 @@ const getShowSelector = ({
           // @ts-ignore
           onSelect={event => select(event.target.id)}
           selectorItems={BACKGROUNDS}
+          role={t('navigation')}
+          ariaLabel={t('background')}
         />
       )
     default:
@@ -121,10 +163,18 @@ const getShowSelector = ({
 const SelectorRow: React.FC<SelectorRowProps> = ({
   onSelect,
   selectorItems,
+  role,
+  ariaLabel,
 }) => (
-  <List onClick={onSelect}>
+  <List
+    onClick={onSelect}
+    direction="row"
+    as="nav"
+    role={role}
+    aria-label={ariaLabel}
+  >
     {selectorItems.map(item => (
-      <SelectorItem {...item} />
+      <SelectorItem key={item.id} {...item} />
     ))}
   </List>
 )
@@ -136,7 +186,16 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
   children,
 }) => (
   <>
-    <input type="radio" id={id} name={name} value={value ? value : id} />
+    <StyledInput type="radio" id={id} name={name} value={value ? value : id} />
     <label htmlFor={id}>{children ? children : value}</label>
   </>
 )
+
+const StyledInput = styled('input')`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:not(:checked) + label {
+    cursor: pointer;
+  }
+`
