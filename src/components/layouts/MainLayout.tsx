@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Router from 'next/dist/client/router'
+import Router, { useRouter } from 'next/dist/client/router'
 
 import { Box, baseTheme, Loader } from 'danni-s-design-system'
 import { Footer, Header } from '.'
@@ -10,6 +10,9 @@ export const MainLayout: React.FC<Layout> = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
+
+  const { query } = useRouter()
+  const isApp = query.isApp
 
   useEffect(() => {
     Router.events.on('routeChangeStart', startLoading)
@@ -22,11 +25,12 @@ export const MainLayout: React.FC<Layout> = ({ children }) => {
 
   return (
     <>
-      <Header />
+      {!isApp && <Header />}
       <Box
         minHeight={`calc(100vh - ${
           baseTheme.space.elephant + baseTheme.space.s
         }px)`}
+        p="l"
       >
         {loading ? (
           <Loader
@@ -39,7 +43,7 @@ export const MainLayout: React.FC<Layout> = ({ children }) => {
           children
         )}
       </Box>
-      <Footer />
+      {!isApp && <Footer />}
     </>
   )
 }
