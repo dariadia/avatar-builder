@@ -64,7 +64,7 @@ export const SKINS = (): SelectorItem[] => {
           inlineBlock
           sx={{
             background: SKIN_COLOURS[skinColour as SkinColourKey],
-            border: skinColour === 'MILK' ? '1px solid grey' : 'none',
+            border: '1px solid grey',
           }}
         />
       ),

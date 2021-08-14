@@ -12,7 +12,7 @@ import {
   BACKGROUND_COLOURS,
 } from 'constants/body'
 
-import { List, HoverableText, Button } from 'danni-s-design-system'
+import { List, HoverableText, Button, mainTheme } from 'danni-s-design-system'
 import { BACKGROUNDS, SKINS } from '.'
 
 import type {
@@ -184,5 +184,8 @@ const StyledInput = styled('input')`
   }
   &:checked + label {
     filter: brightness(0.8);
+  }
+  &:checked + label > div {
+    box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
   }
 `

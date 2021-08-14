@@ -37,6 +37,7 @@ export const BACKGROUNDS = (): SelectorItem[] => {
           sx={{
             background:
               BACKGROUND_COLOURS[backgroundColour as BackgroundColourKey],
+            border: '1px solid grey',
           }}
         />
       ),
