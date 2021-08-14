@@ -1,4 +1,6 @@
-TODO : project description
+[TODO: extend description]
+
+Build your own avatar and save it as an image.
 
 ## How to use
 
