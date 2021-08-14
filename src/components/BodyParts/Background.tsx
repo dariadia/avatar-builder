@@ -4,12 +4,9 @@ import { Circle, mainTheme } from 'danni-s-design-system'
 
 import type { Background as BackgroundProps } from 'types'
 
-export const Background = styled(Circle).attrs({
-  my: 'm',
-  mx: 'auto',
-})<BackgroundProps>`
-  width: 300px;
-  height: 300px;
+export const Background = styled(Circle)<BackgroundProps>`
+  width: 100%;
+  height: 100%;
   position: relative;
   background: ${({ colour }) =>
     colour ? colour : mainTheme.colours.accentLightest};

@@ -45,14 +45,14 @@ const LanguageButton = ({ locale }: { locale: Locale }) => {
     <>
       <MediaContextProvider>
         <Media greaterThanOrEqual="tablet">
-          <Link href="" locale={locale} passHref>
+          <Link href="" locale={locale}>
             <StyledLanguageButton m="xs" theme={theme}>
               {locale}
             </StyledLanguageButton>
           </Link>
         </Media>
         <Media lessThan="tablet">
-          <Link href="" locale={locale} passHref>
+          <Link href="" locale={locale}>
             <StyledLanguageButton
               my="l"
               p="xl"
