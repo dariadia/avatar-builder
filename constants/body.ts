@@ -15,3 +15,14 @@ export const NONBINARY_COLOUR =
   'linear-gradient(180deg, #FFF430 25%, #FFFFFF 25%, 50%, #9C59D1 50%, 75%, #181818 75%)'
 export const GREYROMANTIC_COLOUR =
   'linear-gradient(180deg, #39A33E 20%, #A3A3A3 20%, 40%, #FFFFFF 40%, 60%, #A3A3A3 60%, 80%, #39A33E 80%)'
+
+export const SKIN = {
+  DARK_CHOCOLATE: '#33101C',
+  CHOCOLATE: '#8D5524',
+  WHISKEY: '#D2996C',
+  CARAMEL: '#C68642',
+  CONDENSED_MILK: '#E0AC69',
+  HONEY: '#F1C27D',
+  CREAM: '#FFDBAC',
+  MILK: '#FDFFF5',
+}
