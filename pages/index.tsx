@@ -19,7 +19,7 @@ const snapImage = () => {
   const AvatarNode = document.querySelector('#avatar') as HTMLElement
   if (isClient() && AvatarNode) {
     html2canvas(AvatarNode).then(function (canvas) {
-      document.body.appendChild(canvas)
+      AvatarNode.insertAdjacentElement('afterend', canvas)
     })
   }
 }
@@ -40,11 +40,6 @@ const StyledSaveButton = styled(Button).attrs({
 })`
   font-weight: bold;
   font-size: ${baseTheme.space.xl}px;
-  &:focus {
-    background: ${({ theme }) => theme.colours.accentLight};
-    color: ${({ theme }) => theme.colours.complementaryDark};
-    border: ${({ theme }) => `1px solid ${theme.colours.complementaryDark}`};
-  }
 `
 
 const HomePage: Page<SinglePageProps> = () => {
