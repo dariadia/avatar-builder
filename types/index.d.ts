@@ -1,3 +1,5 @@
+export * from './BodyParts'
 export * from './Date'
 export * from './Locale'
 export * from './Page'
+export * from './Selector'
