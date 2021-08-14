@@ -4,14 +4,14 @@ import Router, { useRouter } from 'next/dist/client/router'
 import { Box, baseTheme, Loader } from 'danni-s-design-system'
 import { Footer, Header } from '.'
 
-import { Layout } from 'types'
+import { Layout, Locale } from 'types'
 
 export const MainLayout: React.FC<Layout> = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
 
-  const { query } = useRouter()
+  const { query, locale, locales } = useRouter()
   const isApp = query.isApp
 
   useEffect(() => {
@@ -25,13 +25,12 @@ export const MainLayout: React.FC<Layout> = ({ children }) => {
 
   return (
     <>
-      {!isApp && <Header />}
-      <Box
-        minHeight={`calc(100vh - ${
-          baseTheme.space.elephant + baseTheme.space.s
-        }px)`}
-        p="l"
-      >
+      {!isApp && (
+        <Header
+          {...{ currentLocale: locale as Locale, locales: locales as Locale[] }}
+        />
+      )}
+      <Box minHeight={`calc(100vh - ${baseTheme.space.elephant}px)`} p="l">
         {loading ? (
           <Loader
             py="elephant"
