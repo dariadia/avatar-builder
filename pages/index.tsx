@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import html2canvas from 'html2canvas'
+import domtoimage from 'dom-to-image'
+import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
 import { Media, MediaContextProvider } from 'utils/media'
@@ -18,9 +19,14 @@ import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
 const snapImage = () => {
   const AvatarNode = document.querySelector('#avatar') as HTMLElement
   if (isClient() && AvatarNode) {
-    html2canvas(AvatarNode).then(function (canvas) {
-      AvatarNode.insertAdjacentElement('afterend', canvas)
-    })
+    domtoimage
+      .toBlob(AvatarNode, { height: 300, width: 300 })
+      .then(function (blob) {
+        saveAs(blob, 'avatar.png')
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error)
+      })
   }
 }
 
