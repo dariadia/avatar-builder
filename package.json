@@ -12,7 +12,7 @@
   "dependencies": {
     "@artsy/fresnel": "^1.9.0",
     "@styled-system/css": "^5.1.5",
-    "danni-s-design-system": "0.2.16",
+    "danni-s-design-system": "0.2.17",
     "framer-motion": "^4.1.17",
     "husky": "^7.0.1",
     "lint-staged": "10.4.0",
