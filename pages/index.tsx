@@ -1,13 +1,44 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { MainLayout } from '@/components/layouts'
+import { Media, MediaContextProvider } from 'utils/media'
+
+import { MainLayout, Background, Selector } from '@/components'
+import { baseTheme, Grid, Box, HeadingH3 } from 'danni-s-design-system'
 
 import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
 
 const HomePage: Page<SinglePageProps> = () => {
-  return <>hello world</>
+  const { t } = useTranslation(['avatar'])
+  const [avatar, setAvatarItem] = useState({
+    background: <Background />,
+    skin: '',
+  })
+
+  return (
+    <MediaContextProvider>
+      <Media greaterThanOrEqual="tablet">
+        <Grid
+          sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
+        >
+          {avatar.background}
+          <Box>
+            <HeadingH3 as="h1" kind="serif">
+              {t('builder_heading')}
+            </HeadingH3>
+            <Selector {...{ avatar, setAvatarItem }} />
+          </Box>
+        </Grid>
+      </Media>
+      <Media lessThan="tablet">
+        <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
+          <Box></Box>
+          <Box></Box>
+        </Grid>
+      </Media>
+    </MediaContextProvider>
+  )
 }
 
 HomePage.Layout = ({ children, ...props }) => (
@@ -22,7 +53,11 @@ export async function getStaticProps({
   return {
     props: {
       locale,
-      ...(await serverSideTranslations(locale, ['common', 'languages'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'languages',
+        'avatar',
+      ])),
     },
   }
 }
