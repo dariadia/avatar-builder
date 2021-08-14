@@ -3,12 +3,14 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 
 import { AnimateSharedLayout } from 'framer-motion'
-import { appWithTranslation } from 'next-i18next'
+import { appWithTranslation, useTranslation } from 'next-i18next'
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
 import { mainTheme as theme } from 'danni-s-design-system'
+import { AVATAR_CREATOR } from 'constants/locations'
+
 import { Layout as LayoutType } from 'types'
 
 const GlobalStyle = createGlobalStyle`
@@ -31,12 +33,15 @@ type ApplicationProps = AppProps & {
 
 const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
   const Layout: ComponentType = Component.Layout || React.Fragment
+  const { t } = useTranslation(['common'])
 
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{AVATAR_CREATOR}</title>
+        <meta name="description" content={t('avatar_builder')} />
       </Head>
       <AnimateSharedLayout>
         <ThemeProvider theme={theme}>
