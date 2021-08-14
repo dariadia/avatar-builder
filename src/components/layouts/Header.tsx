@@ -25,6 +25,7 @@ import { Locale } from 'types'
 const StyledLanguageButton = styled(Button).attrs({
   border: '1px solid accentLight',
   borderOnHover: 'accentDark',
+  borderRadius: 'xs',
   bg: 'complementaryLight',
   color: 'black',
   activeColour: 'complementaryLight',

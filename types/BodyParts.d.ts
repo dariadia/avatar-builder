@@ -21,4 +21,5 @@ type SkinColour = SKIN_COLOURS[keyof SKIN_COLOURS]
 
 export type Background = {
   colour?: string
+  id?: 'avatar'
 } & ConstrainedBoxProps
