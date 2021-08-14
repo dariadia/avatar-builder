@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 
+import { isString } from 'utils/basic'
+
 import { List, HoverableText, Button } from 'danni-s-design-system'
 import { BackgroundKey, BACKGROUNDS, BACKGROUND_OPTIONS } from '.'
 
@@ -68,7 +70,9 @@ export const Selector: React.FC<SelectorProps> = ({
         : target.parentNode.parentNode.parentNode.children[0]?.value
     }
 
-    if (typeof value === 'string' && SELECTOR_NAMES.includes(value)) {
+    const hasChanged = shownSelector !== value
+
+    if (hasChanged && isString(value) && SELECTOR_NAMES.includes(value)) {
       setShowSelector(value)
     }
   }
@@ -98,7 +102,7 @@ const Selection = ({
 }: {
   name: SelectorName
   avatar: AvatarOptions
-  setAvatarItem: (arg: any) => void
+  setAvatarItem: (arg: unknown) => void
 }) => {
   const { t } = useTranslation('avatar')
 
@@ -110,10 +114,7 @@ const Selection = ({
     case BACKGROUND:
       return (
         <SelectorRow
-          // TODO: Fix Event typing: Property 'value' does not exist on type 'EventTarget'
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          onSelect={event => select(event.target.id)}
+          onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={BACKGROUNDS}
           role={t('navigation')}
           ariaLabel={t('background')}
