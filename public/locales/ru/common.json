@@ -9,7 +9,8 @@
   "languages_available": "Ты также можешь выбрать",
   "change": "изменить",
   "plans": "В планах для этого проекта",
-  "avatar_builder": "Создай свой аватар!",
+  "create_avatar": "Создай свой аватар!",
+  "avatar_builder_meta": "Danni's Avatar Creator",
   "navigation": "навигация",
   "languages": "доступные языки"
 }
