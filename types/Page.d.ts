@@ -11,6 +11,6 @@ export type Layout = {
 }
 
 export interface SinglePage {
-  locale?: Locale
+  locale: Locale
   query?: { isApp?: boolean }
 }

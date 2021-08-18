@@ -14,7 +14,7 @@ import { BACKGROUND_COLOURS, SKIN_COLOURS } from 'constants/body'
 import { MainLayout, Selector, Skin, Background } from '@/components'
 import { baseTheme, Grid, Box, HeadingH3, Button } from 'danni-s-design-system'
 
-import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
+import type { Page, SinglePage as SinglePageProps } from 'types'
 
 const snapImage = () => {
   const AvatarNode = document.querySelector('#avatar') as HTMLElement
@@ -119,9 +119,7 @@ HomePage.Layout = ({ children, ...props }) => (
 export async function getServerSideProps({
   locale,
   query,
-}: {
-  locale: Locale
-}): Promise<{ props: SinglePageProps }> {
+}: SinglePageProps): Promise<{ props: SinglePageProps }> {
   console.log(query)
   return {
     props: {
