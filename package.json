@@ -1,8 +1,7 @@
 {
-  "name": "danni-s-folio",
-  "version": "1.1.0",
+  "name": "danni-s-avatar-builder",
+  "version": "1.2.0",
   "author": "dariadia",
-  "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
