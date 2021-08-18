@@ -118,9 +118,11 @@ HomePage.Layout = ({ children, ...props }) => (
 
 export async function getServerSideProps({
   locale,
+  query,
 }: {
   locale: Locale
 }): Promise<{ props: SinglePageProps }> {
+  console.log(query)
   return {
     props: {
       locale,
