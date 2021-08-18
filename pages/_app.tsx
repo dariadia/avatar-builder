@@ -9,7 +9,6 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
 import { mainTheme as theme } from 'danni-s-design-system'
-import { AVATAR_CREATOR } from 'constants/locations'
 
 import { Layout as LayoutType } from 'types'
 
@@ -40,8 +39,8 @@ const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{AVATAR_CREATOR}</title>
-        <meta name="description" content={t('avatar_builder')} />
+        <title>{t('avatar_builder_meta')}</title>
+        <meta name="description" content={t('create_avatar')} />
       </Head>
       <AnimateSharedLayout>
         <ThemeProvider theme={theme}>
