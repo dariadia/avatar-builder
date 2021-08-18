@@ -20,21 +20,17 @@ export const ProjectLayout: React.FC<Layout> = ({ children }) => {
   }, [])
 
   return (
-    <>
-      <Box as="header" mb="xl" />
-      <Box minHeight={`calc(100vh - ${baseTheme.space.elephant}px)`} p="s">
-        {loading ? (
-          <Loader
-            py="elephant"
-            mx="auto"
-            width="fit-content"
-            color="accentDark"
-          />
-        ) : (
-          children
-        )}
-      </Box>
-      <Box as="footer" mt="xl" />
-    </>
+    <Box minHeight={`calc(100vh - ${baseTheme.space.elephant}px)`} p="s">
+      {loading ? (
+        <Loader
+          py="elephant"
+          mx="auto"
+          width="fit-content"
+          color="accentDark"
+        />
+      ) : (
+        children
+      )}
+    </Box>
   )
 }
