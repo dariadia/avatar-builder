@@ -41,6 +41,12 @@ const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{t('avatar_builder_meta')}</title>
         <meta name="description" content={t('create_avatar')} />
+        <meta
+          name="og:image"
+          property="og:image"
+          content="/assets/share-avatar-v2.png"
+        />
+        <meta name="twitter:image" content="/assets/share-avatar-v2.png" />
       </Head>
       <AnimateSharedLayout>
         <ThemeProvider theme={theme}>
