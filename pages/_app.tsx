@@ -47,6 +47,9 @@ const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
           content="/assets/share-avatar-v2.png"
         />
         <meta name="twitter:image" content="/assets/share-avatar-v2.png" />
+        <link rel="manifest" href="/favicon/site.webmanifest.json" />
+        <link rel="icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
       </Head>
       <AnimateSharedLayout>
         <ThemeProvider theme={theme}>
