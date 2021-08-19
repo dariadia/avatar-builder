@@ -39,6 +39,7 @@ const AQUALICIOUS = 'linear-gradient(to right, #50c9c3, #96deda)'
 const WITCHING_HOUR = 'linear-gradient(to right, #c31432, #240b36)'
 const ULTRA_VIOLET = 'linear-gradient(to right, #654ea3, #eaafc8)'
 const RASTAFARI = 'linear-gradient(to right, #1e9600, #fff200, #ff0000)'
+const BEYOND = 'linear-gradient(to right, #f0f2f0, #000c40)'
 
 export const BACKGROUND_COLOURS = {
   YELLOW: 'yellow',
@@ -83,11 +84,14 @@ export const SKIN_COLOURS = {
 export const CLOTHES_COLOURS = {
   LAWN: mainTheme.colours.complementaryDark,
   BLUE: 'blue',
+  SALMON: 'salmon',
   BLACK: 'black',
   GREY: 'grey',
+  ORANGE: 'orange',
   WITCHING_HOUR,
   ULTRA_VIOLET,
   RASTAFARI,
+  BEYOND,
   RAINBOW: RAINBOW_COLOUR,
   NONBINARY: NONBINARY_COLOUR,
   TRANSGENDER: TRANSGENDER_COLOUR,

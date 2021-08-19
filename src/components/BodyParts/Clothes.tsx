@@ -156,8 +156,14 @@ export const CLOTHES_PAIR = {
       <ShirtButton colour={ALL_COLOURS.MILK} />
     </Shirt>
   ),
+  SALMON: (
+    <Shirt colour={CLOTHES_COLOURS.SALMON} extraColour="grey">
+      <ShirtButton colour={ALL_COLOURS.MOONLIT_ASTEROID} />
+    </Shirt>
+  ),
   BLACK: <Vest colour={CLOTHES_COLOURS.BLACK} />,
   GREY: <TShirt colour={CLOTHES_COLOURS.GREY} />,
+  ORANGE: <TShirt colour={CLOTHES_COLOURS.ORANGE} />,
   WITCHING_HOUR: (
     <LowNeck colour={CLOTHES_COLOURS.WITCHING_HOUR} extraColour="red" />
   ),
@@ -167,6 +173,7 @@ export const CLOTHES_PAIR = {
     </Shirt>
   ),
   RASTAFARI: <TShirt colour={CLOTHES_COLOURS.RASTAFARI} extraColour="red" />,
+  BEYOND: <LowNeck colour={CLOTHES_COLOURS.BEYOND} extraColour="#D3D3D3" />,
   RAINBOW: (
     <Shirt colour={ALL_COLOURS.MILK} extraColour="salmon">
       <Badge colour={ALL_COLOURS.RAINBOW} />
