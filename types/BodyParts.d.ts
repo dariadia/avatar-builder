@@ -38,6 +38,7 @@ export type Background = {
 
 export type Shirt = {
   colour: string
+  extraColour?: string
 }
 
 export type Button = {
