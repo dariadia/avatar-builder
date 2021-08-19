@@ -24,7 +24,8 @@ const Shirt = styled(Box)<ShirtProps>`
   &:after {
     content: '';
     position: absolute;
-    border-bottom: 20px solid ${darken(0.1, 'white')};
+    border-bottom: ${({ colour, extraColour }) =>
+      `20px solid ${darken(0.1, extraColour ? extraColour : colour)}`};
     border-left: 20x solid transparent;
     border-right: 15px solid transparent;
     height: 0;
@@ -35,7 +36,8 @@ const Shirt = styled(Box)<ShirtProps>`
   &:before {
     content: '';
     position: absolute;
-    border-bottom: 20px solid ${darken(0.2, 'white')};
+    border-bottom: ${({ colour, extraColour }) =>
+      `20px solid ${darken(0.2, extraColour ? extraColour : colour)}`};
     border-left: 15px solid transparent;
     border-right: 0px solid transparent;
     height: 0;
@@ -66,7 +68,8 @@ const Vest = styled(Box)<ShirtProps>`
   &:after {
     content: '';
     position: absolute;
-    border-bottom: ${({ colour }) => `12px solid ${darken(0.1, colour)}`};
+    border-bottom: ${({ colour, extraColour }) =>
+      `12px solid ${darken(0.1, extraColour ? extraColour : colour)}`};
     border-left: 20x solid transparent;
     border-right: 15px solid transparent;
     height: 0;
@@ -77,13 +80,48 @@ const Vest = styled(Box)<ShirtProps>`
   &:before {
     content: '';
     position: absolute;
-    border-bottom: ${({ colour }) => `10px solid ${darken(0.1, colour)}`};
+    border-bottom: ${({ colour, extraColour }) =>
+      `12px solid ${darken(0.1, extraColour ? extraColour : colour)}`};
     border-left: 15px solid transparent;
     border-right: 0px solid transparent;
     height: 0;
     width: 3px;
     right: 2px;
-    top: -10px;
+    top: -12px;
+  }
+`
+
+const LowNeck = styled(Box)<ShirtProps>`
+  width: 60px;
+  height: 30px;
+  background: ${({ colour }) => colour};
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 75%;
+  z-index: ${baseTheme.zIndices.upAbove};
+  &:after {
+    content: '';
+    position: absolute;
+    border-bottom: ${({ colour, extraColour }) =>
+      `15px solid ${darken(0.1, extraColour ? extraColour : colour)}`};
+    border-left: 20x solid transparent;
+    border-right: 15px solid transparent;
+    height: 0;
+    width: 13px;
+    right: calc(50% - 1px);
+    top: -15px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    border-bottom: ${({ colour, extraColour }) =>
+      `15px solid ${darken(0.2, extraColour ? extraColour : colour)}`};
+    border-left: 12px solid transparent;
+    border-right: 0px solid transparent;
+    height: 0;
+    width: 15px;
+    right: 2px;
+    top: -15px;
   }
 `
 
@@ -109,22 +147,54 @@ const Badge = styled(Box)<ButtonProps>`
 
 export const CLOTHES_PAIR = {
   LAWN: (
-    <Shirt colour={CLOTHES_COLOURS.LAWN}>
+    <Shirt colour={CLOTHES_COLOURS.LAWN} extraColour="white">
       <ShirtButton colour={ALL_COLOURS.LAWN} />
     </Shirt>
   ),
   BLUE: (
-    <Shirt colour={CLOTHES_COLOURS.BLUE}>
+    <Shirt colour={CLOTHES_COLOURS.BLUE} extraColour="white">
       <ShirtButton colour={ALL_COLOURS.MILK} />
     </Shirt>
   ),
   BLACK: <Vest colour={CLOTHES_COLOURS.BLACK} />,
   GREY: <TShirt colour={CLOTHES_COLOURS.GREY} />,
   RAINBOW: (
-    <Shirt colour={ALL_COLOURS.MILK}>
+    <Shirt colour={ALL_COLOURS.MILK} extraColour="salmon">
       <Badge colour={ALL_COLOURS.RAINBOW} />
     </Shirt>
   ),
+  NONBINARY: (
+    <Vest colour={ALL_COLOURS.NONBINARY} extraColour={ALL_COLOURS.MILK} />
+  ),
+  TRANSGENDER: (
+    <Shirt
+      colour={ALL_COLOURS.TRANSGENDER}
+      extraColour={ALL_COLOURS.STEEL_BLUE}
+    />
+  ),
+  GENDER_QUEER: (
+    <LowNeck
+      colour={ALL_COLOURS.GENDER_QUEER}
+      extraColour={ALL_COLOURS.PALE_GREEN}
+    />
+  ),
+  LESBIAN: <Vest colour={ALL_COLOURS.LESBIAN} extraColour="pink" />,
+  ASEXUAL: (
+    <Shirt colour={ALL_COLOURS.MOONLIT_ASTEROID} extraColour={ALL_COLOURS.GREY}>
+      <Badge colour={ALL_COLOURS.ASEXUAL} />
+    </Shirt>
+  ),
+  AROMANTIC: (
+    <Shirt colour={ALL_COLOURS.GREEN}>
+      <Badge colour={ALL_COLOURS.AROMANTIC} />
+    </Shirt>
+  ),
+  BISEXUAL: (
+    <LowNeck colour={ALL_COLOURS.DUNE_SUNSET} extraColour={ALL_COLOURS.CREAM}>
+      <Badge colour={ALL_COLOURS.BISEXUAL} />
+    </LowNeck>
+  ),
+  PANSEXUAL: <TShirt colour={ALL_COLOURS.PANSEXUAL} />,
 }
 
 export const Clothes: React.FC<ShirtProps> = ({ colour }) =>
