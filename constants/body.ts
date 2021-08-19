@@ -2,8 +2,9 @@ import { mainTheme } from 'danni-s-design-system'
 
 export const BACKGROUND = 'background'
 export const SKIN = 'skin'
+export const CLOTHES = 'clothes'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN]
+export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'
@@ -34,4 +35,18 @@ export const SKIN_COLOURS = {
   HONEY: '#F1C27D',
   CREAM: '#FFDBAC',
   MILK: '#FDFFF5',
+}
+
+export const CLOTHES_COLOURS = {
+  LAWN: mainTheme.colours.complementaryDark,
+  BLUE: 'blue',
+  BLACK: 'black',
+  GREY: 'grey',
+  RAINBOW: RAINBOW_COLOUR,
+}
+
+export const ALL_COLOURS = {
+  ...BACKGROUND_COLOURS,
+  ...SKIN_COLOURS,
+  ...CLOTHES_COLOURS,
 }
