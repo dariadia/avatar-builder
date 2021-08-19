@@ -22,10 +22,10 @@ export const Background = styled(Circle)<BackgroundProps>`
 `
 
 export const BACKGROUNDS = (): SelectorItem[] => {
-  const skinNodesArray = []
+  const backgroundNodesArray = []
 
   for (const backgroundColour in BACKGROUND_COLOURS) {
-    skinNodesArray.push({
+    backgroundNodesArray.push({
       name: BACKGROUND,
       id: backgroundColour,
       children: (
@@ -43,5 +43,5 @@ export const BACKGROUNDS = (): SelectorItem[] => {
       ),
     })
   }
-  return skinNodesArray
+  return backgroundNodesArray
 }

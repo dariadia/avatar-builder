@@ -8,12 +8,11 @@ import {
   SELECTOR_NAMES,
   SelectorName,
   SKIN,
-  SKIN_COLOURS,
-  BACKGROUND_COLOURS,
+  CLOTHES,
 } from 'constants/body'
 
 import { List, HoverableText, Button, mainTheme } from 'danni-s-design-system'
-import { BACKGROUNDS, SKINS } from '.'
+import { BACKGROUNDS, CLOTHES_ITEMS, SKINS } from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -21,8 +20,6 @@ import type {
   AvatarOptions,
   Selector as SelectorProps,
   Event,
-  SkinColourKey,
-  BackgroundColourKey,
 } from 'types'
 
 const NavigationWrapper: React.FC = ({ children }) => (
@@ -52,6 +49,12 @@ const NavigationOptions = () => {
       id: 'skin',
       value: 'skin',
       children: <NavigationWrapper>{t('skin')}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: 'clothes',
+      value: 'clothes',
+      children: <NavigationWrapper>{t('clothes')}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -114,9 +117,7 @@ const Selection = ({
     if (!id) return
     setAvatarItem({
       ...avatar,
-      [name]:
-        SKIN_COLOURS[id as SkinColourKey] ||
-        BACKGROUND_COLOURS[id as BackgroundColourKey],
+      [name]: id,
     })
   }
 
@@ -137,6 +138,15 @@ const Selection = ({
           selectorItems={SKINS()}
           role={t('navigation')}
           ariaLabel={t('skin')}
+        />
+      )
+    case CLOTHES:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={CLOTHES_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t('clothes')}
         />
       )
     default:
