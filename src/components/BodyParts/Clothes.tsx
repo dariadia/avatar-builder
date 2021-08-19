@@ -158,6 +158,15 @@ export const CLOTHES_PAIR = {
   ),
   BLACK: <Vest colour={CLOTHES_COLOURS.BLACK} />,
   GREY: <TShirt colour={CLOTHES_COLOURS.GREY} />,
+  WITCHING_HOUR: (
+    <LowNeck colour={CLOTHES_COLOURS.WITCHING_HOUR} extraColour="red" />
+  ),
+  ULTRA_VIOLET: (
+    <Shirt colour={CLOTHES_COLOURS.ULTRA_VIOLET} extraColour="purple">
+      <ShirtButton colour={ALL_COLOURS.PEACH} />
+    </Shirt>
+  ),
+  RASTAFARI: <TShirt colour={CLOTHES_COLOURS.RASTAFARI} extraColour="red" />,
   RAINBOW: (
     <Shirt colour={ALL_COLOURS.MILK} extraColour="salmon">
       <Badge colour={ALL_COLOURS.RAINBOW} />
