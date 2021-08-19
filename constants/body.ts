@@ -72,6 +72,9 @@ export const SKIN_COLOURS = {
   HONEY: '#F1C27D',
   CREAM: '#FFDBAC',
   MILK: '#FDFFF5',
+  PALE_BLUE: '#AFEEEE',
+  PALE_GREEN: '#98FB98',
+  OLIVE: '#BAB86C',
 }
 
 export const CLOTHES_COLOURS = {
