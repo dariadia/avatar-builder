@@ -9,7 +9,6 @@ import {
   SelectorName,
   SKIN,
   CLOTHES,
-  ALL_COLOURS,
 } from 'constants/body'
 
 import { List, HoverableText, Button, mainTheme } from 'danni-s-design-system'
@@ -21,7 +20,6 @@ import type {
   AvatarOptions,
   Selector as SelectorProps,
   Event,
-  ColourKey,
 } from 'types'
 
 const NavigationWrapper: React.FC = ({ children }) => (
@@ -119,7 +117,7 @@ const Selection = ({
     if (!id) return
     setAvatarItem({
       ...avatar,
-      [name]: ALL_COLOURS[id as ColourKey],
+      [name]: id,
     })
   }
 

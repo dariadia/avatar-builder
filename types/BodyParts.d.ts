@@ -3,8 +3,9 @@ import {
   BACKGROUND_COLOURS,
   SKIN_COLOURS,
   CLOTHES_COLOURS,
-  ALL_COLOURS,
 } from 'constants/body'
+
+import { CLOTHES_PAIR } from '@/components'
 
 export type Hair = {
   side: 'left' | 'right'
@@ -27,8 +28,8 @@ type SkinColour = SKIN_COLOURS[keyof SKIN_COLOURS]
 export type ClothesColourKey = keyof typeof CLOTHES_COLOURS
 type ClothesColour = CLOTHES_COLOURS[keyof CLOTHES_COLOURS]
 
-export type ColourKey = keyof typeof ALL_COLOURS
-type Colour = ALL_COLOURS[keyof ALL_COLOURS]
+export type ClothesPairKey = keyof typeof CLOTHES_PAIR
+type ClothesPair = CLOTHES_PAIR[keyof CLOTHES_PAIR]
 
 export type Background = {
   colour?: string
