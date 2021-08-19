@@ -9,10 +9,11 @@ import {
   Button as ButtonProps,
   ClothesColourKey,
   SelectorItem,
+  ClothesPairKey,
 } from 'types'
-import { CLOTHES_COLOURS, CLOTHES } from 'constants/body'
+import { CLOTHES_COLOURS, CLOTHES, ALL_COLOURS } from 'constants/body'
 
-export const Shirt = styled(Box)<ShirtProps>`
+const Shirt = styled(Box)<ShirtProps>`
   width: 60px;
   height: 30px;
   background: ${({ colour }) => colour};
@@ -44,6 +45,48 @@ export const Shirt = styled(Box)<ShirtProps>`
   }
 `
 
+const TShirt = styled(Box)<ShirtProps>`
+  width: 60px;
+  height: 30px;
+  background: ${({ colour }) => colour};
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 75%;
+  z-index: ${baseTheme.zIndices.upAbove};
+`
+
+const Vest = styled(Box)<ShirtProps>`
+  width: 60px;
+  height: 30px;
+  background: ${({ colour }) => colour};
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 75%;
+  z-index: ${baseTheme.zIndices.upAbove};
+  &:after {
+    content: '';
+    position: absolute;
+    border-bottom: ${({ colour }) => `12px solid ${darken(0.1, colour)}`};
+    border-left: 20x solid transparent;
+    border-right: 15px solid transparent;
+    height: 0;
+    width: 22px;
+    right: calc(50% - 10px);
+    top: -12px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    border-bottom: ${({ colour }) => `10px solid ${darken(0.1, colour)}`};
+    border-left: 15px solid transparent;
+    border-right: 0px solid transparent;
+    height: 0;
+    width: 3px;
+    right: 2px;
+    top: -10px;
+  }
+`
+
 const ShirtButton = styled(Box)<ButtonProps>`
   position: absolute;
   width: 10px;
@@ -54,17 +97,44 @@ const ShirtButton = styled(Box)<ButtonProps>`
   top: 10px;
 `
 
-export const Clothes: React.FC<ShirtProps> = ({ colour }) => (
-  <Shirt colour={colour}>
-    <ShirtButton colour="blue" />
-  </Shirt>
-)
+const Badge = styled(Box)<ButtonProps>`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: ${({ colour }) => colour};
+  border-radius: 100%;
+  left: calc(50% - 20px);
+  top: 4px;
+`
+
+export const CLOTHES_PAIR = {
+  LAWN: (
+    <Shirt colour={CLOTHES_COLOURS.LAWN}>
+      <ShirtButton colour={ALL_COLOURS.LAWN} />
+    </Shirt>
+  ),
+  BLUE: (
+    <Shirt colour={CLOTHES_COLOURS.BLUE}>
+      <ShirtButton colour={ALL_COLOURS.MILK} />
+    </Shirt>
+  ),
+  BLACK: <Vest colour={CLOTHES_COLOURS.BLACK} />,
+  GREY: <TShirt colour={CLOTHES_COLOURS.GREY} />,
+  RAINBOW: (
+    <Shirt colour={ALL_COLOURS.MILK}>
+      <Badge colour={ALL_COLOURS.RAINBOW} />
+    </Shirt>
+  ),
+}
+
+export const Clothes: React.FC<ShirtProps> = ({ colour }) =>
+  CLOTHES_PAIR[colour as ClothesPairKey]
 
 export const CLOTHES_ITEMS = (): SelectorItem[] => {
-  const backgroundNodesArray = []
+  const clothesNodesArray = []
 
   for (const clothesColour in CLOTHES_COLOURS) {
-    backgroundNodesArray.push({
+    clothesNodesArray.push({
       name: CLOTHES,
       id: clothesColour,
       children: (
@@ -81,5 +151,5 @@ export const CLOTHES_ITEMS = (): SelectorItem[] => {
       ),
     })
   }
-  return backgroundNodesArray
+  return clothesNodesArray
 }
