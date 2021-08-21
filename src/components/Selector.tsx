@@ -32,8 +32,8 @@ const NavigationButton = styled(Box).attrs({
   inlineBlock: true,
 })`
   &:hover {
-    background: ${mainTheme.colours.accentLight};
-    transition: background ${mainTheme.transitions.default};
+    box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
+    transition: all ${mainTheme.transitions.default};
   }
 `
 const NavigationWrapper: React.FC = ({ children }) => (
