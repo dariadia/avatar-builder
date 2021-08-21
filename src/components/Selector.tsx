@@ -91,7 +91,7 @@ export const Selector: React.FC<SelectorProps> = ({
         onSelect={event => makeSelection(event)}
         selectorItems={navigation}
         role={t('navigation')}
-        ariaLabel={t('background')}
+        ariaLabel={t('select')}
       />
       {Selection({
         name: shownSelector as SelectorName,
