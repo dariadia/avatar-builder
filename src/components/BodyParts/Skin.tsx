@@ -4,20 +4,28 @@ import styled from 'styled-components'
 import { darken } from 'polished'
 import { baseTheme, Box, Circle } from 'danni-s-design-system'
 
-import { SKIN_COLOURS, SKIN } from 'constants/body'
+import { SKIN_COLOURS, SKIN, PLUMP, SLIM } from 'constants/body'
 
 import type { Skin as SkinProps, SkinColourKey, SelectorItem } from 'types'
 
-export const Skin: React.FC<SkinProps> = ({ colour }) => (
-  <Box>
-    <Head colour={colour}>
-      <Face colour={colour} />
-    </Head>
-    <Neck colour={colour} />
-  </Box>
-)
+export const Skin: React.FC<SkinProps> = ({ type, colour }) =>
+  type === SLIM ? (
+    <Box>
+      <SlimHead colour={colour}>
+        <Face colour={colour} />
+      </SlimHead>
+      <SlimNeck colour={colour} />
+    </Box>
+  ) : (
+    <Box>
+      <PlumpHead colour={colour}>
+        <Face colour={colour} />
+      </PlumpHead>
+      <PlumpNeck colour={colour} />
+    </Box>
+  )
 
-const Head = styled(Box).attrs({
+const SlimHead = styled(Box).attrs({
   width: baseTheme.space.elephant,
 })<SkinProps>`
   position: absolute;
@@ -29,7 +37,19 @@ const Head = styled(Box).attrs({
   top: 70px;
 `
 
-const Neck = styled(Box)<SkinProps>`
+const PlumpHead = styled(Box).attrs({
+  width: '100px',
+})<SkinProps>`
+  position: absolute;
+  z-index: ${baseTheme.zIndices.upAbove};
+  height: 120px;
+  background: ${({ colour }) => colour};
+  border-radius: 50px;
+  left: calc(50% - 52px);
+  top: 70px;
+`
+
+const SlimNeck = styled(Box)<SkinProps>`
   position: absolute;
   width: 40px;
   height: 50px;
@@ -38,6 +58,16 @@ const Neck = styled(Box)<SkinProps>`
   top: 60%;
   box-shadow: ${({ colour }) =>
     `inset 0px 16px 0px 0px ${darken(0.1, colour)}`};
+`
+const PlumpNeck = styled(Box)<SkinProps>`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: ${({ colour }) => colour};
+  left: calc(50% - 25px);
+  top: 60%;
+  box-shadow: ${({ colour }) =>
+    `inset 0px 18px 0px 0px ${darken(0.1, colour)}`};
 `
 
 const Face = styled(Box)<SkinProps>`
@@ -49,25 +79,42 @@ const Face = styled(Box)<SkinProps>`
   z-index: ${baseTheme.zIndices.upAbove};
 `
 
+const Sample: React.FC<Record<string, SkinColourKey>> = ({ skinColour }) => (
+  <Circle
+    size={`${baseTheme.space.xxxl}px`}
+    my="m"
+    mr="m"
+    inlineBlock
+    sx={{
+      background: SKIN_COLOURS[skinColour],
+      border: '1px solid grey',
+    }}
+  />
+)
+
 export const SKINS = (): SelectorItem[] => {
   const skinNodesArray = []
 
+  // First batch. Type: SLIM
   for (const skinColour in SKIN_COLOURS) {
     skinNodesArray.push({
       name: SKIN,
-      id: skinColour,
-      children: (
-        <Circle
-          size={`${baseTheme.space.xxxl}px`}
-          my="m"
-          mr="m"
-          inlineBlock
-          sx={{
-            background: SKIN_COLOURS[skinColour as SkinColourKey],
-            border: '1px solid grey',
-          }}
-        />
-      ),
+      id: `${SLIM}:${skinColour}`,
+      children: <Sample skinColour={skinColour as SkinColourKey} />,
+    })
+  }
+
+  skinNodesArray.push({
+    name: SKIN,
+    id: 'br',
+  })
+
+  // Second batch. Type: PLUMP
+  for (const skinColour in SKIN_COLOURS) {
+    skinNodesArray.push({
+      name: SKIN,
+      id: `${PLUMP}:${skinColour}`,
+      children: <Sample skinColour={skinColour as SkinColourKey} />,
     })
   }
   return skinNodesArray
