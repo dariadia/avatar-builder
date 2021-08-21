@@ -13,13 +13,17 @@ import {
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
   const { skin, clothes, background } = avatar
+
+  const [type, hue] = skin.split(':')
+  const colour = SKIN_COLOURS[hue as SkinColourKey]
+
   return (
     <Box my="m" mx="auto" width="300px" height="300px">
       <Background
         id="avatar"
         colour={BACKGROUND_COLOURS[background as BackgroundColourKey]}
       >
-        <Skin colour={SKIN_COLOURS[skin as SkinColourKey]} />
+        <Skin {...{ type, colour }} />
         <Clothes colour={clothes} />
       </Background>
     </Box>
