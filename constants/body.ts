@@ -4,6 +4,9 @@ export const BACKGROUND = 'background'
 export const SKIN = 'skin'
 export const CLOTHES = 'clothes'
 
+export const SLIM = 'slim'
+export const PLUMP = 'plump'
+
 export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 

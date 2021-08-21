@@ -3,6 +3,8 @@ import {
   BACKGROUND_COLOURS,
   SKIN_COLOURS,
   CLOTHES_COLOURS,
+  PLUMP,
+  SLIM,
 } from 'constants/body'
 
 import { CLOTHES_PAIR } from '@/components'
@@ -17,7 +19,10 @@ export type GlassesLensProps = {
 
 export type Skin = {
   colour: SkinColour
+  type?: BodyType
 }
+
+export type BodyType = SLIM | PLUMP
 
 export type BackgroundColourKey = keyof typeof BACKGROUND_COLOURS
 type BackgroundColour = BACKGROUND_COLOURS[keyof BACKGROUND_COLOURS]
