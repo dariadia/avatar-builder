@@ -11,7 +11,7 @@ import {
   CLOTHES,
 } from 'constants/body'
 
-import { List, HoverableText, Button, mainTheme } from 'danni-s-design-system'
+import { List, mainTheme, Box } from 'danni-s-design-system'
 import { BACKGROUNDS, CLOTHES_ITEMS, SKINS } from '.'
 
 import type {
@@ -22,17 +22,22 @@ import type {
   Event,
 } from 'types'
 
+const NavigationButton = styled(Box).attrs({
+  mr: 'xl',
+  my: 'xl',
+  p: 's',
+  color: 'accentDark',
+  bg: 'accentLightest',
+  fontWeight: 'bold',
+  inlineBlock: true,
+})`
+  &:hover {
+    background: ${mainTheme.colours.accentLight};
+    transition: background ${mainTheme.transitions.default};
+  }
+`
 const NavigationWrapper: React.FC = ({ children }) => (
-  <Button activeColour="accentLight" mr="xl" mb="xl" p="s">
-    <HoverableText
-      activeColour="black"
-      color="accentDark"
-      sx={{ fontWeight: 'bold' }}
-      inlineBlock
-    >
-      {children}
-    </HoverableText>
-  </Button>
+  <NavigationButton>{children}</NavigationButton>
 )
 
 const NavigationOptions = () => {
@@ -72,8 +77,6 @@ export const Selector: React.FC<SelectorProps> = ({
 
     if (!value) {
       value = target.parentNode.value
-        ? target.parentNode.value
-        : target.parentNode.parentNode.parentNode.children[0]?.value
     }
 
     const hasChanged = shownSelector !== value
@@ -194,6 +197,7 @@ const StyledInput = styled('input')`
   }
   &:checked + label {
     filter: brightness(0.8);
+    color: red;
   }
   &:checked + label > div {
     box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
