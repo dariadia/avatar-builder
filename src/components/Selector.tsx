@@ -170,9 +170,13 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
     role={role}
     aria-label={ariaLabel}
   >
-    {selectorItems.map(item => (
-      <SelectorItem key={item.id} {...item} />
-    ))}
+    {selectorItems.map(item =>
+      item.id === 'br' ? (
+        <br key={item.id} />
+      ) : (
+        <SelectorItem key={item.id} {...item} />
+      ),
+    )}
   </List>
 )
 
