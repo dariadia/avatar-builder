@@ -7,10 +7,9 @@ import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
-import { Media, MediaContextProvider } from 'utils/media'
 
 import { ProjectLayout, Selector, Avatar } from '@/components'
-import { baseTheme, Grid, Box, HeadingH3, Button } from 'danni-s-design-system'
+import { baseTheme, Grid, Box, Button } from 'danni-s-design-system'
 
 import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
 
@@ -55,44 +54,16 @@ const HomePage: Page<SinglePageProps> = () => {
   })
 
   return (
-    <MediaContextProvider>
-      <Media greaterThanOrEqual="tablet">
-        <Grid
-          p="m"
-          sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
-        >
-          <Avatar {...avatar} />
-          <Box>
-            <Selector {...{ avatar, setAvatarItem }} />
-            <StyledSaveButton>{t('save')}</StyledSaveButton>
-          </Box>
-        </Grid>
-      </Media>
-      <Media lessThan="tablet">
-        <Grid p="m" sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
-          <Avatar {...avatar} />
-          <Box>
-            <HeadingH3 as="h1" kind="serif">
-              {t('builder_heading')}
-            </HeadingH3>
-            <Selector {...{ avatar, setAvatarItem }} />
-            <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
-          </Box>
-        </Grid>
-      </Media>
-      <Media lessThan="mobile">
-        <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.xs }}>
-          <Avatar {...avatar} />
-          <Box>
-            <HeadingH3 as="h1" kind="serif">
-              {t('builder_heading')}
-            </HeadingH3>
-            <Selector {...{ avatar, setAvatarItem }} />
-            <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
-          </Box>
-        </Grid>
-      </Media>
-    </MediaContextProvider>
+    <Grid
+      p="m"
+      sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
+    >
+      <Avatar {...avatar} />
+      <Box>
+        <Selector {...{ avatar, setAvatarItem }} />
+        <StyledSaveButton>{t('save')}</StyledSaveButton>
+      </Box>
+    </Grid>
   )
 }
 
