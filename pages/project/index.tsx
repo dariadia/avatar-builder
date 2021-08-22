@@ -9,9 +9,7 @@ import { saveAs } from 'file-saver'
 import { isClient } from 'utils/env'
 import { Media, MediaContextProvider } from 'utils/media'
 
-import { BACKGROUND_COLOURS, SKIN_COLOURS } from 'constants/body'
-
-import { ProjectLayout, Selector, Skin, Background } from '@/components'
+import { ProjectLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, HeadingH3, Button } from 'danni-s-design-system'
 
 import type { Locale, Page, SinglePage as SinglePageProps } from 'types'
@@ -51,8 +49,9 @@ const StyledSaveButton = styled(Button).attrs({
 const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
   const [avatar, setAvatarItem] = useState({
-    background: BACKGROUND_COLOURS.MIST,
-    skin: SKIN_COLOURS.CHOCOLATE,
+    background: 'MIST',
+    skin: 'slim:CHOCOLATE',
+    clothes: 'BLUE',
   })
 
   return (
@@ -62,11 +61,7 @@ const HomePage: Page<SinglePageProps> = () => {
           p="m"
           sx={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: baseTheme.space.l }}
         >
-          <Box my="m" mx="auto" width="300px" height="300px">
-            <Background id="avatar" colour={avatar.background}>
-              <Skin colour={avatar.skin} />
-            </Background>
-          </Box>
+          <Avatar {...avatar} />
           <Box>
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
@@ -78,11 +73,7 @@ const HomePage: Page<SinglePageProps> = () => {
       </Media>
       <Media lessThan="tablet">
         <Grid p="m" sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
-          <Box my="m" mx="auto" width="300px" height="300px">
-            <Background id="avatar" colour={avatar.background}>
-              <Skin colour={avatar.skin} />
-            </Background>
-          </Box>
+          <Avatar {...avatar} />
           <Box>
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
@@ -94,11 +85,7 @@ const HomePage: Page<SinglePageProps> = () => {
       </Media>
       <Media lessThan="mobile">
         <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.xs }}>
-          <Box my="m" mx="auto" width="300px" height="300px">
-            <Background id="avatar" colour={avatar.background}>
-              <Skin colour={avatar.skin} />
-            </Background>
-          </Box>
+          <Avatar {...avatar} />
           <Box>
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
