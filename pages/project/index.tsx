@@ -63,9 +63,6 @@ const HomePage: Page<SinglePageProps> = () => {
         >
           <Avatar {...avatar} />
           <Box>
-            <HeadingH3 as="h1" kind="serif">
-              {t('builder_heading')}
-            </HeadingH3>
             <Selector {...{ avatar, setAvatarItem }} />
             <StyledSaveButton>{t('save')}</StyledSaveButton>
           </Box>
