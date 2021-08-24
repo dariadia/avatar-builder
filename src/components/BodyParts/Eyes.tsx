@@ -38,17 +38,23 @@ const Base: React.FC = ({ children }) => (
   </Circle>
 )
 
+const BaseLayer: React.FC = ({ children }) => (
+  <Flex
+    width="100%"
+    sx={{
+      justifyContent: 'space-around',
+      position: 'absolute',
+      top: baseTheme.space.s,
+    }}
+  >
+    {children}
+  </Flex>
+)
+
 export const EYES_TYPES = {
   OVAL: (
     <Base>
-      <Flex
-        width="100%"
-        sx={{
-          justifyContent: 'space-around',
-          position: 'absolute',
-          top: baseTheme.space.s,
-        }}
-      >
+      <BaseLayer>
         <Box
           width="10px"
           height="20px"
@@ -59,17 +65,39 @@ export const EYES_TYPES = {
           height="20px"
           sx={{ background: 'black', borderRadius: `${baseTheme.radii.l}px` }}
         />
-      </Flex>
+      </BaseLayer>
     </Base>
   ),
   ROUND: (
     <Base>
-      <Box bg="darkest"></Box>
+      <BaseLayer>
+        <Box
+          width="10px"
+          height="10px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.l}px` }}
+        />
+        <Box
+          width="10px"
+          height="10px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.l}px` }}
+        />
+      </BaseLayer>
     </Base>
   ),
   NARROW: (
     <Base>
-      <Box bg="darkest"></Box>
+      <BaseLayer>
+        <Box
+          width="10px"
+          height="5px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.m}px` }}
+        />
+        <Box
+          width="10px"
+          height="5px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.m}px` }}
+        />
+      </BaseLayer>
     </Base>
   ),
 }
