@@ -53,6 +53,10 @@ export type Button = {
   colour: string
 }
 
+export type Eyes = {
+  top?: string
+}
+
 export type Avatar = {
   background: BackgroundColour
   skin: SkinColour
