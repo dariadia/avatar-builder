@@ -71,8 +71,8 @@ const PlumpNeck = styled(Box)<SkinProps>`
 `
 
 const Face = styled(Box)<SkinProps>`
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   position: absolute;
   left: calc(50% - 35px);
   top: calc(50% - 50px);
