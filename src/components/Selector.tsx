@@ -25,7 +25,7 @@ import type {
 
 const NavigationButton = styled(Box).attrs({
   mr: 'xl',
-  my: 'xl',
+  mb: 'xl',
   p: 's',
   color: 'accentDark',
   bg: 'accentLightest',
