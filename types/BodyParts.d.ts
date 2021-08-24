@@ -7,7 +7,7 @@ import {
   SLIM,
 } from 'constants/body'
 
-import { CLOTHES_PAIR } from '@/components'
+import { CLOTHES_PAIR, EYES_TYPES } from '@/components'
 
 export type Hair = {
   side: 'left' | 'right'
@@ -35,6 +35,9 @@ type ClothesColour = CLOTHES_COLOURS[keyof CLOTHES_COLOURS]
 
 export type ClothesPairKey = keyof typeof CLOTHES_PAIR
 type ClothesPair = CLOTHES_PAIR[keyof CLOTHES_PAIR]
+
+export type EyesTypeKey = keyof typeof EYES_TYPES
+type EyesType = EYES_TYPES[keyof EYES_TYPES]
 
 export type Background = {
   colour?: string
