@@ -57,4 +57,5 @@ export type Avatar = {
   background: BackgroundColour
   skin: SkinColour
   clothes: ClothesColour
+  eyes: EyesType
 }
