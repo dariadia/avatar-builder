@@ -13,7 +13,7 @@ import {
 } from 'constants/body'
 
 import { List, mainTheme, Box } from 'danni-s-design-system'
-import { BACKGROUNDS, CLOTHES_ITEMS, SKINS } from '.'
+import { BACKGROUNDS, CLOTHES_ITEMS, SKINS, EYES_ITEMS } from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -138,7 +138,7 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={BACKGROUNDS()}
           role={t('navigation')}
-          ariaLabel={t('background')}
+          ariaLabel={t(BACKGROUND)}
         />
       )
     case SKIN:
@@ -147,7 +147,7 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={SKINS()}
           role={t('navigation')}
-          ariaLabel={t('skin')}
+          ariaLabel={t(SKIN)}
         />
       )
     case CLOTHES:
@@ -156,7 +156,16 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={CLOTHES_ITEMS()}
           role={t('navigation')}
-          ariaLabel={t('clothes')}
+          ariaLabel={t(CLOTHES)}
+        />
+      )
+    case EYES:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={EYES_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t(EYES)}
         />
       )
     default:
