@@ -9,6 +9,7 @@ import {
   SelectorName,
   SKIN,
   CLOTHES,
+  EYES,
 } from 'constants/body'
 
 import { List, mainTheme, Box } from 'danni-s-design-system'
@@ -45,21 +46,27 @@ const NavigationOptions = () => {
   return [
     {
       name: 'selector',
-      id: 'background',
-      value: 'background',
-      children: <NavigationWrapper>{t('background')}</NavigationWrapper>,
+      id: BACKGROUND,
+      value: BACKGROUND,
+      children: <NavigationWrapper>{t(BACKGROUND)}</NavigationWrapper>,
     },
     {
       name: 'selector',
-      id: 'skin',
-      value: 'skin',
-      children: <NavigationWrapper>{t('skin')}</NavigationWrapper>,
+      id: SKIN,
+      value: SKIN,
+      children: <NavigationWrapper>{t(SKIN)}</NavigationWrapper>,
     },
     {
       name: 'selector',
-      id: 'clothes',
-      value: 'clothes',
-      children: <NavigationWrapper>{t('clothes')}</NavigationWrapper>,
+      id: CLOTHES,
+      value: CLOTHES,
+      children: <NavigationWrapper>{t(CLOTHES)}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: EYES,
+      value: EYES,
+      children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
