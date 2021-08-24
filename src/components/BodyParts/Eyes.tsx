@@ -6,10 +6,10 @@ import { Flex, Circle, Box, baseTheme } from 'danni-s-design-system'
 import { EyesTypeKey, SelectorItem } from 'types'
 import { EYES } from 'constants/body'
 
-export const Eyes: React.FC = styled(Flex)`
+const OvalEyes: React.FC = styled(Flex)`
   justify-content: space-between;
   position: absolute;
-  top: 12px;
+  top: 32px;
   left: -7px;
   &::before,
   &::after {
@@ -22,6 +22,12 @@ export const Eyes: React.FC = styled(Flex)`
     border-radius: 200px;
   }
 `
+
+export const Eyes = {
+  OVAL: <OvalEyes />,
+  ROUND: <OvalEyes />,
+  NARROW: <OvalEyes />,
+}
 
 const Base: React.FC = ({ children }) => (
   <Circle
