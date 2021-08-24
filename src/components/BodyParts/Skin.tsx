@@ -8,18 +8,18 @@ import { SKIN_COLOURS, SKIN, PLUMP, SLIM } from 'constants/body'
 
 import type { Skin as SkinProps, SkinColourKey, SelectorItem } from 'types'
 
-export const Skin: React.FC<SkinProps> = ({ type, colour }) =>
+export const Skin: React.FC<SkinProps> = ({ type, colour, children }) =>
   type === SLIM ? (
     <Box>
       <SlimHead colour={colour}>
-        <Face colour={colour} />
+        <Face colour={colour}>{children}</Face>
       </SlimHead>
       <SlimNeck colour={colour} />
     </Box>
   ) : (
     <Box>
       <PlumpHead colour={colour}>
-        <Face colour={colour} />
+        <Face colour={colour}>{children}</Face>
       </PlumpHead>
       <PlumpNeck colour={colour} />
     </Box>
