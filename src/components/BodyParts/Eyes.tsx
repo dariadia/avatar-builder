@@ -63,11 +63,55 @@ const NarrowEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
   }
 `
 
+const WinkingEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
+  justify-content: space-between;
+  position: absolute;
+  top: ${({ top }) => (top ? top : '42px')};
+  left: -12px;
+  &::before {
+    background: black;
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 23px;
+    margin: 0 14px;
+    border-radius: 100px;
+  }
+  &::after {
+    background: black;
+    display: inline-block;
+    content: '';
+    width: 23px;
+    height: 10px;
+    margin: 8px 14px;
+    border-radius: 100px;
+  }
+`
+
+const TriangularEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
+  justify-content: space-between;
+  position: absolute;
+  top: ${({ top }) => (top ? top : '32px')};
+  left: -7px;
+  &::before,
+  &::after {
+    display: inline-block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid black;
+  }
+`
+
 export const Eyes = {
   OVAL: <OvalEyes />,
   ROUND: <RoundEyes />,
   NARROW: <NarrowEyes />,
   NARROW_SAD: <NarrowEyes {...{ top: '53px' }} />,
+  WINK: <WinkingEyes />,
+  TRIANGULAR: <TriangularEyes />,
 }
 
 const Base: React.FC = ({ children }) => (
@@ -161,6 +205,30 @@ export const EYES_TYPES = {
           height="5px"
           sx={{ background: 'black', borderRadius: `${baseTheme.radii.m}px` }}
         />
+      </BaseLayer>
+    </Base>
+  ),
+  WINK: (
+    <Base>
+      <BaseLayer sx={{ top: baseTheme.space.m }}>
+        <Box
+          width="5px"
+          height="10px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.m}px` }}
+        />
+        <Box
+          width="10px"
+          height="5px"
+          sx={{ background: 'black', borderRadius: `${baseTheme.radii.m}px` }}
+        />
+      </BaseLayer>
+    </Base>
+  ),
+  TRIANGULAR: (
+    <Base>
+      <BaseLayer sx={{ top: baseTheme.space.m }}>
+        <Box width="5px" height="10px" sx={{ background: 'black' }} />
+        <Box width="10px" height="5px" sx={{ background: 'black' }} />
       </BaseLayer>
     </Base>
   ),
