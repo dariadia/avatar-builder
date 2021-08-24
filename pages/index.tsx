@@ -52,6 +52,7 @@ const HomePage: Page<SinglePageProps> = () => {
     background: 'MIST',
     skin: 'slim:CHOCOLATE',
     clothes: 'BLUE',
+    eyes: 'ROUND',
   })
 
   return (
