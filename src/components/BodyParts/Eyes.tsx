@@ -12,6 +12,8 @@ import {
   TriangleProps,
   Star,
   Heart,
+  StarProps,
+  HeartProps,
 } from 'danni-s-design-system'
 import { EYES } from 'constants/body'
 
@@ -134,6 +136,42 @@ const TriangularDownEyes: React.FC<TriangleProps & Record<string, string>> = ({
   </Flex>
 )
 
+const StarEyes: React.FC<StarProps & Record<string, string>> = ({
+  colour,
+  transform,
+}) => (
+  <>
+    <Star
+      colour={colour}
+      transform={transform}
+      sx={{ position: 'absolute', top: '-35px', left: '-85px' }}
+    />
+    <Star
+      colour={colour}
+      transform={transform}
+      sx={{ position: 'absolute', top: '-155px', left: '-42px' }}
+    />
+  </>
+)
+
+const HeartEyes: React.FC<HeartProps & Record<string, string>> = ({
+  transform,
+  width = '90px',
+}) => (
+  <Flex
+    sx={{
+      width,
+      justifyContent: 'space-between',
+      position: 'absolute',
+      left: '-18px',
+      top: '10px',
+    }}
+  >
+    <Heart transform={transform} />
+    <Heart transform={transform} />
+  </Flex>
+)
+
 export const Eyes = {
   OVAL: <OvalEyes />,
   ROUND: <RoundEyes />,
@@ -141,26 +179,22 @@ export const Eyes = {
   NARROW_SAD: <NarrowEyes {...{ top: '53px' }} />,
   WINK: <WinkingEyes />,
   TRIANGULAR: (
-    <TriangularEyes
-      {...{ left: '12', right: '12', bottom: '24', colour: 'black' }}
-    />
+    <TriangularEyes left="12" right="12" bottom="24" colour="black" />
   ),
   TRIANGULAR_DOWN: (
-    <TriangularDownEyes
-      {...{ left: '12', right: '12', top: '24', colour: 'black' }}
-    />
+    <TriangularDownEyes left="12" right="12" top="24" colour="black" />
   ),
   TRIANGULAR_SAD: (
     <TriangularDownEyes
-      {...{
-        left: '12',
-        right: '12',
-        top: '24',
-        colour: 'black',
-        eyesPosition: '50px',
-      }}
+      left="12"
+      right="12"
+      top="24"
+      colour="black"
+      eyesPosition="50px"
     />
   ),
+  STARS: <StarEyes colour="black" transform="scale(0.15)" />,
+  HEARTS: <HeartEyes transform="scale(0.3)" />,
 }
 
 const Base: React.FC = ({ children }) => (
