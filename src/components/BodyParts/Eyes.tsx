@@ -157,13 +157,14 @@ const StarEyes: React.FC<StarProps & Record<string, string>> = ({
 const HeartEyes: React.FC<HeartProps & Record<string, string>> = ({
   transform,
   width = '90px',
+  left = '-18px',
 }) => (
   <Flex
     sx={{
       width,
       justifyContent: 'space-between',
       position: 'absolute',
-      left: '-18px',
+      left,
       top: '10px',
     }}
   >
@@ -195,6 +196,7 @@ export const Eyes = {
   ),
   STARS: <StarEyes colour="black" transform="scale(0.15)" />,
   HEARTS: <HeartEyes transform="scale(0.3)" />,
+  HEARTS_RIGHT: <HeartEyes width="95px" left="-8px" transform="scale(0.3)" />,
 }
 
 const Base: React.FC = ({ children }) => (
@@ -357,6 +359,18 @@ export const EYES_TYPES = {
         sx={{
           top: `-${baseTheme.space.xl}px`,
           left: `-${baseTheme.space.s}px`,
+        }}
+      >
+        <Heart transform="scale(0.15)" />
+        <Heart transform="scale(0.15)" />
+      </BaseLayer>
+    </Base>
+  ),
+  HEARTS_RIGHT: (
+    <Base>
+      <BaseLayer
+        sx={{
+          top: `-${baseTheme.space.xl}px`,
         }}
       >
         <Heart transform="scale(0.15)" />
