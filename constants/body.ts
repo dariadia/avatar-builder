@@ -3,11 +3,12 @@ import { mainTheme } from 'danni-s-design-system'
 export const BACKGROUND = 'background'
 export const SKIN = 'skin'
 export const CLOTHES = 'clothes'
+export const EYES = 'eyes'
 
 export const SLIM = 'slim'
 export const PLUMP = 'plump'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES]
+export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'

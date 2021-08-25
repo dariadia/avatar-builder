@@ -52,6 +52,7 @@ const HomePage: Page<SinglePageProps> = () => {
     background: 'MIST',
     skin: 'slim:CHOCOLATE',
     clothes: 'BLUE',
+    eyes: 'OVAL',
   })
 
   return (
@@ -66,6 +67,7 @@ const HomePage: Page<SinglePageProps> = () => {
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
             </HeadingH3>
+            <Box mb="xl" />
             <Selector {...{ avatar, setAvatarItem }} />
             <StyledSaveButton>{t('save')}</StyledSaveButton>
           </Box>
@@ -90,6 +92,7 @@ const HomePage: Page<SinglePageProps> = () => {
             <HeadingH3 as="h1" kind="serif">
               {t('builder_heading')}
             </HeadingH3>
+            <Box mb="xl" />
             <Selector {...{ avatar, setAvatarItem }} />
             <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
           </Box>

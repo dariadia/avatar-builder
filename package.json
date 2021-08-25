@@ -11,7 +11,7 @@
   "dependencies": {
     "@artsy/fresnel": "^1.9.0",
     "@styled-system/css": "^5.1.5",
-    "danni-s-design-system": "0.3.2",
+    "danni-s-design-system": "0.3.7",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.5",
     "framer-motion": "^4.1.17",

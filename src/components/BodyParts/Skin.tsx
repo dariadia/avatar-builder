@@ -8,18 +8,18 @@ import { SKIN_COLOURS, SKIN, PLUMP, SLIM } from 'constants/body'
 
 import type { Skin as SkinProps, SkinColourKey, SelectorItem } from 'types'
 
-export const Skin: React.FC<SkinProps> = ({ type, colour }) =>
+export const Skin: React.FC<SkinProps> = ({ type, colour, children }) =>
   type === SLIM ? (
     <Box>
       <SlimHead colour={colour}>
-        <Face colour={colour} />
+        <Face colour={colour}>{children}</Face>
       </SlimHead>
       <SlimNeck colour={colour} />
     </Box>
   ) : (
     <Box>
       <PlumpHead colour={colour}>
-        <Face colour={colour} />
+        <Face colour={colour}>{children}</Face>
       </PlumpHead>
       <PlumpNeck colour={colour} />
     </Box>
@@ -28,6 +28,7 @@ export const Skin: React.FC<SkinProps> = ({ type, colour }) =>
 const SlimHead = styled(Box).attrs({
   width: baseTheme.space.elephant,
 })<SkinProps>`
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: absolute;
   z-index: ${baseTheme.zIndices.upAbove};
   height: 120px;
@@ -40,6 +41,7 @@ const SlimHead = styled(Box).attrs({
 const PlumpHead = styled(Box).attrs({
   width: '100px',
 })<SkinProps>`
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: absolute;
   z-index: ${baseTheme.zIndices.upAbove};
   height: 120px;
@@ -50,6 +52,7 @@ const PlumpHead = styled(Box).attrs({
 `
 
 const SlimNeck = styled(Box)<SkinProps>`
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: absolute;
   width: 40px;
   height: 50px;
@@ -60,6 +63,7 @@ const SlimNeck = styled(Box)<SkinProps>`
     `inset 0px 16px 0px 0px ${darken(0.1, colour)}`};
 `
 const PlumpNeck = styled(Box)<SkinProps>`
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: absolute;
   width: 50px;
   height: 50px;
@@ -71,8 +75,8 @@ const PlumpNeck = styled(Box)<SkinProps>`
 `
 
 const Face = styled(Box)<SkinProps>`
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   position: absolute;
   left: calc(50% - 35px);
   top: calc(50% - 50px);

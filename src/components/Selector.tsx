@@ -9,10 +9,11 @@ import {
   SelectorName,
   SKIN,
   CLOTHES,
+  EYES,
 } from 'constants/body'
 
 import { List, mainTheme, Box } from 'danni-s-design-system'
-import { BACKGROUNDS, CLOTHES_ITEMS, SKINS } from '.'
+import { BACKGROUNDS, CLOTHES_ITEMS, SKINS, EYES_ITEMS } from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -24,7 +25,7 @@ import type {
 
 const NavigationButton = styled(Box).attrs({
   mr: 'xl',
-  my: 'xl',
+  mb: 'xl',
   p: 's',
   color: 'accentDark',
   bg: 'accentLightest',
@@ -45,21 +46,27 @@ const NavigationOptions = () => {
   return [
     {
       name: 'selector',
-      id: 'background',
-      value: 'background',
-      children: <NavigationWrapper>{t('background')}</NavigationWrapper>,
+      id: BACKGROUND,
+      value: BACKGROUND,
+      children: <NavigationWrapper>{t(BACKGROUND)}</NavigationWrapper>,
     },
     {
       name: 'selector',
-      id: 'skin',
-      value: 'skin',
-      children: <NavigationWrapper>{t('skin')}</NavigationWrapper>,
+      id: SKIN,
+      value: SKIN,
+      children: <NavigationWrapper>{t(SKIN)}</NavigationWrapper>,
     },
     {
       name: 'selector',
-      id: 'clothes',
-      value: 'clothes',
-      children: <NavigationWrapper>{t('clothes')}</NavigationWrapper>,
+      id: CLOTHES,
+      value: CLOTHES,
+      children: <NavigationWrapper>{t(CLOTHES)}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: EYES,
+      value: EYES,
+      children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -131,7 +138,7 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={BACKGROUNDS()}
           role={t('navigation')}
-          ariaLabel={t('background')}
+          ariaLabel={t(BACKGROUND)}
         />
       )
     case SKIN:
@@ -140,7 +147,7 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={SKINS()}
           role={t('navigation')}
-          ariaLabel={t('skin')}
+          ariaLabel={t(SKIN)}
         />
       )
     case CLOTHES:
@@ -149,7 +156,16 @@ const Selection = ({
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={CLOTHES_ITEMS()}
           role={t('navigation')}
-          ariaLabel={t('clothes')}
+          ariaLabel={t(CLOTHES)}
+        />
+      )
+    case EYES:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={EYES_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t(EYES)}
         />
       )
     default:

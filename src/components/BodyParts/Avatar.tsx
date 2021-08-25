@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Skin, Background, Clothes } from '@/components'
+import { Skin, Background, Clothes, Eyes } from '@/components'
 import { Box } from 'danni-s-design-system'
 
 import { BACKGROUND_COLOURS, SKIN_COLOURS } from 'constants/body'
@@ -9,10 +9,11 @@ import {
   Avatar as AvatarProps,
   BackgroundColourKey,
   SkinColourKey,
+  EyesTypeKey,
 } from 'types'
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
-  const { skin, clothes, background } = avatar
+  const { skin, clothes, background, eyes } = avatar
 
   const [type, hue] = skin.split(':')
   const colour = SKIN_COLOURS[hue as SkinColourKey]
@@ -23,7 +24,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
         id="avatar"
         colour={BACKGROUND_COLOURS[background as BackgroundColourKey]}
       >
-        <Skin {...{ type, colour }} />
+        <Skin {...{ type, colour }}> {Eyes[eyes as EyesTypeKey]}</Skin>
         <Clothes colour={clothes} />
       </Background>
     </Box>
