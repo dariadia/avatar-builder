@@ -10,6 +10,8 @@ import {
   TriangleUp,
   TriangleDown,
   TriangleProps,
+  Star,
+  Heart,
 } from 'danni-s-design-system'
 import { EYES } from 'constants/body'
 
@@ -292,6 +294,39 @@ export const EYES_TYPES = {
       <BaseLayer sx={{ top: baseTheme.space.m }}>
         <TriangleDown left="7" right="7" top="15" colour="black" />
         <TriangleDown left="7" right="7" top="15" colour="black" />
+      </BaseLayer>
+    </Base>
+  ),
+  STARS: (
+    <Base>
+      <Box sx={{ position: 'relative' }}>
+        <Star
+          width="20px"
+          height="17px"
+          transform="scale(0.07)"
+          colour="black"
+          sx={{ position: 'absolute', top: '-70px', left: '-90px' }}
+        />
+        <Star
+          width="20px"
+          height="17px"
+          transform="scale(0.07)"
+          colour="black"
+          sx={{ position: 'absolute', top: '-190px', left: '-72px' }}
+        />
+      </Box>
+    </Base>
+  ),
+  HEARTS: (
+    <Base>
+      <BaseLayer
+        sx={{
+          top: `-${baseTheme.space.xl}px`,
+          left: `-${baseTheme.space.s}px`,
+        }}
+      >
+        <Heart transform="scale(0.15)" />
+        <Heart transform="scale(0.15)" />
       </BaseLayer>
     </Base>
   ),
