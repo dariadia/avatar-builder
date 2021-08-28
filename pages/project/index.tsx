@@ -49,7 +49,7 @@ const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
   const [avatar, setAvatarItem] = useState({
     background: 'MIST',
-    skin: 'slim:CHOCOLATE',
+    skin: 'SLIM:CHOCOLATE',
     clothes: 'BLUE',
     eyes: 'OVAL',
   })
