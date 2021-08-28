@@ -10,10 +10,17 @@ import {
   SKIN,
   CLOTHES,
   EYES,
+  EYEBROWS,
 } from 'constants/body'
 
 import { List, mainTheme, Box } from 'danni-s-design-system'
-import { BACKGROUNDS, CLOTHES_ITEMS, SKINS, EYES_ITEMS } from '.'
+import {
+  BACKGROUNDS,
+  CLOTHES_ITEMS,
+  SKINS,
+  EYES_ITEMS,
+  EYEBROWS_ITEMS,
+} from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -67,6 +74,12 @@ const NavigationOptions = () => {
       id: EYES,
       value: EYES,
       children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: EYEBROWS,
+      value: EYEBROWS,
+      children: <NavigationWrapper>{t(EYEBROWS)}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -166,6 +179,15 @@ const Selection = ({
           selectorItems={EYES_ITEMS()}
           role={t('navigation')}
           ariaLabel={t(EYES)}
+        />
+      )
+    case EYEBROWS:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={EYEBROWS_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t(EYEBROWS)}
         />
       )
     default:
