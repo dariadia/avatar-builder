@@ -4,6 +4,7 @@ import {
   SKIN_COLOURS,
   CLOTHES_COLOURS,
   HAIR_COLOURS,
+  EYEBROWS_COLOURS,
   PLUMP,
   SLIM,
   BACKGROUND,
@@ -54,6 +55,9 @@ type EyesType = EYES_TYPES[keyof EYES_TYPES]
 
 export type HairColourKey = keyof typeof HAIR_COLOURS
 export type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
+
+export type EyebrowsColourKey = keyof typeof EYEBROWS_COLOURS
+export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
 
 export type Background = {
   colour?: string

@@ -5,7 +5,8 @@ import { darken } from 'polished'
 import { baseTheme, Box, Circle, Flex } from 'danni-s-design-system'
 import {
   EYEBROWS,
-  HAIR_COLOURS as EYEBROWS_COLOURS,
+  EYEBROWS_COLOURS,
+  SKIN_OUTLINE,
   SLIM,
   BUSHY,
   DASHED,
@@ -13,7 +14,8 @@ import {
 
 import type {
   SelectorItem,
-  HairColourKey as EyebrowsColourKey,
+  EyebrowsColourKey,
+  EyebrowsColour,
   Eyebrow as EyebrowProps,
 } from 'types'
 
@@ -22,11 +24,11 @@ const Eyebrow: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
 >`
   width: 20px;
   height: 5px;
-  background: ${({ colour }) => darken(0.4, colour)};
+  background: ${({ colour }) => darken(0.2, colour)};
+  border: ${SKIN_OUTLINE};
 `
 
 const EYEBROW_TYPES: React.FC<EyebrowProps> = ({ type, colour }) => {
-  console.log(type, colour)
   switch (type) {
     case SLIM:
       return (
@@ -73,23 +75,29 @@ export const Eyebrows: React.FC<EyebrowProps> = styled(Flex).attrs(
   top: 20px;
 `
 
+const Sample: React.FC<Record<string, EyebrowsColour>> = ({ background }) => (
+  <Circle
+    size={`${baseTheme.space.xxxl}px`}
+    my="m"
+    mr="m"
+    inlineBlock
+    sx={{
+      background,
+      border: '1px solid grey',
+    }}
+  />
+)
+
 export const EYEBROWS_ITEMS = (): SelectorItem[] => {
   const eyebrowsNodesArray = []
 
   for (const eyebrowsColour in EYEBROWS_COLOURS) {
     eyebrowsNodesArray.push({
       name: EYEBROWS,
-      id: eyebrowsColour,
+      id: `DEFAULT:${eyebrowsColour}`,
       children: (
-        <Circle
-          size={`${baseTheme.space.xxxl}px`}
-          my="m"
-          mr="m"
-          inlineBlock
-          sx={{
-            background: EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey],
-            border: '1px solid grey',
-          }}
+        <Sample
+          background={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
         />
       ),
     })
