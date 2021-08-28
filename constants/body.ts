@@ -4,11 +4,12 @@ export const BACKGROUND = 'background'
 export const SKIN = 'skin'
 export const CLOTHES = 'clothes'
 export const EYES = 'eyes'
+export const EYEBROWS = 'eyebrows'
 
 export const SLIM = 'slim'
 export const PLUMP = 'plump'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES]
+export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'
@@ -108,6 +109,31 @@ export const CLOTHES_COLOURS = {
   AROMANTIC: AROMANTIC_COLOUR,
   BISEXUAL: BISEXUAL_COLOUR,
   PANSEXUAL: PANSEXUAL_COLOUR,
+}
+
+export const HAIR_COLOURS = {
+  SMOKY_BLACK: '#100C07',
+  BLACK_OLIVE: '#3D3D3D',
+  CHARLESTON_GREEN: '#2B2B2B',
+  ROOT_BEAR: '#23120B',
+  BISTRE: '#3D2314',
+  FUR: '#5A3825',
+  SAND: '#C2B280',
+  BARN_RED: '#7C0A02',
+  SEAL_BROWN: '#5D1916',
+  CARROT: '#DE8A19',
+  BEER: '#FF9321',
+  METALIC_ORANGE: '#DA680F',
+  COPPER: '#B87333',
+  CHESTNUT: '#97502D',
+  DARK_SIENNA: '#401215',
+  SMOKY_TOPAZ: '#9A4442',
+  SALMON: 'salmon',
+  SMOKE: '#505050',
+  ARGENT: '#C0C0C0',
+  GOLD: '#E6BE8A',
+  MAIZE: '#FFCC47',
+  CYAN: '#3264C8',
 }
 
 export const ALL_COLOURS = {
