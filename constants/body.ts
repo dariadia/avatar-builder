@@ -11,6 +11,8 @@ export const PLUMP = 'PLUMP'
 export const BUSHY = 'BUSHY'
 export const DASHED = 'DASHED'
 
+export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
+
 export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 

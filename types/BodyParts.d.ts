@@ -53,7 +53,7 @@ export type EyesTypeKey = keyof typeof EYES_TYPES
 type EyesType = EYES_TYPES[keyof EYES_TYPES]
 
 export type HairColourKey = keyof typeof HAIR_COLOURS
-type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
+export type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
 
 export type Background = {
   colour?: string
