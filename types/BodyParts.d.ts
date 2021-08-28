@@ -3,6 +3,7 @@ import {
   BACKGROUND_COLOURS,
   SKIN_COLOURS,
   CLOTHES_COLOURS,
+  HAIR_COLOURS,
   PLUMP,
   SLIM,
 } from 'constants/body'
@@ -38,6 +39,9 @@ type ClothesPair = CLOTHES_PAIR[keyof CLOTHES_PAIR]
 
 export type EyesTypeKey = keyof typeof EYES_TYPES
 type EyesType = EYES_TYPES[keyof EYES_TYPES]
+
+export type HairColourKey = keyof typeof HAIR_COLOURS
+type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
 
 export type Background = {
   colour?: string
