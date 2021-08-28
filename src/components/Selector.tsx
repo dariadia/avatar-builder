@@ -207,6 +207,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
     as="nav"
     role={role}
     aria-label={ariaLabel}
+    sx={{ maxHeight: '40vh', overflow: 'hidden', overflowY: 'scroll' }}
   >
     {selectorItems.map(item =>
       item.id === 'br' ? (
