@@ -6,8 +6,10 @@ export const CLOTHES = 'clothes'
 export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
 
-export const SLIM = 'slim'
-export const PLUMP = 'plump'
+export const SLIM = 'SLIM'
+export const PLUMP = 'PLUMP'
+export const BUSHY = 'BUSHY'
+export const DASHED = 'DASHED'
 
 export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS]
 export type SelectorName = keyof typeof SELECTOR_NAMES
