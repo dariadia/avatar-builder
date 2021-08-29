@@ -10,10 +10,17 @@ import {
   SKIN,
   CLOTHES,
   EYES,
+  EYEBROWS,
 } from 'constants/body'
 
-import { List, mainTheme, Box } from 'danni-s-design-system'
-import { BACKGROUNDS, CLOTHES_ITEMS, SKINS, EYES_ITEMS } from '.'
+import { List, mainTheme, Box, baseTheme } from 'danni-s-design-system'
+import {
+  BACKGROUNDS,
+  CLOTHES_ITEMS,
+  SKINS,
+  EYES_ITEMS,
+  EYEBROWS_ITEMS,
+} from '.'
 
 import type {
   SelectorRow as SelectorRowProps,
@@ -67,6 +74,12 @@ const NavigationOptions = () => {
       id: EYES,
       value: EYES,
       children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: EYEBROWS,
+      value: EYEBROWS,
+      children: <NavigationWrapper>{t(EYEBROWS)}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -168,10 +181,28 @@ const Selection = ({
           ariaLabel={t(EYES)}
         />
       )
+    case EYEBROWS:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={EYEBROWS_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t(EYEBROWS)}
+        />
+      )
     default:
       return null
   }
 }
+
+const StyledBreak = styled('br')`
+  content: 'BREAK';
+  display: block;
+  margin-top: ${baseTheme.space.m}px;
+  margin-bottom: ${baseTheme.space.m}px;
+  margin-right: ${baseTheme.space.xxxl}px;
+  border-bottom: 1px solid;
+`
 
 const SelectorRow: React.FC<SelectorRowProps> = ({
   onSelect,
@@ -185,10 +216,16 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
     as="nav"
     role={role}
     aria-label={ariaLabel}
+    sx={{
+      maxHeight: '40vh',
+      overflow: 'hidden',
+      overflowY: 'scroll',
+      padding: '2px',
+    }}
   >
     {selectorItems.map(item =>
-      item.id === 'br' ? (
-        <br key={item.id} />
+      item.id.includes('break') ? (
+        <StyledBreak key={item.id} />
       ) : (
         <SelectorItem key={item.id} {...item} />
       ),

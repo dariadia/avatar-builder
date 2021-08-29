@@ -3,14 +3,26 @@ import {
   BACKGROUND_COLOURS,
   SKIN_COLOURS,
   CLOTHES_COLOURS,
+  HAIR_COLOURS,
+  EYEBROWS_COLOURS,
   PLUMP,
   SLIM,
+  BACKGROUND,
+  EYEBROWS,
+  SKIN,
+  CLOTHES,
+  EYES,
 } from 'constants/body'
 
-import { CLOTHES_PAIR, EYES_TYPES } from '@/components'
+import { CLOTHES_PAIR, EYES_TYPES, EyebrowSamples } from '@/components'
 
 export type Hair = {
   side: 'left' | 'right'
+}
+
+export type Eyebrow = {
+  type: EyebrowType
+  colour: HairColour
 }
 
 export type GlassesLensProps = {
@@ -23,6 +35,8 @@ export type Skin = {
 }
 
 export type BodyType = SLIM | PLUMP
+
+export type EyebrowType = keyof typeof EyebrowSamples
 
 export type BackgroundColourKey = keyof typeof BACKGROUND_COLOURS
 type BackgroundColour = BACKGROUND_COLOURS[keyof BACKGROUND_COLOURS]
@@ -38,6 +52,12 @@ type ClothesPair = CLOTHES_PAIR[keyof CLOTHES_PAIR]
 
 export type EyesTypeKey = keyof typeof EYES_TYPES
 type EyesType = EYES_TYPES[keyof EYES_TYPES]
+
+export type HairColourKey = keyof typeof HAIR_COLOURS
+export type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
+
+export type EyebrowsColourKey = keyof typeof EYEBROWS_COLOURS
+export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
 
 export type Background = {
   colour?: string
@@ -58,8 +78,9 @@ export type Eyes = {
 }
 
 export type Avatar = {
-  background: BackgroundColour
-  skin: SkinColour
-  clothes: ClothesColour
-  eyes: EyesType
+  [BACKGROUND]: BackgroundColour
+  [SKIN]: SkinColour
+  [CLOTHES]: ClothesColour
+  [EYES]: EyesType
+  [EYEBROWS]
 }

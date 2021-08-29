@@ -8,6 +8,7 @@ import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
 import { Media, MediaContextProvider } from 'utils/media'
+import { BACKGROUND, EYES, SKIN, EYEBROWS, CLOTHES } from 'constants/body'
 
 import { MainLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, HeadingH3, Button } from 'danni-s-design-system'
@@ -49,10 +50,11 @@ const StyledSaveButton = styled(Button).attrs({
 const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
   const [avatar, setAvatarItem] = useState({
-    background: 'MIST',
-    skin: 'slim:CHOCOLATE',
-    clothes: 'BLUE',
-    eyes: 'OVAL',
+    [BACKGROUND]: 'MIST',
+    [SKIN]: 'SLIM:CHOCOLATE',
+    [CLOTHES]: 'BLUE',
+    [EYES]: 'OVAL',
+    [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
   })
 
   return (

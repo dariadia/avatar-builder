@@ -7,6 +7,7 @@ import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
+import { BACKGROUND, EYES, SKIN, EYEBROWS, CLOTHES } from 'constants/body'
 
 import { ProjectLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, Button } from 'danni-s-design-system'
@@ -48,10 +49,11 @@ const StyledSaveButton = styled(Button).attrs({
 const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
   const [avatar, setAvatarItem] = useState({
-    background: 'MIST',
-    skin: 'slim:CHOCOLATE',
-    clothes: 'BLUE',
-    eyes: 'OVAL',
+    [BACKGROUND]: 'MIST',
+    [SKIN]: 'SLIM:CHOCOLATE',
+    [CLOTHES]: 'BLUE',
+    [EYES]: 'OVAL',
+    [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
   })
 
   return (
