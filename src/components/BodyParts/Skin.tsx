@@ -110,7 +110,7 @@ export const SKINS = (): SelectorItem[] => {
 
   skinNodesArray.push({
     name: SKIN,
-    id: 'br',
+    id: `${SKIN}:break`,
   })
 
   // Second batch. Type: PLUMP
