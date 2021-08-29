@@ -10,6 +10,7 @@ import {
   SLIM,
   BUSHY,
   DASHED,
+  EYEBROWS_TYPES,
 } from 'constants/body'
 
 import type {
@@ -91,16 +92,18 @@ const Sample: React.FC<Record<string, EyebrowsColour>> = ({ background }) => (
 export const EYEBROWS_ITEMS = (): SelectorItem[] => {
   const eyebrowsNodesArray = []
 
-  for (const eyebrowsColour in EYEBROWS_COLOURS) {
-    eyebrowsNodesArray.push({
-      name: EYEBROWS,
-      id: `DEFAULT:${eyebrowsColour}`,
-      children: (
-        <Sample
-          background={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
-        />
-      ),
-    })
+  for (const type of EYEBROWS_TYPES) {
+    for (const eyebrowsColour in EYEBROWS_COLOURS) {
+      eyebrowsNodesArray.push({
+        name: EYEBROWS,
+        id: `${type}:${eyebrowsColour}`,
+        children: (
+          <Sample
+            background={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
+          />
+        ),
+      })
+    }
   }
   return eyebrowsNodesArray
 }
