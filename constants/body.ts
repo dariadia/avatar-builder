@@ -10,6 +10,8 @@ export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
 export const BUSHY = 'BUSHY'
 export const DASHED = 'DASHED'
+export const DEFAULT = 'DEFAULT'
+export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
