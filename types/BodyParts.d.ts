@@ -14,7 +14,7 @@ import {
   EYES,
 } from 'constants/body'
 
-import { CLOTHES_PAIR, EYES_TYPES, EYEBROW_TYPES } from '@/components'
+import { CLOTHES_PAIR, EYES_TYPES, EyebrowSamples } from '@/components'
 
 export type Hair = {
   side: 'left' | 'right'
@@ -36,7 +36,7 @@ export type Skin = {
 
 export type BodyType = SLIM | PLUMP
 
-export type EyebrowType = keyof typeof EYEBROW_TYPES
+export type EyebrowType = keyof typeof EyebrowSamples
 
 export type BackgroundColourKey = keyof typeof BACKGROUND_COLOURS
 type BackgroundColour = BACKGROUND_COLOURS[keyof BACKGROUND_COLOURS]
