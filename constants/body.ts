@@ -5,6 +5,7 @@ export const SKIN = 'skin'
 export const CLOTHES = 'clothes'
 export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
+export const MOUTH = 'mouth'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -15,7 +16,7 @@ export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS]
+export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS, MOUTH]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'
@@ -217,6 +218,9 @@ export const HAIR_COLOURS = {
   PRUNE: '#461449',
 }
 
+export const MOUTH_COLOURS = {
+  ...SKIN_COLOURS,
+}
 //  : '#',
 
 export const ALL_COLOURS = {
