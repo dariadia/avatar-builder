@@ -106,7 +106,7 @@ export const EYEBROWS_ITEMS = (): SelectorItem[] => {
     }
     eyebrowsNodesArray.push({
       name: EYEBROWS,
-      id: 'br',
+      id: `${type}:break`,
     })
   }
   return eyebrowsNodesArray

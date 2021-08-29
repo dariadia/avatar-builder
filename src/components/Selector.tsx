@@ -13,7 +13,7 @@ import {
   EYEBROWS,
 } from 'constants/body'
 
-import { List, mainTheme, Box } from 'danni-s-design-system'
+import { List, mainTheme, Box, baseTheme } from 'danni-s-design-system'
 import {
   BACKGROUNDS,
   CLOTHES_ITEMS,
@@ -195,6 +195,15 @@ const Selection = ({
   }
 }
 
+const StyledBreak = styled('br')`
+  content: 'BREAK';
+  display: block;
+  margin-top: ${baseTheme.space.m}px;
+  margin-bottom: ${baseTheme.space.m}px;
+  margin-right: ${baseTheme.space.xxxl}px;
+  border-bottom: 1px solid;
+`
+
 const SelectorRow: React.FC<SelectorRowProps> = ({
   onSelect,
   selectorItems,
@@ -215,8 +224,8 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
     }}
   >
     {selectorItems.map(item =>
-      item.id === 'br' ? (
-        <br key={item.id} />
+      item.id.includes('break') ? (
+        <StyledBreak key={item.id} />
       ) : (
         <SelectorItem key={item.id} {...item} />
       ),
