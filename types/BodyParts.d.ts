@@ -5,12 +5,14 @@ import {
   CLOTHES_COLOURS,
   HAIR_COLOURS,
   EYEBROWS_COLOURS,
+  MOUTH_COLOURS,
   PLUMP,
   SLIM,
   BACKGROUND,
   EYEBROWS,
   SKIN,
   CLOTHES,
+  MOUTH,
   EYES,
 } from 'constants/body'
 
@@ -59,6 +61,9 @@ export type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
 export type EyebrowsColourKey = keyof typeof EYEBROWS_COLOURS
 export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
 
+export type MouthColourKey = keyof typeof MOUTH_COLOURS
+type MouthColour = MOUTH_COLOURS[keyof MOUTH_COLOURS]
+
 export type Background = {
   colour?: string
   id?: 'avatar'
@@ -82,5 +87,6 @@ export type Avatar = {
   [SKIN]: SkinColour
   [CLOTHES]: ClothesColour
   [EYES]: EyesType
-  [EYEBROWS]
+  [EYEBROWS]: EyebrowsColour
+  [MOUTH]: MouthColour
 }
