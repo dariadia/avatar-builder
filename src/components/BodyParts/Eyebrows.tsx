@@ -37,26 +37,63 @@ const Eyebrow: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
   border: ${SKIN_OUTLINE};
 `
 
+const EyebrowBushy: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
+  Pick<EyebrowProps, 'colour'>
+>`
+  width: 22px;
+  height: 8px;
+  background: ${({ colour }) => darken(0.2, colour)};
+  border: ${SKIN_OUTLINE};
+`
+
+const EyebrowSlim: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
+  Pick<EyebrowProps, 'colour'>
+>`
+  width: 20px;
+  height: 3px;
+  background: ${({ colour }) => darken(0.2, colour)};
+  border: ${SKIN_OUTLINE};
+`
+
+const EyebrowDashed: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
+  Pick<EyebrowProps, 'colour'>
+>`
+  width: 5px;
+  height: 5px;
+  background: ${({ colour }) => darken(0.2, colour)};
+  border: ${SKIN_OUTLINE};
+  &::after {
+    content: '';
+    margin-top: -2px;
+    margin-left: 10px;
+    display: block;
+    width: 10px;
+    height: 5px;
+    background: ${({ colour }) => darken(0.2, colour)};
+    border: ${SKIN_OUTLINE};
+  }
+`
+
 const EYEBROW_TYPES: React.FC<EyebrowProps> = ({ type, colour }) => {
   switch (type) {
     case SLIM:
       return (
         <>
-          <Eyebrow colour={colour} />
-          <Eyebrow colour={colour} />
+          <EyebrowSlim colour={colour} />
+          <EyebrowSlim colour={colour} />
         </>
       )
     case BUSHY:
       return (
         <>
-          <Eyebrow colour={colour} />
-          <Eyebrow colour={colour} />
+          <EyebrowBushy colour={colour} />
+          <EyebrowBushy colour={colour} />
         </>
       )
     case DASHED:
       return (
         <>
-          <Eyebrow colour={colour} />
+          <EyebrowDashed colour={colour} />
           <Eyebrow colour={colour} />
         </>
       )
