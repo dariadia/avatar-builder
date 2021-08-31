@@ -13,6 +13,7 @@ export const BUSHY = 'BUSHY'
 export const DASHED = 'DASHED'
 export const DEFAULT = 'DEFAULT'
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
+export const EMOTION = 'EMOTION'
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
@@ -221,6 +222,8 @@ export const HAIR_COLOURS = {
 export const MOUTH_COLOURS = {
   ...SKIN_COLOURS,
 }
+
+export const MOUTH_EMOTIONS = ['SAD', 'CONFUSED']
 //  : '#',
 
 export const ALL_COLOURS = {
