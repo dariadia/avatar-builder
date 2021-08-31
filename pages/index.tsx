@@ -8,7 +8,14 @@ import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
 import { Media, MediaContextProvider } from 'utils/media'
-import { BACKGROUND, EYES, SKIN, EYEBROWS, CLOTHES } from 'constants/body'
+import {
+  BACKGROUND,
+  EYES,
+  SKIN,
+  EYEBROWS,
+  CLOTHES,
+  MOUTH,
+} from 'constants/body'
 
 import { MainLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, HeadingH3, Button } from 'danni-s-design-system'
@@ -55,6 +62,7 @@ const HomePage: Page<SinglePageProps> = () => {
     [CLOTHES]: 'BLUE',
     [EYES]: 'OVAL',
     [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
+    [MOUTH]: 'SLIM:CHOCOLATE',
   })
 
   return (
