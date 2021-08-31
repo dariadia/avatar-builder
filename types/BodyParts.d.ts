@@ -82,6 +82,13 @@ export type Eyes = {
   top?: string
 }
 
+export type Mouth = {
+  colour?: MouthColour
+  skinColour?: SkinColour
+  emotion?: string
+  type?: SLIM | PLUMP
+} & ConstrainedBoxProps
+
 export type Avatar = {
   [BACKGROUND]: BackgroundColour
   [SKIN]: SkinColour
