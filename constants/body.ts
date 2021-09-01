@@ -236,8 +236,12 @@ export const MOUTH_COLOURS = {
   VELVET: '#8240AD',
 }
 
-export const MOUTH_EMOTIONS = ['SAD', 'CONFUSED']
-//  : '#',
+export const MOUTH_EMOTIONS = {
+  SMILE: '🙂',
+  SAD: '🙁',
+  CONFUSED: '😐',
+  SHOCKED: '😮',
+}
 
 export const ALL_COLOURS = {
   ...BACKGROUND_COLOURS,
