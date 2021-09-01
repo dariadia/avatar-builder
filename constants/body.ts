@@ -221,6 +221,19 @@ export const HAIR_COLOURS = {
 
 export const MOUTH_COLOURS = {
   ...SKIN_COLOURS,
+  SMOKY_BLACK: '#100C07',
+  QUICK_SILVER: '#A2A39D',
+  BEER: '#FF9321',
+  PERSIAN_SUN: '#D4392D',
+  BURN: '#C20507',
+  CHAMPAGNE: '#FCDEA3',
+  SALMON: 'salmon',
+  ROSE: '#FF66CD',
+  JAZZBERRY: '#AB155F',
+  CADET: '#253354',
+  JORDY: '#9BB3EB',
+  AVOCADO: '#5D8700',
+  VELVET: '#8240AD',
 }
 
 export const MOUTH_EMOTIONS = ['SAD', 'CONFUSED']
