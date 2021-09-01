@@ -14,6 +14,7 @@ import {
   CLOTHES,
   MOUTH,
   EYES,
+  MOUTH_EMOTIONS,
 } from 'constants/body'
 
 import { CLOTHES_PAIR, EYES_TYPES, EyebrowSamples } from '@/components'
@@ -64,6 +65,9 @@ export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
 export type MouthColourKey = keyof typeof MOUTH_COLOURS
 type MouthColour = MOUTH_COLOURS[keyof MOUTH_COLOURS]
 
+export type MouthEmotionKey = keyof typeof MOUTH_EMOTIONS
+type MouthEmotion = MOUTH_EMOTIONS[keyof MOUTH_EMOTIONS]
+
 export type Background = {
   colour?: string
   id?: 'avatar'
@@ -87,6 +91,7 @@ export type Mouth = {
   skinColour?: SkinColour
   emotion?: string
   type?: SLIM | PLUMP
+  transform?: string
 } & ConstrainedBoxProps
 
 export type Avatar = {
