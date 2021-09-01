@@ -7,7 +7,14 @@ import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
-import { BACKGROUND, EYES, SKIN, EYEBROWS, CLOTHES } from 'constants/body'
+import {
+  BACKGROUND,
+  EYES,
+  SKIN,
+  EYEBROWS,
+  CLOTHES,
+  MOUTH,
+} from 'constants/body'
 
 import { ProjectLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, Button } from 'danni-s-design-system'
@@ -54,6 +61,7 @@ const HomePage: Page<SinglePageProps> = () => {
     [CLOTHES]: 'BLUE',
     [EYES]: 'OVAL',
     [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
+    [MOUTH]: 'SLIM:CHOCOLATE',
   })
 
   return (

@@ -1,9 +1,14 @@
 import React from 'react'
 
-import { Skin, Background, Clothes, Eyes, Eyebrows } from '@/components'
+import { Skin, Background, Clothes, Eyes, Eyebrows, Mouth } from '@/components'
 import { Box } from 'danni-s-design-system'
 
-import { BACKGROUND_COLOURS, HAIR_COLOURS, SKIN_COLOURS } from 'constants/body'
+import {
+  BACKGROUND_COLOURS,
+  HAIR_COLOURS,
+  SKIN_COLOURS,
+  MOUTH_COLOURS,
+} from 'constants/body'
 
 import {
   Avatar as AvatarProps,
@@ -11,16 +16,20 @@ import {
   SkinColourKey,
   EyesTypeKey,
   HairColourKey,
+  MouthColourKey,
 } from 'types'
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
-  const { skin, clothes, background, eyes, eyebrows } = avatar
+  const { skin, clothes, background, eyes, eyebrows, mouth } = avatar
 
   const [skinType, skinHue] = skin.split(':')
   const skinColour = SKIN_COLOURS[skinHue as SkinColourKey]
 
   const [eyebrowsType, eyebrowsHue] = eyebrows.split(':')
   const eyebrowsColour = HAIR_COLOURS[eyebrowsHue as HairColourKey]
+
+  const [mouthType, mouthHue] = mouth.split(':')
+  const mouthColour = MOUTH_COLOURS[mouthHue as MouthColourKey] || mouthHue
 
   return (
     <Box my="m" mx="auto" width="300px" height="300px">
@@ -31,6 +40,11 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
         <Skin type={skinType} colour={skinColour}>
           <Eyebrows type={eyebrowsType} colour={eyebrowsColour} />
           {Eyes[eyes as EyesTypeKey]}
+          <Mouth
+            type={mouthType}
+            colour={mouthColour}
+            skinColour={skinColour}
+          />
         </Skin>
         <Clothes colour={clothes} />
       </Background>

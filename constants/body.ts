@@ -5,6 +5,7 @@ export const SKIN = 'skin'
 export const CLOTHES = 'clothes'
 export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
+export const MOUTH = 'mouth'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -12,10 +13,12 @@ export const BUSHY = 'BUSHY'
 export const DASHED = 'DASHED'
 export const DEFAULT = 'DEFAULT'
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
+export const EMOTION = 'EMOTION'
+export const SMILE = 'SMILE'
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS]
+export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS, MOUTH]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'
@@ -217,7 +220,29 @@ export const HAIR_COLOURS = {
   PRUNE: '#461449',
 }
 
-//  : '#',
+export const MOUTH_COLOURS = {
+  ...SKIN_COLOURS,
+  SMOKY_BLACK: '#100C07',
+  QUICK_SILVER: '#A2A39D',
+  BEER: '#FF9321',
+  PERSIAN_SUN: '#D4392D',
+  BURN: '#C20507',
+  CHAMPAGNE: '#FCDEA3',
+  SALMON: 'salmon',
+  ROSE: '#FF66CD',
+  JAZZBERRY: '#AB155F',
+  CADET: '#253354',
+  JORDY: '#9BB3EB',
+  AVOCADO: '#5D8700',
+  VELVET: '#8240AD',
+}
+
+export const MOUTH_EMOTIONS = {
+  SMILE: '🙂',
+  SAD: '🙁',
+  CONFUSED: '😐',
+  SHOCKED: '😮',
+}
 
 export const ALL_COLOURS = {
   ...BACKGROUND_COLOURS,
