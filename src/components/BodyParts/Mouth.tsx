@@ -12,7 +12,13 @@ import {
 import { baseTheme, Box, Circle } from 'danni-s-design-system'
 import { darken } from 'polished'
 
-import { MouthColourKey, SelectorItem, Mouth as MouthProps } from 'types'
+import {
+  MouthColourKey,
+  SelectorItem,
+  Mouth as MouthProps,
+  MouthEmotionKey,
+  MouthColour,
+} from 'types'
 
 export const MouthSlim: React.FC<MouthProps> = styled(Box)<MouthProps>`
   width: 25px;
@@ -22,12 +28,60 @@ export const MouthSlim: React.FC<MouthProps> = styled(Box)<MouthProps>`
   position: absolute;
   top: 86px;
   left: 24px;
+  ${({ transform }) => (transform ? `transform: ${transform};` : '')}
+`
+
+export const MouthPlump: React.FC<MouthProps> = styled(Box)<MouthProps>`
+  width: 25px;
+  height: 7px;
+  border-radius: 50%;
+  border-bottom: 6px solid ${({ colour }) => darken(0.1, colour)};
+  position: absolute;
+  top: 86px;
+  left: 24px;
+`
+
+export const MouthSad: React.FC<MouthProps> = styled(Box)<MouthProps>`
+  width: 25px;
+  height: 22px;
+  border-radius: 50%;
+  border-top: 3px solid ${({ colour }) => darken(0.1, colour)};
+  position: absolute;
+  top: 82px;
+  left: 24px;
+`
+
+export const MouthShocked: React.FC<MouthProps> = styled(Box)<MouthProps>`
+  width: 25px;
+  height: 5px;
+  border-radius: 50%;
+  border-bottom: 18px solid ${({ colour }) => darken(0.1, colour)};
+  position: absolute;
+  top: 79px;
+  left: 24px;
+`
+
+export const MouthSmile: React.FC<MouthProps> = styled(Box)<MouthProps>`
+  width: 25px;
+  height: 12px;
+  border-radius: 50%;
+  border-bottom: 3px solid ${({ colour }) => darken(0.1, colour)};
+  position: absolute;
+  top: 80px;
+  left: 24px;
+  ${({ transform }) => (transform ? `transform: ${transform};` : '')}
 `
 
 const MouthWithEmotion: React.FC<MouthProps> = ({ emotion, colour }) => {
   switch (emotion) {
+    case 'SMILE':
+      return <MouthSmile colour={colour} />
     case 'SAD':
-      return <MouthSlim colour={colour} />
+      return <MouthSad colour={colour} />
+    case 'CONFUSED':
+      return <MouthSlim colour={colour} transform="rotate(18deg)" />
+    case 'SHOCKED':
+      return <MouthShocked colour="salmon" />
     default:
       return <MouthSlim colour={colour} />
   }
@@ -36,7 +90,7 @@ const MouthWithEmotion: React.FC<MouthProps> = ({ emotion, colour }) => {
 export const Mouth: React.FC<MouthProps> = ({ type, colour, skinColour }) => {
   switch (type) {
     case PLUMP:
-      return <MouthSlim colour={colour} />
+      return <MouthPlump colour={colour} />
     case EMOTION:
       return <MouthWithEmotion colour={skinColour} emotion={colour} />
     default:
@@ -44,17 +98,22 @@ export const Mouth: React.FC<MouthProps> = ({ type, colour, skinColour }) => {
   }
 }
 
-const Sample: React.FC<Record<string, string>> = ({ colour }) => (
+const Sample: React.FC<{
+  colour: MouthColour
+}> = ({ colour, children }) => (
   <Circle
     size={`${baseTheme.space.xxxl}px`}
     my="m"
     mr="m"
     inlineBlock
     sx={{
+      position: 'relative',
       background: colour,
       border: '1px solid grey',
     }}
-  />
+  >
+    {children}
+  </Circle>
 )
 
 export const MOUTH_ITEMS = (): SelectorItem[] => {
@@ -90,7 +149,20 @@ export const MOUTH_ITEMS = (): SelectorItem[] => {
     mouthNodesArray.push({
       name: MOUTH,
       id: `${EMOTION}:${emotion}`,
-      children: <Sample colour="black" />,
+      children: (
+        <Sample colour="black">
+          <Box
+            sx={{
+              position: 'absolute',
+              fontSize: `${baseTheme.space.xl}px`,
+              top: '6px',
+              left: '7px',
+            }}
+          >
+            {MOUTH_EMOTIONS[emotion as MouthEmotionKey]}
+          </Box>
+        </Sample>
+      ),
     })
   }
 
