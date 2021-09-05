@@ -10,7 +10,7 @@ import {
   SMILE,
   MOUTH_EMOTIONS,
 } from 'constants/body'
-import { baseTheme, Box, Circle } from 'danni-s-design-system'
+import { baseTheme, Box } from 'danni-s-design-system'
 import { darken } from 'polished'
 
 import {
@@ -18,8 +18,8 @@ import {
   SelectorItem,
   Mouth as MouthProps,
   MouthEmotionKey,
-  MouthColour,
 } from 'types'
+import { Sample } from './Sample'
 
 export const MouthSlim: React.FC<MouthProps> = styled(Box)<MouthProps>`
   width: 25px;
@@ -109,24 +109,6 @@ export const Mouth: React.FC<MouthProps> = ({ type, colour, skinColour }) => {
       return <MouthSlim colour={colour} />
   }
 }
-
-const Sample: React.FC<{
-  colour: MouthColour
-}> = ({ colour, children }) => (
-  <Circle
-    size={`${baseTheme.space.xxxl}px`}
-    my="m"
-    mr="m"
-    inlineBlock
-    sx={{
-      position: 'relative',
-      background: colour,
-      border: '1px solid grey',
-    }}
-  >
-    {children}
-  </Circle>
-)
 
 export const MOUTH_ITEMS = (): SelectorItem[] => {
   const mouthNodesArray = []
