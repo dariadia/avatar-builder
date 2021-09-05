@@ -1,10 +1,10 @@
 import React from 'react'
 import { baseTheme, Circle } from 'danni-s-design-system'
 
-import { MouthColour } from 'types'
+import { MouthColour, EyebrowsColour, SkinColour } from 'types'
 
 export const Sample: React.FC<{
-  colour: MouthColour | 'white'
+  colour: EyebrowsColour | MouthColour | SkinColour | 'white'
 }> = ({ colour, children }) => (
   <Circle
     size={`${baseTheme.space.xxxl}px`}

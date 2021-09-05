@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { darken } from 'polished'
-import { baseTheme, Box, Circle } from 'danni-s-design-system'
+import { baseTheme, Box } from 'danni-s-design-system'
 
 import { SKIN_COLOURS, SKIN, PLUMP, SLIM, SKIN_OUTLINE } from 'constants/body'
+import { Sample } from './Sample'
 
 import type { Skin as SkinProps, SkinColourKey, SelectorItem } from 'types'
 
@@ -83,19 +84,6 @@ const Face = styled(Box)<SkinProps>`
   z-index: ${baseTheme.zIndices.upAbove};
 `
 
-const Sample: React.FC<Record<string, SkinColourKey>> = ({ skinColour }) => (
-  <Circle
-    size={`${baseTheme.space.xxxl}px`}
-    my="m"
-    mr="m"
-    inlineBlock
-    sx={{
-      background: SKIN_COLOURS[skinColour],
-      border: '1px solid grey',
-    }}
-  />
-)
-
 export const SKINS = (): SelectorItem[] => {
   const skinNodesArray = []
 
@@ -104,7 +92,7 @@ export const SKINS = (): SelectorItem[] => {
     skinNodesArray.push({
       name: SKIN,
       id: `${SLIM}:${skinColour}`,
-      children: <Sample skinColour={skinColour as SkinColourKey} />,
+      children: <Sample colour={skinColour as SkinColourKey} />,
     })
   }
 
@@ -118,7 +106,7 @@ export const SKINS = (): SelectorItem[] => {
     skinNodesArray.push({
       name: SKIN,
       id: `${PLUMP}:${skinColour}`,
-      children: <Sample skinColour={skinColour as SkinColourKey} />,
+      children: <Sample colour={skinColour as SkinColourKey} />,
     })
   }
   return skinNodesArray
