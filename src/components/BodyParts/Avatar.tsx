@@ -1,6 +1,14 @@
 import React from 'react'
 
-import { Skin, Background, Clothes, Eyes, Eyebrows, Mouth } from '@/components'
+import {
+  Skin,
+  Background,
+  Clothes,
+  Eyes,
+  Eyebrows,
+  Mouth,
+  Nose,
+} from '@/components'
 import { Box } from 'danni-s-design-system'
 
 import {
@@ -20,7 +28,7 @@ import {
 } from 'types'
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
-  const { skin, clothes, background, eyes, eyebrows, mouth } = avatar
+  const { skin, clothes, background, eyes, eyebrows, mouth, nose } = avatar
 
   const [skinType, skinHue] = skin.split(':')
   const skinColour = SKIN_COLOURS[skinHue as SkinColourKey]
@@ -40,6 +48,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
         <Skin type={skinType} colour={skinColour}>
           <Eyebrows type={eyebrowsType} colour={eyebrowsColour} />
           {Eyes[eyes as EyesTypeKey]}
+          <Nose colour={skinColour} type={nose} />
           <Mouth
             type={mouthType}
             colour={mouthColour}
