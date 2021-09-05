@@ -6,6 +6,7 @@ export const CLOTHES = 'clothes'
 export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
 export const MOUTH = 'mouth'
+export const NOSE = 'nose'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -18,7 +19,15 @@ export const SMILE = 'SMILE'
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
-export const SELECTOR_NAMES = [BACKGROUND, SKIN, CLOTHES, EYES, EYEBROWS, MOUTH]
+export const SELECTOR_NAMES = [
+  BACKGROUND,
+  SKIN,
+  CLOTHES,
+  EYES,
+  EYEBROWS,
+  MOUTH,
+  NOSE,
+]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
 export const LEFT = 'left'

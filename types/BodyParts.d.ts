@@ -14,10 +14,16 @@ import {
   CLOTHES,
   MOUTH,
   EYES,
+  NOSE,
   MOUTH_EMOTIONS,
 } from 'constants/body'
 
-import { CLOTHES_PAIR, EYES_TYPES, EyebrowSamples } from '@/components'
+import {
+  CLOTHES_PAIR,
+  EYES_TYPES,
+  EyebrowSamples,
+  NOSE_ITEMS,
+} from '@/components'
 
 export type Hair = {
   side: 'left' | 'right'
@@ -68,6 +74,9 @@ type MouthColour = MOUTH_COLOURS[keyof MOUTH_COLOURS]
 export type MouthEmotionKey = keyof typeof MOUTH_EMOTIONS
 type MouthEmotion = MOUTH_EMOTIONS[keyof MOUTH_EMOTIONS]
 
+export type NoseTypeKey = keyof typeof NOSE_ITEMS
+type NoseType = NOSE_ITEMS[keyof NOSE_ITEMS]
+
 export type Background = {
   colour?: string
   id?: 'avatar'
@@ -94,6 +103,13 @@ export type Mouth = {
   transform?: string
 } & ConstrainedBoxProps
 
+export type Nose = {
+  colour?: SkinColour
+  type?: NoseType
+  top?: string
+  left?: string
+}
+
 export type Avatar = {
   [BACKGROUND]: BackgroundColour
   [SKIN]: SkinColour
@@ -101,4 +117,5 @@ export type Avatar = {
   [EYES]: EyesType
   [EYEBROWS]: EyebrowsColour
   [MOUTH]: MouthColour
+  [NOSE]: NoseType
 }

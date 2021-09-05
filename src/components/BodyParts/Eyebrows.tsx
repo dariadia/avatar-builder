@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
 
+import { Sample } from './Sample'
 import {
   baseTheme,
   Box,
-  Circle,
   ConstrainedBoxProps,
   Flex,
 } from 'danni-s-design-system'
@@ -23,7 +23,6 @@ import {
 import type {
   SelectorItem,
   EyebrowsColourKey,
-  EyebrowsColour,
   Eyebrow as EyebrowProps,
   EyebrowType,
 } from 'types'
@@ -121,24 +120,6 @@ export const Eyebrows: React.FC<EyebrowProps> = styled(Flex).attrs(
   top: 20px;
 `
 
-const Sample: React.FC<Record<string, EyebrowsColour>> = ({
-  background,
-  children,
-}) => (
-  <Circle
-    size={`${baseTheme.space.xxxl}px`}
-    my="m"
-    mr="m"
-    inlineBlock
-    sx={{
-      background,
-      border: '1px solid grey',
-    }}
-  >
-    {children}
-  </Circle>
-)
-
 const EyebrowSample: React.FC<ConstrainedBoxProps> = styled(Box).attrs(
   props => ({
     width: props.width,
@@ -185,7 +166,7 @@ export const EYEBROWS_ITEMS = (): SelectorItem[] => {
         id: `${type}:${eyebrowsColour}`,
         children: (
           <Sample
-            background={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
+            colour={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
           >
             {EyebrowSamples[type as EyebrowType]}
           </Sample>
