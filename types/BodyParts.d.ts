@@ -106,6 +106,8 @@ export type Mouth = {
 export type Nose = {
   colour?: SkinColour
   type?: NoseType
+  top?: string
+  left?: string
 }
 
 export type Avatar = {
