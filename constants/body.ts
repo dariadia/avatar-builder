@@ -7,6 +7,7 @@ export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
 export const MOUTH = 'mouth'
 export const NOSE = 'nose'
+export const HAIR = 'hair'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -27,6 +28,7 @@ export const SELECTOR_NAMES = [
   EYEBROWS,
   MOUTH,
   NOSE,
+  HAIR,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
