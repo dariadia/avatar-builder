@@ -260,3 +260,14 @@ export const ALL_COLOURS = {
   ...SKIN_COLOURS,
   ...CLOTHES_COLOURS,
 }
+
+export const defaultAvatarState = {
+  [BACKGROUND]: 'MIST',
+  [SKIN]: 'SLIM:CHOCOLATE',
+  [CLOTHES]: 'BLUE',
+  [EYES]: 'OVAL',
+  [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
+  [MOUTH]: 'SLIM:CHOCOLATE',
+  [NOSE]: 'BUTTON',
+  [HAIR]: ['BUTTON'],
+}
