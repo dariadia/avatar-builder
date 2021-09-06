@@ -15,6 +15,7 @@ import {
   MOUTH,
   EYES,
   NOSE,
+  HAIR,
   MOUTH_EMOTIONS,
 } from 'constants/body'
 
@@ -118,4 +119,5 @@ export type Avatar = {
   [EYEBROWS]: EyebrowsColour
   [MOUTH]: MouthColour
   [NOSE]: NoseType
+  [HAIR]: string[]
 }
