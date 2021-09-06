@@ -16,6 +16,7 @@ import {
   CLOTHES,
   MOUTH,
   NOSE,
+  HAIR,
 } from 'constants/body'
 
 import { MainLayout, Selector, Avatar } from '@/components'
@@ -65,6 +66,7 @@ const HomePage: Page<SinglePageProps> = () => {
     [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
     [MOUTH]: 'SLIM:CHOCOLATE',
     [NOSE]: 'BUTTON',
+    [HAIR]: ['BUTTON'],
   })
 
   return (
