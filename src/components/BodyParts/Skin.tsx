@@ -60,6 +60,7 @@ const SlimNeck = styled(Box)<SkinProps>`
   background: ${({ colour }) => colour};
   left: calc(50% - 20px);
   top: 60%;
+  z-index: ${baseTheme.zIndices.above};
   box-shadow: ${({ colour }) =>
     `inset 0px 16px 0px 0px ${darken(0.1, colour)}`};
 `
@@ -71,6 +72,7 @@ const PlumpNeck = styled(Box)<SkinProps>`
   background: ${({ colour }) => colour};
   left: calc(50% - 25px);
   top: 60%;
+  z-index: ${baseTheme.zIndices.above};
   box-shadow: ${({ colour }) =>
     `inset 0px 18px 0px 0px ${darken(0.1, colour)}`};
 `
