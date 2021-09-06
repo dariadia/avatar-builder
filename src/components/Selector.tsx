@@ -13,7 +13,9 @@ import {
   EYEBROWS,
   MOUTH,
   NOSE,
+  HAIR,
 } from 'constants/body'
+import { CHECKBOX, RADIO } from 'constants/inputs'
 
 import { List, mainTheme, Box, baseTheme } from 'danni-s-design-system'
 import {
@@ -32,6 +34,7 @@ import type {
   AvatarOptions,
   Selector as SelectorProps,
   Event,
+  AvatarOptionKey,
 } from 'types'
 
 const NavigationButton = styled(Box).attrs({
@@ -97,6 +100,12 @@ const NavigationOptions = () => {
       value: NOSE,
       children: <NavigationWrapper>{t(NOSE)}</NavigationWrapper>,
     },
+    {
+      name: 'selector',
+      id: HAIR,
+      value: HAIR,
+      children: <NavigationWrapper>{t(HAIR)}</NavigationWrapper>,
+    },
   ] as SelectorItemProps[]
 }
 
@@ -157,6 +166,23 @@ const Selection = ({
     setAvatarItem({
       ...avatar,
       [name]: id,
+    })
+  }
+
+  const multipleSelect = (id: string): void => {
+    if (!id) return
+    const avatarPart = avatar[name as AvatarOptionKey]
+    const itemByIdIndex = avatarPart.indexOf(id)
+    console.log(itemByIdIndex)
+    if (itemByIdIndex === -1) {
+      avatarPart.push(id)
+    } else {
+      avatarPart.splice(itemByIdIndex, 1)
+    }
+
+    setAvatarItem({
+      ...avatar,
+      [name]: avatarPart,
     })
   }
 
@@ -224,6 +250,16 @@ const Selection = ({
           ariaLabel={t(NOSE)}
         />
       )
+    case HAIR:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => multipleSelect(event?.target?.id)}
+          selectorItems={NOSE_ITEMS()}
+          role={t('navigation')}
+          ariaLabel={t(HAIR)}
+          multiple
+        />
+      )
     default:
       return null
   }
@@ -243,6 +279,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   selectorItems,
   role,
   ariaLabel,
+  multiple,
 }) => (
   <List
     onClick={onSelect}
@@ -261,7 +298,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
       item.id.includes('break') ? (
         <StyledBreak key={item.id} />
       ) : (
-        <SelectorItem key={item.id} {...item} />
+        <SelectorItem key={item.id} {...item} multiple={multiple} />
       ),
     )}
   </List>
@@ -272,9 +309,15 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
   id,
   value,
   children,
+  multiple,
 }) => (
   <>
-    <StyledInput type="radio" id={id} name={name} value={value ? value : id} />
+    <StyledInput
+      type={multiple ? CHECKBOX : RADIO}
+      id={id}
+      name={name}
+      value={value ? value : id}
+    />
     <label htmlFor={id}>{children ? children : value}</label>
   </>
 )
