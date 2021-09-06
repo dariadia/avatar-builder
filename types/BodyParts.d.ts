@@ -27,7 +27,8 @@ import {
 } from '@/components'
 
 export type Hair = {
-  side: 'left' | 'right'
+  side?: 'left' | 'right'
+  colour: HairColour
 }
 
 export type Eyebrow = {
