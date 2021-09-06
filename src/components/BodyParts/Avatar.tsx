@@ -8,6 +8,7 @@ import {
   Eyebrows,
   Mouth,
   Nose,
+  Hair,
 } from '@/components'
 import { Box } from 'danni-s-design-system'
 
@@ -55,6 +56,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
             skinColour={skinColour}
           />
         </Skin>
+        <Hair colour="blue" />
         <Clothes colour={clothes} />
       </Background>
     </Box>
