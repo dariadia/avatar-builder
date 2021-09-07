@@ -17,6 +17,7 @@ import {
   NOSE,
   HAIR,
   MOUTH_EMOTIONS,
+  HAIR_TYPES,
 } from 'constants/body'
 
 import {
@@ -29,6 +30,7 @@ import {
 export type Hair = {
   side?: 'left' | 'right'
   colour: HairColour
+  type?: HairType
 }
 
 export type Eyebrow = {
@@ -48,6 +50,8 @@ export type Skin = {
 export type BodyType = SLIM | PLUMP
 
 export type EyebrowType = keyof typeof EyebrowSamples
+
+type HairType = keyof typeof HAIR_TYPES
 
 export type BackgroundColourKey = keyof typeof BACKGROUND_COLOURS
 type BackgroundColour = BACKGROUND_COLOURS[keyof BACKGROUND_COLOURS]
@@ -119,5 +123,5 @@ export type Avatar = {
   [EYEBROWS]: EyebrowsColour
   [MOUTH]: MouthColour
   [NOSE]: NoseType
-  [HAIR]: string[]
+  [HAIR]: HairColour
 }

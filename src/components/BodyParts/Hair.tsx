@@ -4,9 +4,10 @@ import styled from 'styled-components'
 import { darken } from 'polished'
 import { Box, Circle, baseTheme } from 'danni-s-design-system'
 
-import { LEFT } from 'constants/body'
+import { Sample } from './Sample'
+import { COLOUR, HAIR, HAIR_COLOURS, LEFT } from 'constants/body'
 
-import type { Hair as HairProps } from 'types'
+import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
 
 export const Hair: React.FC<HairProps> = ({ colour }) => {
   return (
@@ -62,3 +63,31 @@ const HairTop: React.FC<HairProps> = styled(Circle)<HairProps>`
     box-shadow: inset 1px 12px 9px 6px ${({ colour }) => darken(0.07, colour)};
   }
 `
+
+export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
+  const hairNodesArray = []
+
+  for (const hair in HAIR_COLOURS) {
+    hairNodesArray.push({
+      name: HAIR,
+      id: `${COLOUR}:${hair}`,
+      children: <Sample colour={HAIR_COLOURS[hair as HairColourKey]} />,
+    })
+  }
+
+  return hairNodesArray
+}
+
+export const HAIR_ITEMS_COLOURS = (): SelectorItem[] => {
+  const hairNodesArray = []
+
+  for (const hair in HAIR_COLOURS) {
+    hairNodesArray.push({
+      name: HAIR,
+      id: `${COLOUR}:${hair}`,
+      children: <Sample colour={HAIR_COLOURS[hair as HairColourKey]} />,
+    })
+  }
+
+  return hairNodesArray
+}

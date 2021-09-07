@@ -34,6 +34,8 @@ import {
   EYEBROWS_ITEMS_COLOURS,
   MOUTH_ITEMS_TYPES,
   MOUTH_ITEMS_COLOURS,
+  HAIR_ITEMS_TYPES,
+  HAIR_ITEMS_COLOURS,
   NOSE_ITEMS,
 } from '.'
 
@@ -184,22 +186,22 @@ const Selection = ({
     })
   }
 
-  const multipleSelect = (id: string): void => {
-    if (!id) return
-    const avatarPart = avatar[name as AvatarOptionKey]
-    const itemByIdIndex = avatarPart.indexOf(id)
+  // const multipleSelect = (id: string): void => {
+  //   if (!id) return
+  //   const avatarPart = avatar[name as AvatarOptionKey]
+  //   const itemByIdIndex = avatarPart.indexOf(id)
 
-    if (itemByIdIndex === -1) {
-      avatarPart.push(id)
-    } else {
-      avatarPart.splice(itemByIdIndex, 1)
-    }
+  //   if (itemByIdIndex === -1) {
+  //     avatarPart.push(id)
+  //   } else {
+  //     avatarPart.splice(itemByIdIndex, 1)
+  //   }
 
-    setAvatarItem({
-      ...avatar,
-      [name]: avatarPart,
-    })
-  }
+  //   setAvatarItem({
+  //     ...avatar,
+  //     [name]: avatarPart,
+  //   })
+  // }
 
   const withOptionsSelect = (id: string): void => {
     if (!id) return
@@ -214,6 +216,8 @@ const Selection = ({
       [name]: newValue,
     })
   }
+
+  const colourHeading = t('avatar:choose_colour')
 
   switch (name) {
     case BACKGROUND:
@@ -264,7 +268,7 @@ const Selection = ({
             count: 2,
             item: t(`avatar:${EYEBROWS}`, { count: 0 }),
           })}
-          chooseColourHeading={t('avatar:choose_colour')}
+          chooseColourHeading={colourHeading}
         />
       )
     case MOUTH:
@@ -279,7 +283,7 @@ const Selection = ({
             count: 2,
             item: t(`avatar:${MOUTH}`, { count: 0 }),
           })}
-          chooseColourHeading={t('avatar:choose_colour')}
+          chooseColourHeading={colourHeading}
         />
       )
     case NOSE:
@@ -294,11 +298,16 @@ const Selection = ({
     case HAIR:
       return (
         <SelectorRow
-          onSelect={(event: Event) => multipleSelect(event?.target?.id)}
-          selectorItems={NOSE_ITEMS()}
-          role={t('navigation')}
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={HAIR_ITEMS_TYPES()}
+          selectorItemsOptions={HAIR_ITEMS_COLOURS()}
+          role={t('common:navigation')}
           ariaLabel={t(`avatar:${HAIR}`)}
-          multiple
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${HAIR}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
         />
       )
     default:

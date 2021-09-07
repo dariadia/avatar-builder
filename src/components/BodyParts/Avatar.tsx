@@ -29,7 +29,16 @@ import {
 } from 'types'
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
-  const { skin, clothes, background, eyes, eyebrows, mouth, nose } = avatar
+  const {
+    skin,
+    clothes,
+    background,
+    eyes,
+    eyebrows,
+    mouth,
+    nose,
+    hair,
+  } = avatar
 
   const [skinType, skinHue] = skin.split(':')
   const skinColour = SKIN_COLOURS[skinHue as SkinColourKey]
@@ -39,6 +48,9 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
 
   const [mouthType, mouthHue] = mouth.split(':')
   const mouthColour = MOUTH_COLOURS[mouthHue as MouthColourKey] || mouthHue
+
+  const [hairType, hairHue] = hair.split(':')
+  const hairColour = HAIR_COLOURS[hairHue as HairColourKey]
 
   return (
     <Box my="m" mx="auto" width="300px" height="300px">
@@ -50,13 +62,9 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           <Eyebrows type={eyebrowsType} colour={eyebrowsColour} />
           {Eyes[eyes as EyesTypeKey]}
           <Nose colour={skinColour} type={nose} />
-          <Mouth
-            type={mouthType}
-            colour={mouthColour}
-            skinColour={skinColour}
-          />
+          <Mouth type={mouthType} colour={mouthColour} />
         </Skin>
-        <Hair colour="blue" />
+        <Hair colour={hairColour} type={hairType} />
         <Clothes colour={clothes} />
       </Background>
     </Box>
