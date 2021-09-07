@@ -31,6 +31,11 @@ export type Hair = {
   side?: 'left' | 'right'
   colour: HairColour
   type?: HairType
+  top?: string
+  left?: string
+  rotate?: string
+  height?: string
+  width?: string
 }
 
 export type Eyebrow = {
