@@ -5,18 +5,40 @@ import { darken } from 'polished'
 import { Box, Circle, baseTheme } from 'danni-s-design-system'
 
 import { Sample } from './Sample'
-import { COLOUR, HAIR, HAIR_COLOURS, LEFT } from 'constants/body'
+import {
+  COLOUR,
+  TYPE,
+  HAIR,
+  HAIR_COLOURS,
+  HAIR_TYPES,
+  LEFT,
+  BUSHY,
+  WAVES,
+} from 'constants/body'
 
 import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
 
-export const Hair: React.FC<HairProps> = ({ colour }) => {
-  return (
-    <>
-      <HairBack colour={colour} side={LEFT} />
-      <HairBack colour={colour} />
-      <HairTop colour={colour} />
-    </>
-  )
+export const Hair: React.FC<HairProps> = ({ colour, type }) => {
+  switch (type) {
+    case BUSHY:
+      return (
+        <>
+          <HairBack colour={colour} side={LEFT} />
+          <HairBack colour={colour} />
+          <HairTop colour={colour} />
+        </>
+      )
+    case WAVES:
+      return (
+        <>
+          <HairBack colour={colour} side={LEFT} />
+          <HairBack colour={colour} />
+          <HairTop colour={colour} />
+        </>
+      )
+    default:
+      return <HairTop colour={colour} />
+  }
 }
 
 const HairBack: React.FC<HairProps> = styled(Box).attrs({
@@ -67,11 +89,11 @@ const HairTop: React.FC<HairProps> = styled(Circle)<HairProps>`
 export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
   const hairNodesArray = []
 
-  for (const hair in HAIR_COLOURS) {
+  for (const hair of HAIR_TYPES) {
     hairNodesArray.push({
-      name: HAIR,
-      id: `${COLOUR}:${hair}`,
-      children: <Sample colour={HAIR_COLOURS[hair as HairColourKey]} />,
+      name: `${TYPE}:${HAIR}`,
+      id: `${TYPE}:${hair}`,
+      children: <Sample />,
     })
   }
 
@@ -83,7 +105,7 @@ export const HAIR_ITEMS_COLOURS = (): SelectorItem[] => {
 
   for (const hair in HAIR_COLOURS) {
     hairNodesArray.push({
-      name: HAIR,
+      name: `${COLOUR}:${HAIR}`,
       id: `${COLOUR}:${hair}`,
       children: <Sample colour={HAIR_COLOURS[hair as HairColourKey]} />,
     })

@@ -22,7 +22,8 @@ export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
 export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
-export const HAIR_TYPES = [BUSHY]
+export const WAVES = 'WAVES'
+export const HAIR_TYPES = [WAVES, BUSHY]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 

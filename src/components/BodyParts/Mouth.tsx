@@ -103,7 +103,7 @@ export const MOUTH_ITEMS_COLOURS = (): SelectorItem[] => {
 
   for (const mouth in MOUTH_COLOURS) {
     mouthNodesArray.push({
-      name: MOUTH,
+      name: `${COLOUR}:${MOUTH}`,
       id: `${COLOUR}:${mouth}`,
       children: <Sample colour={MOUTH_COLOURS[mouth as MouthColourKey]} />,
     })
@@ -117,7 +117,7 @@ export const MOUTH_ITEMS_TYPES = (): SelectorItem[] => {
 
   for (const mouth of MOUTH_TYPES) {
     mouthNodesArray.push({
-      name: MOUTH,
+      name: `${TYPE}:${MOUTH}`,
       id: `${TYPE}:${mouth}`,
       children: (
         <Sample>

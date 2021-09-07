@@ -169,7 +169,7 @@ export const EYEBROWS_ITEMS_TYPES = (): SelectorItem[] => {
 
   for (const type of EYEBROWS_TYPES) {
     eyebrowsNodesArray.push({
-      name: EYEBROWS,
+      name: `${TYPE}:${EYEBROWS}`,
       id: `${TYPE}:${type}`,
       children: <Sample>{EyebrowSamples[type as EyebrowType]}</Sample>,
     })
@@ -182,7 +182,7 @@ export const EYEBROWS_ITEMS_COLOURS = (): SelectorItem[] => {
 
   for (const eyebrowsColour in EYEBROWS_COLOURS) {
     eyebrowsNodesArray.push({
-      name: EYEBROWS,
+      name: `${COLOUR}:${EYEBROWS}`,
       id: `${COLOUR}:${eyebrowsColour}`,
       children: (
         <Sample
