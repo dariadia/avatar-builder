@@ -365,6 +365,29 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
   }
 }
 
+const HAIR_ITEMS_SAMPLES = {
+  MINIMALISM: <BangsLoose colour="black" />,
+  AUSTERE: <HairStrand colour="black" />,
+  UHURA: <BangsIvy colour="black" />,
+  MASKED: <BangsWillow colour="black" />,
+  WARRIOR: <BangsOak colour="black" />,
+  CROW: <BangsRowan colour="black" />,
+  GIDEON: <BangsCurl colour="black" />,
+  WATERFALL: <HairStrand colour="black" />,
+  GLIMMER: <BangsOak colour="black" />,
+  MADDIE: <BangsWillow colour="black" />,
+  BREEZE: <BangsCurl colour="black" />,
+  EBB: <HairStrand colour="black" />,
+  MOUSE: <BangsWillow colour="black" />,
+  WAVES: <HairStrand colour="black" />,
+  TIDE: <BangsLuz colour="black" />,
+  BUSHY: <HairStrand colour="black" />,
+  HAMILTON: <HairStrand colour="black" />,
+  STICKY_BUNS: <HairStrand colour="black" />,
+}
+
+type SampleTypeKey = keyof typeof HAIR_ITEMS_SAMPLES
+
 export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
   const hairNodesArray = []
 
@@ -372,7 +395,20 @@ export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
     hairNodesArray.push({
       name: `${TYPE}:${HAIR}`,
       id: `${TYPE}:${hair}`,
-      children: <Sample />,
+      children: (
+        <Sample>
+          <Box
+            sx={{
+              transform: 'scale(0.25)',
+              left: '-17px',
+              top: '-4px',
+              position: 'absolute',
+            }}
+          >
+            {HAIR_ITEMS_SAMPLES[hair as SampleTypeKey]}
+          </Box>
+        </Sample>
+      ),
     })
   }
 
