@@ -26,6 +26,10 @@ import {
   HAMILTON,
   STICKY_BUNS,
   GLIMMER,
+  MADDIE,
+  GIDEON,
+  BREEZE,
+  MOUSE,
 } from 'constants/body'
 
 import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
@@ -113,13 +117,19 @@ const BangsLoose: React.FC<HairProps> = ({ colour }) => (
   <HairStrand colour={colour} width="30px" left="135px" top="60px" />
 )
 
-const BangsWillow: React.FC<HairProps> = ({ colour }) => (
+const BangsIvy: React.FC<HairProps> = ({ colour }) => (
   <HairStrand colour={colour} top="66px" rotate="30" />
 )
 
-const BangsWave: React.FC<HairProps> = ({ colour }) => (
+const BangsWillow: React.FC<HairProps> = ({ colour }) => (
   <>
     <HairStrand colour={colour} top="66px" rotate="30" />
+    <HairStrand colour={colour} top="57px" rotate="-45" left="80px" />
+  </>
+)
+
+const BangsCurl: React.FC<HairProps> = ({ colour }) => (
+  <>
     <HairStrand colour={colour} top="57px" rotate="-45" left="80px" />
   </>
 )
@@ -169,6 +179,26 @@ const BangsLuz: React.FC<HairProps> = ({ colour }) => (
   </>
 )
 
+const BackLoop: React.FC<HairProps> = ({ colour }) => (
+  <>
+    <HairBackBushy
+      colour={colour}
+      side={LEFT}
+      height="60px"
+      left="30%"
+      width="60px"
+      twofold={false}
+    />
+    <HairBackBushy
+      colour={colour}
+      height="60px"
+      left="50%"
+      width="60px"
+      twofold={false}
+    />
+  </>
+)
+
 export const Hair: React.FC<HairProps> = ({ colour, type }) => {
   switch (type) {
     case MINIMALISM:
@@ -189,14 +219,14 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
       return (
         <>
           <HairTop colour={colour} />
-          <BangsWillow colour={colour} />
+          <BangsIvy colour={colour} />
         </>
       )
     case MASKED:
       return (
         <>
           <HairTop colour={colour} />
-          <BangsWave colour={colour} />
+          <BangsWillow colour={colour} />
         </>
       )
     case CROW:
@@ -204,6 +234,13 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
         <>
           <HairTop colour={colour} />
           <BangsRowan colour={colour} />
+        </>
+      )
+    case GIDEON:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsCurl colour={colour} />
         </>
       )
     case WARRIOR:
@@ -224,51 +261,38 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
           />
           <HairBackBushy colour={colour} height="30px" twofold={false} />
           <HairTop colour={colour} />
-          <HairStrand colour={colour} />
         </>
       )
     case WATERFALL:
       return (
         <>
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="60px"
-            left="30%"
-            width="60px"
-            twofold={false}
-          />
-          <HairBackBushy
-            colour={colour}
-            height="60px"
-            left="50%"
-            width="60px"
-            twofold={false}
-          />
+          <BackLoop colour={colour} />
           <HairTop colour={colour} />
           <HairStrand colour={colour} />
+        </>
+      )
+    case BREEZE:
+      return (
+        <>
+          <BackLoop colour={colour} />
+          <HairTop colour={colour} />
+          <BangsCurl colour={colour} />
         </>
       )
     case GLIMMER:
       return (
         <>
           <HairTop colour={colour} />
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="60px"
-            left="30%"
-            width="60px"
-            twofold={false}
-          />
-          <HairBackBushy
-            colour={colour}
-            height="60px"
-            left="50%"
-            width="60px"
-            twofold={false}
-          />
+          <BackLoop colour={colour} />
           <BangsOak colour={colour} />
+        </>
+      )
+    case MADDIE:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BackLoop colour={colour} />
+          <BangsWillow colour={colour} />
         </>
       )
     case EBB:
@@ -278,6 +302,15 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
           <HairBackBushy colour={colour} height="30px" />
           <HairTop colour={colour} />
           <HairStrand colour={colour} />
+        </>
+      )
+    case MOUSE:
+      return (
+        <>
+          <HairBackBushy colour={colour} side={LEFT} height="30px" />
+          <HairBackBushy colour={colour} height="30px" />
+          <HairTop colour={colour} />
+          <BangsWillow colour={colour} />
         </>
       )
     case BUSHY:

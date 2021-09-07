@@ -33,10 +33,14 @@ export const UHURA = 'UHURA'
 export const MASKED = 'MASKED'
 export const CROW = 'CROW'
 export const WARRIOR = 'WARRIOR'
+export const GIDEON = 'GIDEON'
 export const WATERFALL = 'WATERFALL'
 export const HAMILTON = 'HAMILTON'
 export const STICKY_BUNS = 'STICKY_BUNS'
 export const GLIMMER = 'GLIMMER'
+export const MADDIE = 'MADDIE'
+export const BREEZE = 'BREEZE'
+export const MOUSE = 'MOUSE'
 export const HAIR_TYPES = [
   MINIMALISM,
   AUSTERE,
@@ -44,13 +48,17 @@ export const HAIR_TYPES = [
   MASKED,
   WARRIOR,
   CROW,
+  GIDEON,
   WATERFALL,
   GLIMMER,
-  HAMILTON,
+  MADDIE,
+  BREEZE,
   EBB,
+  MOUSE,
   WAVES,
   TIDE,
   BUSHY,
+  HAMILTON,
   STICKY_BUNS,
 ]
 
