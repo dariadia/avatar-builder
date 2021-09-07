@@ -36,6 +36,7 @@ export type Hair = {
   rotate?: string
   height?: string
   width?: string
+  twofold?: boolean
 }
 
 export type Eyebrow = {

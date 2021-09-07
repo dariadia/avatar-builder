@@ -15,12 +15,154 @@ import {
   BUSHY,
   WAVES,
   TIDE,
+  EBB,
+  MINIMALISM,
+  AUSTERE,
+  UHURA,
+  MASKED,
+  WARRIOR,
+  CROW,
+  WATERFALL,
+  HAMILTON,
+  STICKY_BUNS,
+  GLIMMER,
 } from 'constants/body'
 
 import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
 
 export const Hair: React.FC<HairProps> = ({ colour, type }) => {
   switch (type) {
+    case MINIMALISM:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} width="30px" left="135px" top="60px" />
+        </>
+      )
+    case AUSTERE:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case UHURA:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} top="66px" rotate="30" />
+        </>
+      )
+    case MASKED:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} top="66px" rotate="30" />
+          <HairStrand colour={colour} top="57px" rotate="-45" left="80px" />
+        </>
+      )
+    case CROW:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} top="66px" rotate="30" width="60px" />
+          <HairStrand
+            colour={colour}
+            top="57px"
+            rotate="-45"
+            left="80px"
+            width="60px"
+          />
+        </>
+      )
+    case WARRIOR:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} top="66px" rotate="30" />
+          <HairStrand
+            colour={colour}
+            top="57px"
+            rotate="-45"
+            left="80px"
+            width="60px"
+          />
+        </>
+      )
+    case HAMILTON:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="30px"
+            twofold={false}
+          />
+          <HairBackBushy colour={colour} height="30px" twofold={false} />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case WATERFALL:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="60px"
+            left="30%"
+            width="60px"
+            twofold={false}
+          />
+          <HairBackBushy
+            colour={colour}
+            height="60px"
+            left="50%"
+            width="60px"
+            twofold={false}
+          />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case GLIMMER:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="60px"
+            left="30%"
+            width="60px"
+            twofold={false}
+          />
+          <HairBackBushy
+            colour={colour}
+            height="60px"
+            left="50%"
+            width="60px"
+            twofold={false}
+          />
+          <HairStrand colour={colour} top="66px" rotate="30" />
+          <HairStrand
+            colour={colour}
+            top="57px"
+            rotate="-45"
+            left="80px"
+            width="60px"
+          />
+        </>
+      )
+    case EBB:
+      return (
+        <>
+          <HairBackBushy colour={colour} side={LEFT} height="30px" />
+          <HairBackBushy colour={colour} height="30px" />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
     case BUSHY:
       return (
         <>
@@ -61,31 +203,55 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
           />
         </>
       )
+    case STICKY_BUNS:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="50px"
+            twofold={false}
+            left="27%"
+          />
+          <HairBackBushy
+            colour={colour}
+            height="50px"
+            twofold={false}
+            left="43%"
+          />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
     default:
       return <HairTop colour={colour} />
   }
 }
 
-const HairBackBushy: React.FC<HairProps> = styled(Box).attrs({
-  width: baseTheme.space.elephant,
-})<HairProps>`
-  height: 120px;
+const HairBackBushy: React.FC<HairProps> = styled(Box).attrs(props => ({
+  width: props.width || baseTheme.space.elephant,
+  height: props.height || '120px',
+}))<HairProps>`
   position: absolute;
   background: ${({ colour }) => colour};
-  left: ${({ side }) => (side === LEFT ? '25%' : '46%')};
+  left: ${({ side, left }) => (left ? left : side === LEFT ? '25%' : '46%')};
   top: 40%;
   border-radius: 200px;
+  ${({ twofold = true, colour }) =>
+    twofold
+      ? `
   &:after {
     content: '';
     position: absolute;
     width: 107px;
     height: 80px;
-    background: ${({ colour }) => colour};
-    box-shadow: inset 2px -25px 24px 0 ${({ colour }) => darken(0.15, colour)};
+    background: ${colour};
+    box-shadow: inset 2px -25px 24px 0 ${darken(0.15, colour)};
     border-radius: 300px;
     top: 36%;
     right: -8%;
-  }
+  }`
+      : ''}
 `
 
 const HairBackWavy: React.FC<HairProps> = styled(Box).attrs({
@@ -97,20 +263,24 @@ const HairBackWavy: React.FC<HairProps> = styled(Box).attrs({
   left: ${({ side }) => (side === LEFT ? '30%' : '41%')};
   top: 40%;
   border-radius: 200px;
-  &:after {
+  ${({ twofold = true, colour, side }) =>
+    twofold
+      ? `&:after {
     content: '';
     position: absolute;
     width: 95px;
     height: 80px;
-    background: ${({ colour }) => colour};
-    box-shadow: ${({ colour, side }) =>
+    background: ${colour};
+    box-shadow: ${
       side === LEFT
         ? `inset 2px -25px 24px 0 ${darken(0.15, colour)}`
-        : `inset -22px -25px 24px -15px ${darken(0.15, colour)}`};
+        : `inset -22px -25px 24px -15px ${darken(0.15, colour)}`
+    };
     border-radius: 300px;
     top: 36%;
-    right: ${({ side }) => (side === LEFT ? '-2%' : '-3%')};
-  }
+    right: ${side === LEFT ? '-2%' : '-3%'};
+  }`
+      : ''}
 `
 
 const HairTop: React.FC<HairProps> = styled(Circle)<HairProps>`

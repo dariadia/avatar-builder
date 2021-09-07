@@ -16,15 +16,43 @@ export const DASHED = 'DASHED'
 export const DEFAULT = 'DEFAULT'
 export const TYPE = 'TYPE'
 export const COLOUR = 'COLOUR'
+
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
 export const SAD = 'SAD'
 export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
 export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
+
 export const WAVES = 'WAVES'
 export const TIDE = 'TIDE'
-export const HAIR_TYPES = [WAVES, TIDE, BUSHY]
+export const EBB = 'EBB'
+export const MINIMALISM = 'MINIMALISM'
+export const AUSTERE = 'AUSTERE'
+export const UHURA = 'UHURA'
+export const MASKED = 'MASKED'
+export const CROW = 'CROW'
+export const WARRIOR = 'WARRIOR'
+export const WATERFALL = 'WATERFALL'
+export const HAMILTON = 'HAMILTON'
+export const STICKY_BUNS = 'STICKY_BUNS'
+export const GLIMMER = 'GLIMMER'
+export const HAIR_TYPES = [
+  MINIMALISM,
+  AUSTERE,
+  UHURA,
+  MASKED,
+  WARRIOR,
+  CROW,
+  WATERFALL,
+  GLIMMER,
+  HAMILTON,
+  EBB,
+  WAVES,
+  TIDE,
+  BUSHY,
+  STICKY_BUNS,
+]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
