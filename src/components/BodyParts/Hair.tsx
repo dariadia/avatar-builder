@@ -30,204 +30,6 @@ import {
 
 import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
 
-export const Hair: React.FC<HairProps> = ({ colour, type }) => {
-  switch (type) {
-    case MINIMALISM:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} width="30px" left="135px" top="60px" />
-        </>
-      )
-    case AUSTERE:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    case UHURA:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} top="66px" rotate="30" />
-        </>
-      )
-    case MASKED:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} top="66px" rotate="30" />
-          <HairStrand colour={colour} top="57px" rotate="-45" left="80px" />
-        </>
-      )
-    case CROW:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} top="66px" rotate="30" width="60px" />
-          <HairStrand
-            colour={colour}
-            top="57px"
-            rotate="-45"
-            left="80px"
-            width="60px"
-          />
-        </>
-      )
-    case WARRIOR:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} top="66px" rotate="30" />
-          <HairStrand
-            colour={colour}
-            top="57px"
-            rotate="-45"
-            left="80px"
-            width="60px"
-          />
-        </>
-      )
-    case HAMILTON:
-      return (
-        <>
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="30px"
-            twofold={false}
-          />
-          <HairBackBushy colour={colour} height="30px" twofold={false} />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    case WATERFALL:
-      return (
-        <>
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="60px"
-            left="30%"
-            width="60px"
-            twofold={false}
-          />
-          <HairBackBushy
-            colour={colour}
-            height="60px"
-            left="50%"
-            width="60px"
-            twofold={false}
-          />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    case GLIMMER:
-      return (
-        <>
-          <HairTop colour={colour} />
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="60px"
-            left="30%"
-            width="60px"
-            twofold={false}
-          />
-          <HairBackBushy
-            colour={colour}
-            height="60px"
-            left="50%"
-            width="60px"
-            twofold={false}
-          />
-          <HairStrand colour={colour} top="66px" rotate="30" />
-          <HairStrand
-            colour={colour}
-            top="57px"
-            rotate="-45"
-            left="80px"
-            width="60px"
-          />
-        </>
-      )
-    case EBB:
-      return (
-        <>
-          <HairBackBushy colour={colour} side={LEFT} height="30px" />
-          <HairBackBushy colour={colour} height="30px" />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    case BUSHY:
-      return (
-        <>
-          <HairBackBushy colour={colour} side={LEFT} />
-          <HairBackBushy colour={colour} />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    case WAVES:
-      return (
-        <>
-          <HairBackWavy colour={colour} side={LEFT} />
-          <HairBackWavy colour={colour} />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} top="50px" />
-        </>
-      )
-    case TIDE:
-      return (
-        <>
-          <HairBackWavy colour={colour} side={LEFT} />
-          <HairBackWavy colour={colour} />
-          <HairTop colour={colour} />
-          <HairStrand
-            colour={colour}
-            rotate="40"
-            width="70px"
-            left="140px"
-            top="60px"
-          />
-          <HairStrand
-            colour={colour}
-            rotate="160"
-            width="70px"
-            left="95px"
-            top="40px"
-          />
-        </>
-      )
-    case STICKY_BUNS:
-      return (
-        <>
-          <HairBackBushy
-            colour={colour}
-            side={LEFT}
-            height="50px"
-            twofold={false}
-            left="27%"
-          />
-          <HairBackBushy
-            colour={colour}
-            height="50px"
-            twofold={false}
-            left="43%"
-          />
-          <HairTop colour={colour} />
-          <HairStrand colour={colour} />
-        </>
-      )
-    default:
-      return <HairTop colour={colour} />
-  }
-}
-
 const HairBackBushy: React.FC<HairProps> = styled(Box).attrs(props => ({
   width: props.width || baseTheme.space.elephant,
   height: props.height || '120px',
@@ -306,6 +108,229 @@ const HairStrand: React.FC<HairProps> = styled(Box).attrs(props => ({
   transform: rotate(${({ rotate = '10' }) => rotate}deg);
   box-shadow: inset 1px 12px 9px 6px ${({ colour }) => darken(0.07, colour)};
 `
+
+const BangsLoose: React.FC<HairProps> = ({ colour }) => (
+  <HairStrand colour={colour} width="30px" left="135px" top="60px" />
+)
+
+const BangsWillow: React.FC<HairProps> = ({ colour }) => (
+  <HairStrand colour={colour} top="66px" rotate="30" />
+)
+
+const BangsWave: React.FC<HairProps> = ({ colour }) => (
+  <>
+    <HairStrand colour={colour} top="66px" rotate="30" />
+    <HairStrand colour={colour} top="57px" rotate="-45" left="80px" />
+  </>
+)
+
+const BangsRowan: React.FC<HairProps> = ({ colour }) => (
+  <>
+    <HairStrand colour={colour} top="66px" rotate="30" width="60px" />
+    <HairStrand
+      colour={colour}
+      top="57px"
+      rotate="-45"
+      left="80px"
+      width="60px"
+    />
+  </>
+)
+
+const BangsOak: React.FC<HairProps> = ({ colour }) => (
+  <>
+    <HairStrand colour={colour} top="66px" rotate="30" />
+    <HairStrand
+      colour={colour}
+      top="57px"
+      rotate="-45"
+      left="80px"
+      width="60px"
+    />
+  </>
+)
+
+const BangsLuz: React.FC<HairProps> = ({ colour }) => (
+  <>
+    <HairStrand
+      colour={colour}
+      rotate="40"
+      width="70px"
+      left="140px"
+      top="60px"
+    />
+    <HairStrand
+      colour={colour}
+      rotate="160"
+      width="70px"
+      left="95px"
+      top="40px"
+    />
+  </>
+)
+
+export const Hair: React.FC<HairProps> = ({ colour, type }) => {
+  switch (type) {
+    case MINIMALISM:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsLoose colour={colour} />
+        </>
+      )
+    case AUSTERE:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case UHURA:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsWillow colour={colour} />
+        </>
+      )
+    case MASKED:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsWave colour={colour} />
+        </>
+      )
+    case CROW:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsRowan colour={colour} />
+        </>
+      )
+    case WARRIOR:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <BangsOak colour={colour} />
+        </>
+      )
+    case HAMILTON:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="30px"
+            twofold={false}
+          />
+          <HairBackBushy colour={colour} height="30px" twofold={false} />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case WATERFALL:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="60px"
+            left="30%"
+            width="60px"
+            twofold={false}
+          />
+          <HairBackBushy
+            colour={colour}
+            height="60px"
+            left="50%"
+            width="60px"
+            twofold={false}
+          />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case GLIMMER:
+      return (
+        <>
+          <HairTop colour={colour} />
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="60px"
+            left="30%"
+            width="60px"
+            twofold={false}
+          />
+          <HairBackBushy
+            colour={colour}
+            height="60px"
+            left="50%"
+            width="60px"
+            twofold={false}
+          />
+          <BangsOak colour={colour} />
+        </>
+      )
+    case EBB:
+      return (
+        <>
+          <HairBackBushy colour={colour} side={LEFT} height="30px" />
+          <HairBackBushy colour={colour} height="30px" />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case BUSHY:
+      return (
+        <>
+          <HairBackBushy colour={colour} side={LEFT} />
+          <HairBackBushy colour={colour} />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    case WAVES:
+      return (
+        <>
+          <HairBackWavy colour={colour} side={LEFT} />
+          <HairBackWavy colour={colour} />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} top="50px" />
+        </>
+      )
+    case TIDE:
+      return (
+        <>
+          <HairBackWavy colour={colour} side={LEFT} />
+          <HairBackWavy colour={colour} />
+          <HairTop colour={colour} />
+          <BangsLuz colour={colour} />
+        </>
+      )
+    case STICKY_BUNS:
+      return (
+        <>
+          <HairBackBushy
+            colour={colour}
+            side={LEFT}
+            height="50px"
+            twofold={false}
+            left="27%"
+          />
+          <HairBackBushy
+            colour={colour}
+            height="50px"
+            twofold={false}
+            left="43%"
+          />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />
+        </>
+      )
+    default:
+      return <HairTop colour={colour} />
+  }
+}
 
 export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
   const hairNodesArray = []
