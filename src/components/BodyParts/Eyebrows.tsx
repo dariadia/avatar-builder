@@ -18,9 +18,16 @@ import {
   DASHED,
   DEFAULT,
   EYEBROWS_TYPES,
+  EYEBROWS_COLOURS,
+  COLOUR,
 } from 'constants/body'
 
-import type { SelectorItem, Eyebrow as EyebrowProps, EyebrowType } from 'types'
+import type {
+  SelectorItem,
+  Eyebrow as EyebrowProps,
+  EyebrowType,
+  EyebrowsColourKey,
+} from 'types'
 
 const Eyebrow: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
   Pick<EyebrowProps, 'colour'>
@@ -157,19 +164,31 @@ export const EyebrowSamples = {
   ),
 }
 
-export const EYEBROWS_ITEMS = (): SelectorItem[] => {
+export const EYEBROWS_ITEMS_TYPES = (): SelectorItem[] => {
   const eyebrowsNodesArray = []
-
-  eyebrowsNodesArray.push({
-    name: EYEBROWS,
-    id: `${TYPE}:break`,
-  })
 
   for (const type of EYEBROWS_TYPES) {
     eyebrowsNodesArray.push({
       name: EYEBROWS,
       id: `${TYPE}:${type}`,
       children: <Sample>{EyebrowSamples[type as EyebrowType]}</Sample>,
+    })
+  }
+  return eyebrowsNodesArray
+}
+
+export const EYEBROWS_ITEMS_COLOURS = (): SelectorItem[] => {
+  const eyebrowsNodesArray = []
+
+  for (const eyebrowsColour in EYEBROWS_COLOURS) {
+    eyebrowsNodesArray.push({
+      name: EYEBROWS,
+      id: `${COLOUR}:${eyebrowsColour}`,
+      children: (
+        <Sample
+          colour={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
+        />
+      ),
     })
   }
   return eyebrowsNodesArray
