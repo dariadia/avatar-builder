@@ -17,13 +17,20 @@ import {
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
-import { List, mainTheme, Box, baseTheme } from 'danni-s-design-system'
+import {
+  List,
+  mainTheme,
+  Box,
+  HeadingH3,
+  baseTheme,
+} from 'danni-s-design-system'
 import {
   BACKGROUNDS,
   CLOTHES_ITEMS,
   SKINS,
   EYES_ITEMS,
-  EYEBROWS_ITEMS,
+  EYEBROWS_ITEMS_TYPES,
+  EYEBROWS_ITEMS_COLOURS,
   MOUTH_ITEMS,
   NOSE_ITEMS,
 } from '.'
@@ -233,7 +240,8 @@ const Selection = ({
       return (
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
-          selectorItems={EYEBROWS_ITEMS()}
+          selectorItems={EYEBROWS_ITEMS_TYPES()}
+          selectorItemsOptions={EYEBROWS_ITEMS_COLOURS()}
           role={t('common:navigation')}
           ariaLabel={t(`avatar:${EYEBROWS}`, { count: 0 })}
           heading={t('avatar:select_type', {
@@ -291,29 +299,58 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   ariaLabel,
   multiple,
   heading,
+  selectorItemsOptions,
 }) => (
-  <List
-    onClick={onSelect}
-    direction="row"
-    as="nav"
-    role={role}
-    aria-label={ariaLabel}
-    sx={{
-      maxHeight: '40vh',
-      overflow: 'hidden',
-      overflowY: 'scroll',
-      padding: '2px',
-    }}
-  >
-    {heading}
-    {selectorItems.map(item =>
-      item.id.includes('break') ? (
-        <StyledBreak key={item.id} />
-      ) : (
-        <SelectorItem key={item.id} {...item} multiple={multiple} />
-      ),
+  <>
+    {heading && (
+      <>
+        <HeadingH3 kind="serif" fontSize={`${baseTheme.space.xl}px`}>
+          {heading}
+        </HeadingH3>
+        {selectorItemsOptions && (
+          <List
+            onClick={onSelect}
+            direction="row"
+            as="nav"
+            role={role}
+            aria-label={ariaLabel}
+            sx={{
+              maxHeight: '30vh',
+              overflow: 'hidden',
+              overflowY: 'scroll',
+              padding: '2px',
+            }}
+          >
+            {selectorItemsOptions.map(item => (
+              <SelectorItem key={item.id} {...item} multiple={multiple} />
+            ))}
+          </List>
+        )}
+        <StyledBreak />
+      </>
     )}
-  </List>
+    <List
+      onClick={onSelect}
+      direction="row"
+      as="nav"
+      role={role}
+      aria-label={ariaLabel}
+      sx={{
+        maxHeight: '40vh',
+        overflow: 'hidden',
+        overflowY: 'scroll',
+        padding: '2px',
+      }}
+    >
+      {selectorItems.map(item =>
+        item.id.includes('break') ? (
+          <StyledBreak key={item.id} />
+        ) : (
+          <SelectorItem key={item.id} {...item} multiple={multiple} />
+        ),
+      )}
+    </List>
+  </>
 )
 
 const SelectorItem: React.FC<SelectorItemProps> = ({
