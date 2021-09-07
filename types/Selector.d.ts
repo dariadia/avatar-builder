@@ -28,6 +28,7 @@ export type AvatarOptionKey = keyof AvatarOptions
 export type SelectorRow = {
   onSelect: (event: Event) => void
   selectorItems: SelectorItem[]
+  selectorItemsOptions?: SelectorItem[]
   role?: string
   ariaLabel?: string
   multiple?: boolean
