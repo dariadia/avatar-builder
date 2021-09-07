@@ -32,7 +32,8 @@ import {
   EYES_ITEMS,
   EYEBROWS_ITEMS_TYPES,
   EYEBROWS_ITEMS_COLOURS,
-  MOUTH_ITEMS,
+  MOUTH_ITEMS_TYPES,
+  MOUTH_ITEMS_COLOURS,
   NOSE_ITEMS,
 } from '.'
 
@@ -269,10 +270,16 @@ const Selection = ({
     case MOUTH:
       return (
         <SelectorRow
-          onSelect={(event: Event) => select(event?.target?.id)}
-          selectorItems={MOUTH_ITEMS()}
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={MOUTH_ITEMS_TYPES()}
+          selectorItemsOptions={MOUTH_ITEMS_COLOURS()}
           role={t('common:navigation')}
           ariaLabel={t(`avatar:${MOUTH}`)}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${MOUTH}`, { count: 0 }),
+          })}
+          chooseColourHeading={t('avatar:choose_colour')}
         />
       )
     case NOSE:

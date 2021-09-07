@@ -17,8 +17,11 @@ export const DEFAULT = 'DEFAULT'
 export const TYPE = 'TYPE'
 export const COLOUR = 'COLOUR'
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
-export const EMOTION = 'EMOTION'
+export const SAD = 'SAD'
+export const CONFUSED = 'CONFUSED'
+export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
+export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
@@ -250,8 +253,10 @@ export const MOUTH_COLOURS = {
   VELVET: '#8240AD',
 }
 
-export const MOUTH_EMOTIONS = {
+export const MOUTH_EMOTIONS_EMOJI = {
+  SLIM: '😐',
   SMILE: '🙂',
+  PLUMP: '👄',
   SAD: '🙁',
   CONFUSED: '😐',
   SHOCKED: '😮',

@@ -99,7 +99,6 @@ export type Eyes = {
 
 export type Mouth = {
   colour?: MouthColour
-  skinColour?: SkinColour
   emotion?: string
   type?: SLIM | PLUMP
   transform?: string
