@@ -236,7 +236,10 @@ const Selection = ({
           selectorItems={EYEBROWS_ITEMS()}
           role={t('common:navigation')}
           ariaLabel={t(`avatar:${EYEBROWS}`, { count: 0 })}
-          heading={t('avatar:select_type', { count: 2 })}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${EYEBROWS}`, { count: 0 }),
+          })}
         />
       )
     case MOUTH:
@@ -287,6 +290,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   role,
   ariaLabel,
   multiple,
+  heading,
 }) => (
   <List
     onClick={onSelect}
@@ -301,6 +305,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
       padding: '2px',
     }}
   >
+    {heading}
     {selectorItems.map(item =>
       item.id.includes('break') ? (
         <StyledBreak key={item.id} />
