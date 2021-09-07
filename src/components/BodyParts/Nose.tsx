@@ -46,7 +46,7 @@ export const NOSE_ITEMS = (): SelectorItem[] => {
     name: NOSE,
     id: `BUTTON`,
     children: (
-      <Sample colour="white">
+      <Sample>
         <NoseButton colour="black" top="15px" left="12px" />
       </Sample>
     ),
@@ -56,7 +56,7 @@ export const NOSE_ITEMS = (): SelectorItem[] => {
     name: NOSE,
     id: `OVAL`,
     children: (
-      <Sample colour="white">
+      <Sample>
         <NoseOval colour="black" top="12px" left="15px" />
       </Sample>
     ),
@@ -66,7 +66,7 @@ export const NOSE_ITEMS = (): SelectorItem[] => {
     name: NOSE,
     id: `NONE`,
     children: (
-      <Sample colour="white">
+      <Sample>
         <Text sx={{ position: 'absolute', top: '10px', left: '11px' }}>❌</Text>
       </Sample>
     ),
