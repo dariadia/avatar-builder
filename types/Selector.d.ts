@@ -33,6 +33,7 @@ export type SelectorRow = {
   ariaLabel?: string
   multiple?: boolean
   heading?: string
+  chooseColourHeading?: string
 }
 
 export type SelectorItem = {

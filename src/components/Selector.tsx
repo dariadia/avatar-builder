@@ -14,6 +14,7 @@ import {
   MOUTH,
   NOSE,
   HAIR,
+  TYPE,
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
@@ -199,6 +200,20 @@ const Selection = ({
     })
   }
 
+  const withOptionsSelect = (id: string): void => {
+    if (!id) return
+    const [kind, value] = id.split(':')
+    const [prevType, prevColour] = avatar[name as AvatarOptionKey].split(':')
+
+    const newValue =
+      kind === TYPE ? `${value}:${prevColour}` : `${prevType}:${value}`
+
+    setAvatarItem({
+      ...avatar,
+      [name]: newValue,
+    })
+  }
+
   switch (name) {
     case BACKGROUND:
       return (
@@ -239,7 +254,7 @@ const Selection = ({
     case EYEBROWS:
       return (
         <SelectorRow
-          onSelect={(event: Event) => select(event?.target?.id)}
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
           selectorItems={EYEBROWS_ITEMS_TYPES()}
           selectorItemsOptions={EYEBROWS_ITEMS_COLOURS()}
           role={t('common:navigation')}
@@ -248,6 +263,7 @@ const Selection = ({
             count: 2,
             item: t(`avatar:${EYEBROWS}`, { count: 0 }),
           })}
+          chooseColourHeading={t('avatar:choose_colour')}
         />
       )
     case MOUTH:
@@ -300,12 +316,13 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   multiple,
   heading,
   selectorItemsOptions,
+  chooseColourHeading,
 }) => (
   <>
     {heading && (
       <>
-        <HeadingH3 kind="serif" fontSize={`${baseTheme.space.xl}px`}>
-          {heading}
+        <HeadingH3 kind="serif" mb="s" fontSize={`${baseTheme.space.xl}px`}>
+          {chooseColourHeading}
         </HeadingH3>
         {selectorItemsOptions && (
           <List
@@ -327,6 +344,9 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
           </List>
         )}
         <StyledBreak />
+        <HeadingH3 kind="serif" mb="s" fontSize={`${baseTheme.space.xl}px`}>
+          {heading}
+        </HeadingH3>
       </>
     )}
     <List
