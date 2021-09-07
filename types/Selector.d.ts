@@ -31,6 +31,7 @@ export type SelectorRow = {
   role?: string
   ariaLabel?: string
   multiple?: boolean
+  heading?: string
 }
 
 export type SelectorItem = {
