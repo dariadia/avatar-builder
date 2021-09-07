@@ -1,6 +1,7 @@
 {
   "builder_heading": "build your avatar",
   "save": "save avatar",
+  "select_type": "select {{item}} type",
   "choose_colour": "choose colour",
   "body_parts": "avatar body parts",
   "select": "select only one",
