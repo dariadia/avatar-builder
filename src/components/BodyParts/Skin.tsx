@@ -94,7 +94,7 @@ export const SKINS = (): SelectorItem[] => {
     skinNodesArray.push({
       name: SKIN,
       id: `${SLIM}:${skinColour}`,
-      children: <Sample colour={skinColour as SkinColourKey} />,
+      children: <Sample colour={SKIN_COLOURS[skinColour as SkinColourKey]} />,
     })
   }
 
@@ -108,7 +108,7 @@ export const SKINS = (): SelectorItem[] => {
     skinNodesArray.push({
       name: SKIN,
       id: `${PLUMP}:${skinColour}`,
-      children: <Sample colour={skinColour as SkinColourKey} />,
+      children: <Sample colour={SKIN_COLOURS[skinColour as SkinColourKey]} />,
     })
   }
   return skinNodesArray
