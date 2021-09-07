@@ -62,49 +62,55 @@ const NavigationOptions = () => {
       name: 'selector',
       id: BACKGROUND,
       value: BACKGROUND,
-      children: <NavigationWrapper>{t(BACKGROUND)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(BACKGROUND, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: SKIN,
       value: SKIN,
-      children: <NavigationWrapper>{t(SKIN)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(SKIN, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: CLOTHES,
       value: CLOTHES,
-      children: <NavigationWrapper>{t(CLOTHES)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(CLOTHES, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: EYES,
       value: EYES,
-      children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(EYES, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: EYEBROWS,
       value: EYEBROWS,
-      children: <NavigationWrapper>{t(EYEBROWS)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(EYEBROWS, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: MOUTH,
       value: MOUTH,
-      children: <NavigationWrapper>{t(MOUTH)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(MOUTH, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: NOSE,
       value: NOSE,
-      children: <NavigationWrapper>{t(NOSE)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(NOSE, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: HAIR,
       value: HAIR,
-      children: <NavigationWrapper>{t(HAIR)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(HAIR, { count: 1 })}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -113,7 +119,7 @@ export const Selector: React.FC<SelectorProps> = ({
   avatar,
   setAvatarItem,
 }) => {
-  const { t } = useTranslation(['avatar'])
+  const { t } = useTranslation(['avatar', 'common'])
   const [shownSelector, setShowSelector] = useState(BACKGROUND)
 
   const makeSelection = (event: Event) => {
@@ -138,8 +144,8 @@ export const Selector: React.FC<SelectorProps> = ({
       <SelectorRow
         onSelect={event => makeSelection(event)}
         selectorItems={navigation}
-        role={t('navigation')}
-        ariaLabel={t('select')}
+        role={t('common:navigation')}
+        ariaLabel={t('avatar:select')}
       />
       {Selection({
         name: shownSelector as SelectorName,
@@ -159,7 +165,7 @@ const Selection = ({
   avatar: AvatarOptions
   setAvatarItem: (arg: unknown) => void
 }) => {
-  const { t } = useTranslation('avatar')
+  const { t } = useTranslation(['avatar', 'common'])
 
   const select = (id: string): void => {
     if (!id) return
@@ -173,7 +179,7 @@ const Selection = ({
     if (!id) return
     const avatarPart = avatar[name as AvatarOptionKey]
     const itemByIdIndex = avatarPart.indexOf(id)
-    console.log(itemByIdIndex)
+
     if (itemByIdIndex === -1) {
       avatarPart.push(id)
     } else {
@@ -192,8 +198,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={BACKGROUNDS()}
-          role={t('navigation')}
-          ariaLabel={t(BACKGROUND)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${BACKGROUND}`)}
         />
       )
     case SKIN:
@@ -201,8 +207,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={SKINS()}
-          role={t('navigation')}
-          ariaLabel={t(SKIN)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${SKIN}`)}
         />
       )
     case CLOTHES:
@@ -210,8 +216,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={CLOTHES_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(CLOTHES)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${CLOTHES}`)}
         />
       )
     case EYES:
@@ -219,8 +225,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={EYES_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(EYES)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${EYES}`)}
         />
       )
     case EYEBROWS:
@@ -228,8 +234,9 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={EYEBROWS_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(EYEBROWS)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${EYEBROWS}`, { count: 0 })}
+          heading={t('avatar:select_type', { count: 2 })}
         />
       )
     case MOUTH:
@@ -237,8 +244,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={MOUTH_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(MOUTH)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${MOUTH}`)}
         />
       )
     case NOSE:
@@ -246,8 +253,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={NOSE_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(NOSE)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${NOSE}`)}
         />
       )
     case HAIR:
@@ -256,7 +263,7 @@ const Selection = ({
           onSelect={(event: Event) => multipleSelect(event?.target?.id)}
           selectorItems={NOSE_ITEMS()}
           role={t('navigation')}
-          ariaLabel={t(HAIR)}
+          ariaLabel={t(`avatar:${HAIR}`)}
           multiple
         />
       )
