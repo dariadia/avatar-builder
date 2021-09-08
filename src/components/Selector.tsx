@@ -356,7 +356,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
             role={role}
             aria-label={ariaLabel}
             sx={{
-              maxHeight: '28vh',
+              maxHeight: '18vh',
               overflow: 'hidden',
               overflowY: 'scroll',
               padding: '2px',
