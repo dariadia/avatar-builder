@@ -1,6 +1,7 @@
 export * from './Avatar'
 export * from './Background'
 export * from './Clothes'
+export * from './Ears'
 export * from './Eyebrows'
 export * from './Eyes'
 export * from './Freckles'
