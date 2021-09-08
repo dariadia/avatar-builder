@@ -8,6 +8,7 @@ export const EYEBROWS = 'eyebrows'
 export const MOUTH = 'mouth'
 export const NOSE = 'nose'
 export const HAIR = 'hair'
+export const EARS = 'ears'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -73,6 +74,12 @@ export const HAIR_TYPES = [
   ...SPECIAL_HAIR_TYPES,
 ]
 
+export const ROUND = 'ROUND'
+export const DOVE = 'DOVE'
+export const VULCAN = 'VULCAN'
+export const KITTY = 'KITTY'
+export const EARS_TYPES = [ROUND, DOVE, VULCAN, KITTY]
+
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
 export const SELECTOR_NAMES = [
@@ -84,6 +91,7 @@ export const SELECTOR_NAMES = [
   MOUTH,
   NOSE,
   HAIR,
+  EARS,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
@@ -327,4 +335,5 @@ export const defaultAvatarState = {
   [MOUTH]: 'SLIM:CHOCOLATE',
   [NOSE]: 'BUTTON',
   [HAIR]: 'WAVES:GARNET',
+  [EARS]: 'ROUND',
 }
