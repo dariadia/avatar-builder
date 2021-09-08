@@ -1,4 +1,5 @@
 import React from 'react'
+import { SxStyleProp } from 'danni-s-design-system'
 
 export type Selector = {
   avatar: { [key: AvatarOptionKey]: AvatarOptions }
@@ -34,6 +35,7 @@ export type SelectorRow = {
   multiple?: boolean
   heading?: string
   chooseColourHeading?: string
+  sx?: SxStyleProp
 }
 
 export type SelectorItem = {

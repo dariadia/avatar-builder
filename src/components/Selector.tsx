@@ -157,6 +157,13 @@ export const Selector: React.FC<SelectorProps> = ({
         selectorItems={navigation}
         role={t('common:navigation')}
         ariaLabel={t('avatar:select')}
+        sx={{
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          whiteSpace: 'nowrap',
+          padding: `2px 6px ${baseTheme.space.s}px 0`,
+          '-webkit-overflow-scrolling': 'touch',
+        }}
       />
       {Selection({
         name: shownSelector as SelectorName,
@@ -333,6 +340,7 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   heading,
   selectorItemsOptions,
   chooseColourHeading,
+  sx,
 }) => (
   <>
     {heading && (
@@ -371,12 +379,16 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
       as="nav"
       role={role}
       aria-label={ariaLabel}
-      sx={{
-        maxHeight: '40vh',
-        overflow: 'hidden',
-        overflowY: 'scroll',
-        padding: '2px',
-      }}
+      sx={
+        sx
+          ? sx
+          : {
+              maxHeight: '40vh',
+              overflow: 'hidden',
+              overflowY: 'scroll',
+              padding: '2px',
+            }
+      }
     >
       {selectorItems.map(item =>
         item.id.includes('break') ? (
