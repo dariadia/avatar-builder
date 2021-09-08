@@ -7,15 +7,71 @@ export const EYES = 'eyes'
 export const EYEBROWS = 'eyebrows'
 export const MOUTH = 'mouth'
 export const NOSE = 'nose'
+export const HAIR = 'hair'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
 export const BUSHY = 'BUSHY'
 export const DASHED = 'DASHED'
 export const DEFAULT = 'DEFAULT'
+export const TYPE = 'TYPE'
+export const COLOUR = 'COLOUR'
+
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
-export const EMOTION = 'EMOTION'
+export const SAD = 'SAD'
+export const CONFUSED = 'CONFUSED'
+export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
+export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
+
+export const WAVES = 'WAVES'
+export const TIDE = 'TIDE'
+export const EBB = 'EBB'
+export const MINIMALISM = 'MINIMALISM'
+export const AUSTERE = 'AUSTERE'
+export const UHURA = 'UHURA'
+export const MASKED = 'MASKED'
+export const CROW = 'CROW'
+export const WARRIOR = 'WARRIOR'
+export const GIDEON = 'GIDEON'
+export const WATERFALL = 'WATERFALL'
+export const HAMILTON = 'HAMILTON'
+export const STICKY_BUNS = 'STICKY_BUNS'
+export const GLIMMER = 'GLIMMER'
+export const MADDIE = 'MADDIE'
+export const BREEZE = 'BREEZE'
+export const MOUSE = 'MOUSE'
+
+export const SHORT = 'SHORT'
+export const MIDDLE = 'MIDDLE'
+export const LONG = 'LONG'
+export const SPECIAL = 'SPECIAL'
+
+export const SHORT_HAIR_TYPES = [
+  MINIMALISM,
+  AUSTERE,
+  UHURA,
+  MASKED,
+  WARRIOR,
+  CROW,
+  GIDEON,
+]
+export const MIDDLE_HAIR_TYPES = [
+  WATERFALL,
+  GLIMMER,
+  MADDIE,
+  BREEZE,
+  EBB,
+  MOUSE,
+]
+export const LONG_HAIR_TYPES = [WAVES, TIDE, BUSHY]
+export const SPECIAL_HAIR_TYPES = [HAMILTON, STICKY_BUNS]
+export const HAIR_TYPES = [
+  ...SHORT_HAIR_TYPES,
+  ...MIDDLE_HAIR_TYPES,
+  ...LONG_HAIR_TYPES,
+  ...SPECIAL_HAIR_TYPES,
+]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
@@ -27,6 +83,7 @@ export const SELECTOR_NAMES = [
   EYEBROWS,
   MOUTH,
   NOSE,
+  HAIR,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
@@ -246,8 +303,10 @@ export const MOUTH_COLOURS = {
   VELVET: '#8240AD',
 }
 
-export const MOUTH_EMOTIONS = {
+export const MOUTH_EMOTIONS_EMOJI = {
+  SLIM: '😐',
   SMILE: '🙂',
+  PLUMP: '👄',
   SAD: '🙁',
   CONFUSED: '😐',
   SHOCKED: '😮',
@@ -257,4 +316,15 @@ export const ALL_COLOURS = {
   ...BACKGROUND_COLOURS,
   ...SKIN_COLOURS,
   ...CLOTHES_COLOURS,
+}
+
+export const defaultAvatarState = {
+  [BACKGROUND]: 'MIST',
+  [SKIN]: 'SLIM:CHOCOLATE',
+  [CLOTHES]: 'BLUE',
+  [EYES]: 'OVAL',
+  [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
+  [MOUTH]: 'SLIM:CHOCOLATE',
+  [NOSE]: 'BUTTON',
+  [HAIR]: 'WAVES:GARNET',
 }

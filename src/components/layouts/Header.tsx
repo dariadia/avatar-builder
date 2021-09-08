@@ -85,7 +85,7 @@ const AvailableLocalesList = ({
     <MediaContextProvider>
       <Media greaterThanOrEqual="tablet">
         <List
-          id={t('common:languages')}
+          id={t('languages')}
           direction="row"
           role={t('navigation')}
           aria-label={t('languages')}

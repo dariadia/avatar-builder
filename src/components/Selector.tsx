@@ -13,16 +13,29 @@ import {
   EYEBROWS,
   MOUTH,
   NOSE,
+  HAIR,
+  TYPE,
 } from 'constants/body'
+import { CHECKBOX, RADIO } from 'constants/inputs'
 
-import { List, mainTheme, Box, baseTheme } from 'danni-s-design-system'
+import {
+  List,
+  mainTheme,
+  Box,
+  HeadingH3,
+  baseTheme,
+} from 'danni-s-design-system'
 import {
   BACKGROUNDS,
   CLOTHES_ITEMS,
   SKINS,
   EYES_ITEMS,
-  EYEBROWS_ITEMS,
-  MOUTH_ITEMS,
+  EYEBROWS_ITEMS_TYPES,
+  EYEBROWS_ITEMS_COLOURS,
+  MOUTH_ITEMS_TYPES,
+  MOUTH_ITEMS_COLOURS,
+  HAIR_ITEMS_TYPES,
+  HAIR_ITEMS_COLOURS,
   NOSE_ITEMS,
 } from '.'
 
@@ -32,6 +45,7 @@ import type {
   AvatarOptions,
   Selector as SelectorProps,
   Event,
+  AvatarOptionKey,
 } from 'types'
 
 const NavigationButton = styled(Box).attrs({
@@ -59,43 +73,55 @@ const NavigationOptions = () => {
       name: 'selector',
       id: BACKGROUND,
       value: BACKGROUND,
-      children: <NavigationWrapper>{t(BACKGROUND)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(BACKGROUND, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: SKIN,
       value: SKIN,
-      children: <NavigationWrapper>{t(SKIN)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(SKIN, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: CLOTHES,
       value: CLOTHES,
-      children: <NavigationWrapper>{t(CLOTHES)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(CLOTHES, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: EYES,
       value: EYES,
-      children: <NavigationWrapper>{t(EYES)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(EYES, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: EYEBROWS,
       value: EYEBROWS,
-      children: <NavigationWrapper>{t(EYEBROWS)}</NavigationWrapper>,
+      children: (
+        <NavigationWrapper>{t(EYEBROWS, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
       id: MOUTH,
       value: MOUTH,
-      children: <NavigationWrapper>{t(MOUTH)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(MOUTH, { count: 1 })}</NavigationWrapper>,
     },
     {
       name: 'selector',
       id: NOSE,
       value: NOSE,
-      children: <NavigationWrapper>{t(NOSE)}</NavigationWrapper>,
+      children: <NavigationWrapper>{t(NOSE, { count: 1 })}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: HAIR,
+      value: HAIR,
+      children: <NavigationWrapper>{t(HAIR, { count: 1 })}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -104,7 +130,7 @@ export const Selector: React.FC<SelectorProps> = ({
   avatar,
   setAvatarItem,
 }) => {
-  const { t } = useTranslation(['avatar'])
+  const { t } = useTranslation(['avatar', 'common'])
   const [shownSelector, setShowSelector] = useState(BACKGROUND)
 
   const makeSelection = (event: Event) => {
@@ -129,8 +155,15 @@ export const Selector: React.FC<SelectorProps> = ({
       <SelectorRow
         onSelect={event => makeSelection(event)}
         selectorItems={navigation}
-        role={t('navigation')}
-        ariaLabel={t('select')}
+        role={t('common:navigation')}
+        ariaLabel={t('avatar:select')}
+        sx={{
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          whiteSpace: 'nowrap',
+          padding: `2px 6px ${baseTheme.space.s}px 0`,
+          '-webkit-overflow-scrolling': 'touch',
+        }}
       />
       {Selection({
         name: shownSelector as SelectorName,
@@ -150,7 +183,7 @@ const Selection = ({
   avatar: AvatarOptions
   setAvatarItem: (arg: unknown) => void
 }) => {
-  const { t } = useTranslation('avatar')
+  const { t } = useTranslation(['avatar', 'common'])
 
   const select = (id: string): void => {
     if (!id) return
@@ -160,14 +193,47 @@ const Selection = ({
     })
   }
 
+  // const multipleSelect = (id: string): void => {
+  //   if (!id) return
+  //   const avatarPart = avatar[name as AvatarOptionKey]
+  //   const itemByIdIndex = avatarPart.indexOf(id)
+
+  //   if (itemByIdIndex === -1) {
+  //     avatarPart.push(id)
+  //   } else {
+  //     avatarPart.splice(itemByIdIndex, 1)
+  //   }
+
+  //   setAvatarItem({
+  //     ...avatar,
+  //     [name]: avatarPart,
+  //   })
+  // }
+
+  const withOptionsSelect = (id: string): void => {
+    if (!id) return
+    const [kind, value] = id.split(':')
+    const [prevType, prevColour] = avatar[name as AvatarOptionKey].split(':')
+
+    const newValue =
+      kind === TYPE ? `${value}:${prevColour}` : `${prevType}:${value}`
+
+    setAvatarItem({
+      ...avatar,
+      [name]: newValue,
+    })
+  }
+
+  const colourHeading = t('avatar:choose_colour')
+
   switch (name) {
     case BACKGROUND:
       return (
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={BACKGROUNDS()}
-          role={t('navigation')}
-          ariaLabel={t(BACKGROUND)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${BACKGROUND}`)}
         />
       )
     case SKIN:
@@ -175,8 +241,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={SKINS()}
-          role={t('navigation')}
-          ariaLabel={t(SKIN)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${SKIN}`)}
         />
       )
     case CLOTHES:
@@ -184,8 +250,8 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={CLOTHES_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(CLOTHES)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${CLOTHES}`)}
         />
       )
     case EYES:
@@ -193,26 +259,38 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={EYES_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(EYES)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${EYES}`)}
         />
       )
     case EYEBROWS:
       return (
         <SelectorRow
-          onSelect={(event: Event) => select(event?.target?.id)}
-          selectorItems={EYEBROWS_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(EYEBROWS)}
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={EYEBROWS_ITEMS_TYPES()}
+          selectorItemsOptions={EYEBROWS_ITEMS_COLOURS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${EYEBROWS}`, { count: 0 })}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${EYEBROWS}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
         />
       )
     case MOUTH:
       return (
         <SelectorRow
-          onSelect={(event: Event) => select(event?.target?.id)}
-          selectorItems={MOUTH_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(MOUTH)}
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={MOUTH_ITEMS_TYPES()}
+          selectorItemsOptions={MOUTH_ITEMS_COLOURS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${MOUTH}`)}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${MOUTH}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
         />
       )
     case NOSE:
@@ -220,8 +298,23 @@ const Selection = ({
         <SelectorRow
           onSelect={(event: Event) => select(event?.target?.id)}
           selectorItems={NOSE_ITEMS()}
-          role={t('navigation')}
-          ariaLabel={t(NOSE)}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${NOSE}`)}
+        />
+      )
+    case HAIR:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={HAIR_ITEMS_TYPES()}
+          selectorItemsOptions={HAIR_ITEMS_COLOURS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${HAIR}`)}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${HAIR}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
         />
       )
     default:
@@ -243,28 +336,69 @@ const SelectorRow: React.FC<SelectorRowProps> = ({
   selectorItems,
   role,
   ariaLabel,
+  multiple,
+  heading,
+  selectorItemsOptions,
+  chooseColourHeading,
+  sx,
 }) => (
-  <List
-    onClick={onSelect}
-    direction="row"
-    as="nav"
-    role={role}
-    aria-label={ariaLabel}
-    sx={{
-      maxHeight: '40vh',
-      overflow: 'hidden',
-      overflowY: 'scroll',
-      padding: '2px',
-    }}
-  >
-    {selectorItems.map(item =>
-      item.id.includes('break') ? (
-        <StyledBreak key={item.id} />
-      ) : (
-        <SelectorItem key={item.id} {...item} />
-      ),
+  <>
+    {heading && (
+      <>
+        <HeadingH3 kind="serif" mb="s" fontSize={`${baseTheme.space.xl}px`}>
+          {chooseColourHeading}
+        </HeadingH3>
+        {selectorItemsOptions && (
+          <List
+            onClick={onSelect}
+            direction="row"
+            as="nav"
+            role={role}
+            aria-label={ariaLabel}
+            sx={{
+              maxHeight: '18vh',
+              overflow: 'hidden',
+              overflowY: 'scroll',
+              padding: '2px',
+            }}
+          >
+            {selectorItemsOptions.map(item => (
+              <SelectorItem key={item.id} {...item} multiple={multiple} />
+            ))}
+          </List>
+        )}
+        <StyledBreak />
+        <HeadingH3 kind="serif" mb="s" fontSize={`${baseTheme.space.xl}px`}>
+          {heading}
+        </HeadingH3>
+      </>
     )}
-  </List>
+    <List
+      onClick={onSelect}
+      direction="row"
+      as="nav"
+      role={role}
+      aria-label={ariaLabel}
+      sx={
+        sx
+          ? sx
+          : {
+              maxHeight: '40vh',
+              overflow: 'hidden',
+              overflowY: 'scroll',
+              padding: '2px',
+            }
+      }
+    >
+      {selectorItems.map(item =>
+        item.id.includes('break') ? (
+          <StyledBreak key={item.id} />
+        ) : (
+          <SelectorItem key={item.id} {...item} multiple={multiple} />
+        ),
+      )}
+    </List>
+  </>
 )
 
 const SelectorItem: React.FC<SelectorItemProps> = ({
@@ -272,9 +406,15 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
   id,
   value,
   children,
+  multiple,
 }) => (
   <>
-    <StyledInput type="radio" id={id} name={name} value={value ? value : id} />
+    <StyledInput
+      type={multiple ? CHECKBOX : RADIO}
+      id={id}
+      name={name}
+      value={value ? value : id}
+    />
     <label htmlFor={id}>{children ? children : value}</label>
   </>
 )

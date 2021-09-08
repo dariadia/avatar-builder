@@ -7,15 +7,7 @@ import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
 import { isClient } from 'utils/env'
-import {
-  BACKGROUND,
-  EYES,
-  SKIN,
-  EYEBROWS,
-  CLOTHES,
-  MOUTH,
-  NOSE,
-} from 'constants/body'
+import { defaultAvatarState } from 'constants/body'
 
 import { ProjectLayout, Selector, Avatar } from '@/components'
 import { baseTheme, Grid, Box, Button } from 'danni-s-design-system'
@@ -56,15 +48,7 @@ const StyledSaveButton = styled(Button).attrs({
 
 const HomePage: Page<SinglePageProps> = () => {
   const { t } = useTranslation(['avatar'])
-  const [avatar, setAvatarItem] = useState({
-    [BACKGROUND]: 'MIST',
-    [SKIN]: 'SLIM:CHOCOLATE',
-    [CLOTHES]: 'BLUE',
-    [EYES]: 'OVAL',
-    [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
-    [MOUTH]: 'SLIM:CHOCOLATE',
-    [NOSE]: 'BUTTON',
-  })
+  const [avatar, setAvatarItem] = useState(defaultAvatarState)
 
   return (
     <Grid

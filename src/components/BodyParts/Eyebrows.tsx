@@ -11,20 +11,22 @@ import {
 } from 'danni-s-design-system'
 import {
   EYEBROWS,
-  EYEBROWS_COLOURS,
+  TYPE,
   SKIN_OUTLINE,
   SLIM,
   BUSHY,
   DASHED,
   DEFAULT,
   EYEBROWS_TYPES,
+  EYEBROWS_COLOURS,
+  COLOUR,
 } from 'constants/body'
 
 import type {
   SelectorItem,
-  EyebrowsColourKey,
   Eyebrow as EyebrowProps,
   EyebrowType,
+  EyebrowsColourKey,
 } from 'types'
 
 const Eyebrow: React.FC<Pick<EyebrowProps, 'colour'>> = styled(Box)<
@@ -143,7 +145,13 @@ export const EyebrowSamples = {
   [BUSHY]: <EyebrowSample width={`${baseTheme.space.l}px`} height="12px" />,
   [SLIM]: <EyebrowSample width={`${baseTheme.space.l}px`} height="5px" />,
   [DASHED]: (
-    <Flex>
+    <Flex
+      sx={{
+        position: 'absolute',
+        left: '2px',
+        width: `${baseTheme.space.xxl}px`,
+      }}
+    >
       <EyebrowSample
         width={`${baseTheme.space.m}px`}
         height={`${baseTheme.space.s}px`}
@@ -156,26 +164,31 @@ export const EyebrowSamples = {
   ),
 }
 
-export const EYEBROWS_ITEMS = (): SelectorItem[] => {
+export const EYEBROWS_ITEMS_TYPES = (): SelectorItem[] => {
   const eyebrowsNodesArray = []
 
   for (const type of EYEBROWS_TYPES) {
-    for (const eyebrowsColour in EYEBROWS_COLOURS) {
-      eyebrowsNodesArray.push({
-        name: EYEBROWS,
-        id: `${type}:${eyebrowsColour}`,
-        children: (
-          <Sample
-            colour={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
-          >
-            {EyebrowSamples[type as EyebrowType]}
-          </Sample>
-        ),
-      })
-    }
     eyebrowsNodesArray.push({
-      name: EYEBROWS,
-      id: `${type}:break`,
+      name: `${TYPE}:${EYEBROWS}`,
+      id: `${TYPE}:${type}`,
+      children: <Sample>{EyebrowSamples[type as EyebrowType]}</Sample>,
+    })
+  }
+  return eyebrowsNodesArray
+}
+
+export const EYEBROWS_ITEMS_COLOURS = (): SelectorItem[] => {
+  const eyebrowsNodesArray = []
+
+  for (const eyebrowsColour in EYEBROWS_COLOURS) {
+    eyebrowsNodesArray.push({
+      name: `${COLOUR}:${EYEBROWS}`,
+      id: `${COLOUR}:${eyebrowsColour}`,
+      children: (
+        <Sample
+          colour={EYEBROWS_COLOURS[eyebrowsColour as EyebrowsColourKey]}
+        />
+      ),
     })
   }
   return eyebrowsNodesArray

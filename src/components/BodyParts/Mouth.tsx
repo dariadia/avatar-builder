@@ -2,23 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  EMOTION,
   MOUTH,
   MOUTH_COLOURS,
   PLUMP,
-  SLIM,
   SMILE,
-  MOUTH_EMOTIONS,
+  MOUTH_TYPES,
+  COLOUR,
+  TYPE,
+  MOUTH_EMOTIONS_EMOJI,
+  CONFUSED,
+  SAD,
+  SHOCKED,
 } from 'constants/body'
 import { baseTheme, Box } from 'danni-s-design-system'
 import { darken } from 'polished'
 
-import {
-  MouthColourKey,
-  SelectorItem,
-  Mouth as MouthProps,
-  MouthEmotionKey,
-} from 'types'
+import { MouthColourKey, SelectorItem, Mouth as MouthProps } from 'types'
 import { Sample } from './Sample'
 
 export const MouthSlim: React.FC<MouthProps> = styled(Box)<MouthProps>`
@@ -82,82 +81,46 @@ export const MouthEcstatic: React.FC<MouthProps> = styled(Box)<MouthProps>`
   left: 24px;
 `
 
-const MouthWithEmotion: React.FC<MouthProps> = ({ emotion, colour }) => {
-  switch (emotion) {
-    case 'SMILE':
-      return <MouthEcstatic colour={colour} />
-    case 'SAD':
-      return <MouthSad colour={colour} />
-    case 'CONFUSED':
-      return <MouthSlim colour={colour} transform="rotate(18deg)" />
-    case 'SHOCKED':
-      return <MouthShocked colour="salmon" />
-    default:
-      return <MouthSlim colour={colour} />
-  }
-}
-
-export const Mouth: React.FC<MouthProps> = ({ type, colour, skinColour }) => {
+export const Mouth: React.FC<MouthProps> = ({ type, colour }) => {
   switch (type) {
     case PLUMP:
       return <MouthPlump colour={colour} />
     case SMILE:
       return <MouthSmile colour={colour} />
-    case EMOTION:
-      return <MouthWithEmotion colour={skinColour} emotion={colour} />
+    case SAD:
+      return <MouthSad colour={colour} />
+    case CONFUSED:
+      return <MouthSlim colour={colour} transform="rotate(18deg)" />
+    case SHOCKED:
+      return <MouthShocked colour={colour} />
     default:
       return <MouthSlim colour={colour} />
   }
 }
 
-export const MOUTH_ITEMS = (): SelectorItem[] => {
+export const MOUTH_ITEMS_COLOURS = (): SelectorItem[] => {
   const mouthNodesArray = []
 
   for (const mouth in MOUTH_COLOURS) {
     mouthNodesArray.push({
-      name: MOUTH,
-      id: `${SLIM}:${mouth}`,
+      name: `${COLOUR}:${MOUTH}`,
+      id: `${COLOUR}:${mouth}`,
       children: <Sample colour={MOUTH_COLOURS[mouth as MouthColourKey]} />,
     })
   }
 
-  mouthNodesArray.push({
-    name: MOUTH,
-    id: `${SLIM}:break`,
-  })
+  return mouthNodesArray
+}
 
-  for (const mouth in MOUTH_COLOURS) {
+export const MOUTH_ITEMS_TYPES = (): SelectorItem[] => {
+  const mouthNodesArray = []
+
+  for (const mouth of MOUTH_TYPES) {
     mouthNodesArray.push({
-      name: MOUTH,
-      id: `${SMILE}:${mouth}`,
-      children: <Sample colour={MOUTH_COLOURS[mouth as MouthColourKey]} />,
-    })
-  }
-
-  mouthNodesArray.push({
-    name: MOUTH,
-    id: `${SMILE}:break`,
-  })
-
-  for (const mouth in MOUTH_COLOURS) {
-    mouthNodesArray.push({
-      name: MOUTH,
-      id: `${PLUMP}:${mouth}`,
-      children: <Sample colour={MOUTH_COLOURS[mouth as MouthColourKey]} />,
-    })
-  }
-
-  mouthNodesArray.push({
-    name: MOUTH,
-    id: `${PLUMP}:break`,
-  })
-
-  for (const emotion in MOUTH_EMOTIONS) {
-    mouthNodesArray.push({
-      name: MOUTH,
-      id: `${EMOTION}:${emotion}`,
+      name: `${TYPE}:${MOUTH}`,
+      id: `${TYPE}:${mouth}`,
       children: (
-        <Sample colour="black">
+        <Sample>
           <Box
             sx={{
               position: 'absolute',
@@ -166,7 +129,7 @@ export const MOUTH_ITEMS = (): SelectorItem[] => {
               left: '7px',
             }}
           >
-            {MOUTH_EMOTIONS[emotion as MouthEmotionKey]}
+            {MOUTH_EMOTIONS_EMOJI[mouth as keyof typeof MOUTH_EMOTIONS_EMOJI]}
           </Box>
         </Sample>
       ),
