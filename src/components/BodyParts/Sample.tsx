@@ -5,7 +5,8 @@ import { MouthColour, EyebrowsColour, SkinColour } from 'types'
 
 export const Sample: React.FC<{
   colour?: EyebrowsColour | MouthColour | SkinColour
-}> = ({ colour = 'white', children }) => (
+  boxShadow?: string
+}> = ({ colour = 'white', children, boxShadow }) => (
   <Circle
     size={`${baseTheme.space.xxxl}px`}
     my="m"
@@ -15,6 +16,7 @@ export const Sample: React.FC<{
       position: 'relative',
       background: colour,
       border: '1px solid grey',
+      boxShadow,
     }}
   >
     {children}

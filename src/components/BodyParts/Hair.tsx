@@ -30,6 +30,10 @@ import {
   GIDEON,
   BREEZE,
   MOUSE,
+  LONG,
+  MIDDLE,
+  SPECIAL,
+  SHORT,
 } from 'constants/body'
 
 import type { Hair as HairProps, HairColourKey, SelectorItem } from 'types'
@@ -388,15 +392,59 @@ const HAIR_ITEMS_SAMPLES = {
 
 type SampleTypeKey = keyof typeof HAIR_ITEMS_SAMPLES
 
+const getHairLengthType = (hairType: string): string => {
+  switch (hairType) {
+    case MINIMALISM:
+    case AUSTERE:
+    case UHURA:
+    case MASKED:
+    case WARRIOR:
+    case CROW:
+    case GIDEON:
+      return SHORT
+    case WATERFALL:
+    case GLIMMER:
+    case MADDIE:
+    case BREEZE:
+    case EBB:
+    case MOUSE:
+      return MIDDLE
+    case WAVES:
+    case TIDE:
+    case BUSHY:
+      return LONG
+    case HAMILTON:
+    case STICKY_BUNS:
+      return SPECIAL
+    default:
+      return ''
+  }
+}
+
+const HAIR_LENGTH_SAMPLE_SHADOW = {
+  [SHORT]: 'inset 0 6px gold',
+  [MIDDLE]: 'inset 5px 15px gold',
+  [LONG]: 'inset 15px 20px gold',
+  [SPECIAL]: 'inset 2em 2em gold',
+}
+
 export const HAIR_ITEMS_TYPES = (): SelectorItem[] => {
   const hairNodesArray = []
 
   for (const hair of HAIR_TYPES) {
+    const hairLength = getHairLengthType(hair)
+
     hairNodesArray.push({
       name: `${TYPE}:${HAIR}`,
       id: `${TYPE}:${hair}`,
       children: (
-        <Sample>
+        <Sample
+          boxShadow={
+            HAIR_LENGTH_SAMPLE_SHADOW[
+              hairLength as keyof typeof HAIR_LENGTH_SAMPLE_SHADOW
+            ]
+          }
+        >
           <Box
             sx={{
               transform: 'scale(0.25)',

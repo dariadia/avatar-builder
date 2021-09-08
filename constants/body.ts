@@ -41,7 +41,13 @@ export const GLIMMER = 'GLIMMER'
 export const MADDIE = 'MADDIE'
 export const BREEZE = 'BREEZE'
 export const MOUSE = 'MOUSE'
-export const HAIR_TYPES = [
+
+export const SHORT = 'SHORT'
+export const MIDDLE = 'MIDDLE'
+export const LONG = 'LONG'
+export const SPECIAL = 'SPECIAL'
+
+export const SHORT_HAIR_TYPES = [
   MINIMALISM,
   AUSTERE,
   UHURA,
@@ -49,17 +55,22 @@ export const HAIR_TYPES = [
   WARRIOR,
   CROW,
   GIDEON,
+]
+export const MIDDLE_HAIR_TYPES = [
   WATERFALL,
   GLIMMER,
   MADDIE,
   BREEZE,
   EBB,
   MOUSE,
-  WAVES,
-  TIDE,
-  BUSHY,
-  HAMILTON,
-  STICKY_BUNS,
+]
+export const LONG_HAIR_TYPES = [WAVES, TIDE, BUSHY]
+export const SPECIAL_HAIR_TYPES = [HAMILTON, STICKY_BUNS]
+export const HAIR_TYPES = [
+  ...SHORT_HAIR_TYPES,
+  ...MIDDLE_HAIR_TYPES,
+  ...LONG_HAIR_TYPES,
+  ...SPECIAL_HAIR_TYPES,
 ]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
