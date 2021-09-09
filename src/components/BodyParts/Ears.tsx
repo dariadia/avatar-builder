@@ -9,8 +9,7 @@ import type { EarsTypeKey, SelectorItem, Ear as EarProps } from 'types'
 
 export const Ears: React.FC<EarProps> = ({ colour, type }) => (
   <>
-    <Ear colour={colour} type={type} left="93px" />
-    <Ear colour={colour} type={type} left="187px" />
+    <EarPair colour={colour} type={type} />
   </>
 )
 
@@ -24,10 +23,15 @@ const EarRound: React.FC<EarProps> = styled(Box)<EarProps>`
   background: ${({ colour }) => colour};
 `
 
-export const Ear: React.FC<EarProps> = ({ colour, type, ...props }) => {
+export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
   switch (type) {
     case ROUND:
-      return <EarRound colour={colour} {...props} />
+      return (
+        <>
+          <EarRound colour={colour} left="93px" />
+          <EarRound colour={colour} left="187px" />
+        </>
+      )
     case DOVE:
       return <div>hello</div>
     case VULCAN:
