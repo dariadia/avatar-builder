@@ -66,10 +66,10 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           <Eyebrows type={eyebrowsType} colour={eyebrowsColour} />
           {Eyes[eyes as EyesTypeKey]}
           <Nose colour={skinColour} type={nose} />
-          <Ears colour={skinColour} type={earType} />
           <Mouth type={mouthType} colour={mouthColour} />
         </Skin>
         <Hair colour={hairColour} type={hairType} />
+        <Ears colour={skinColour} type={earType} />
         <Clothes colour={clothes} />
       </Background>
     </Box>

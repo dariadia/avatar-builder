@@ -335,5 +335,5 @@ export const defaultAvatarState = {
   [MOUTH]: 'SLIM:CHOCOLATE',
   [NOSE]: 'BUTTON',
   [HAIR]: 'WAVES:GARNET',
-  [EARS]: 'ROUND',
+  [EARS]: 'EARS:ROUND',
 }
