@@ -29,15 +29,18 @@ import {
   NOSE_ITEMS,
 } from '@/components'
 
-export type Hair = {
-  side?: 'left' | 'right'
-  colour: HairColour
-  type?: HairType
+export interface AdjustableBodyPart {
   top?: string
   left?: string
   rotate?: string
   height?: string
   width?: string
+}
+
+export interface Hair extends AdjustableBodyPart {
+  side?: 'left' | 'right'
+  colour: HairColour
+  type?: HairType
   twofold?: boolean
 }
 
@@ -55,7 +58,7 @@ export type Skin = {
   type?: BodyType
 }
 
-export type Ear = {
+export interface Ear extends AdjustableBodyPart {
   colour: SkinColour
   type?: EarsType
 }
