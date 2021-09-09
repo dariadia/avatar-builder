@@ -10,6 +10,7 @@ import {
   EARS,
   EARS_TYPES,
   PIZZA,
+  BUN,
 } from 'constants/body'
 import { Box, baseTheme } from 'danni-s-design-system'
 import { Sample } from './Sample'
@@ -54,6 +55,13 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
         <>
           <EarRound colour={colour} left="93px" rotate="-11" />
           <EarRound colour={colour} left="187px" rotate="11" />
+        </>
+      )
+    case BUN:
+      return (
+        <>
+          <EarRound colour={colour} left="93px" rotate="-25" />
+          <EarRound colour={colour} left="187px" rotate="25" />
         </>
       )
     case DOVE:

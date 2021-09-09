@@ -80,7 +80,8 @@ export const VULCAN = 'VULCAN'
 export const KITTY = 'KITTY'
 export const DUMPLING = 'DUMPLING'
 export const PIZZA = 'PIZZA'
-export const EARS_TYPES = [ROUND, DUMPLING, PIZZA, DOVE, VULCAN, KITTY]
+export const BUN = 'BUN'
+export const EARS_TYPES = [ROUND, DUMPLING, PIZZA, BUN, DOVE, VULCAN, KITTY]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
