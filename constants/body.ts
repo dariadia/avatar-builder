@@ -78,7 +78,9 @@ export const ROUND = 'ROUND'
 export const DOVE = 'DOVE'
 export const VULCAN = 'VULCAN'
 export const KITTY = 'KITTY'
-export const EARS_TYPES = [ROUND, DOVE, VULCAN, KITTY]
+export const DUMPLING = 'DUMPLING'
+export const PIZZA = 'PIZZA'
+export const EARS_TYPES = [ROUND, DUMPLING, PIZZA, DOVE, VULCAN, KITTY]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 
@@ -335,5 +337,5 @@ export const defaultAvatarState = {
   [MOUTH]: 'SLIM:CHOCOLATE',
   [NOSE]: 'BUTTON',
   [HAIR]: 'WAVES:GARNET',
-  [EARS]: 'EARS:ROUND',
+  [EARS]: 'EARS:PIZZA',
 }

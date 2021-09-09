@@ -1,7 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DOVE, ROUND, VULCAN, KITTY, EARS, EARS_TYPES } from 'constants/body'
+import {
+  DOVE,
+  ROUND,
+  VULCAN,
+  KITTY,
+  DUMPLING,
+  EARS,
+  EARS_TYPES,
+  PIZZA,
+} from 'constants/body'
 import { Box, baseTheme } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
@@ -21,6 +30,7 @@ const EarRound: React.FC<EarProps> = styled(Box)<EarProps>`
   position: absolute;
   border-radius: ${baseTheme.radii.circle}px;
   background: ${({ colour }) => colour};
+  ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg)` : '')};
 `
 
 export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
@@ -30,6 +40,20 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
         <>
           <EarRound colour={colour} left="93px" />
           <EarRound colour={colour} left="187px" />
+        </>
+      )
+    case DUMPLING:
+      return (
+        <>
+          <EarRound colour={colour} left="91px" />
+          <EarRound colour={colour} left="191px" />
+        </>
+      )
+    case PIZZA:
+      return (
+        <>
+          <EarRound colour={colour} left="93px" rotate="-11" />
+          <EarRound colour={colour} left="187px" rotate="11" />
         </>
       )
     case DOVE:
