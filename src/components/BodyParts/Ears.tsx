@@ -191,6 +191,58 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
   }
 }
 
+const EAR_SAMPLES = {
+  ROUND: <EarRound colour="black" left="93px" />,
+  DUMPLING: <EarRound colour="black" left="91px" />,
+  PIZZA: <EarRound colour="black" left="93px" rotate="-11" />,
+  BUN: <EarRound colour="black" left="93px" rotate="-25" />,
+  WITCH: <EarPointy colour="black" type={WITCH} rotate="-20" left="95px" />,
+  VEE: (
+    <EarPointy
+      colour="black"
+      type={WITCH}
+      rotate="-20"
+      left="95px"
+      boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
+    />
+  ),
+  ELF: <EarPointy colour="black" type={WITCH} rotate="-38" left="95px" />,
+  SANATA_S_ELF: (
+    <EarPointy colour="black" type={WITCH} rotate="-30" left="88px" />
+  ),
+  VULCAN: (
+    <EarPointy
+      colour="black"
+      type={VULCAN}
+      rotate="-38"
+      left="95px"
+      top="105px"
+    />
+  ),
+  CAT: (
+    <EarPointy
+      colour="black"
+      width="35px"
+      height="50px"
+      left="85px"
+      top="70px"
+      rotate="-80"
+      boxShadow="inset 0 8px 12px 6px rgb(0 0 0 / 60%)"
+    />
+  ),
+  KITTY: (
+    <EarPointy
+      colour="black"
+      width="35px"
+      height="50px"
+      left="85px"
+      top="70px"
+      rotate="-110"
+      boxShadow="inset -10px 10px 12px 4px rgb(0 0 0 / 60%)"
+    />
+  ),
+}
+
 export const EARS_ITEMS = (): SelectorItem[] => {
   const earsNodesArray = []
 
@@ -198,7 +250,13 @@ export const EARS_ITEMS = (): SelectorItem[] => {
     earsNodesArray.push({
       name: EARS,
       id: `${EARS}:${ear}`,
-      children: <Sample colour={EARS_TYPES[ear as EarsTypeKey]} />,
+      children: (
+        <Sample colour={EARS_TYPES[ear as EarsTypeKey]}>
+          <Box sx={{ position: 'absolute' }}>
+            {EAR_SAMPLES[ear as keyof typeof EAR_SAMPLES]}
+          </Box>
+        </Sample>
+      ),
     })
   }
   return earsNodesArray
