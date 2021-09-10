@@ -9,6 +9,7 @@ import {
   Mouth,
   Nose,
   Hair,
+  Ears,
 } from '@/components'
 import { Box } from 'danni-s-design-system'
 
@@ -38,6 +39,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
     mouth,
     nose,
     hair,
+    ears,
   } = avatar
 
   const [skinType, skinHue] = skin.split(':')
@@ -52,6 +54,8 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
   const [hairType, hairHue] = hair.split(':')
   const hairColour = HAIR_COLOURS[hairHue as HairColourKey]
 
+  const [, earType] = ears.split(':')
+
   return (
     <Box my="m" mx="auto" width="300px" height="300px">
       <Background
@@ -65,6 +69,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           <Mouth type={mouthType} colour={mouthColour} />
         </Skin>
         <Hair colour={hairColour} type={hairType} />
+        <Ears colour={skinColour} type={earType} />
         <Clothes colour={clothes} />
       </Background>
     </Box>

@@ -16,8 +16,10 @@ import {
   EYES,
   NOSE,
   HAIR,
+  EARS,
   MOUTH_EMOTIONS,
   HAIR_TYPES,
+  EARS_TYPES,
 } from 'constants/body'
 
 import {
@@ -27,15 +29,18 @@ import {
   NOSE_ITEMS,
 } from '@/components'
 
-export type Hair = {
-  side?: 'left' | 'right'
-  colour: HairColour
-  type?: HairType
+export interface AdjustableBodyPart {
   top?: string
   left?: string
   rotate?: string
   height?: string
   width?: string
+}
+
+export interface Hair extends AdjustableBodyPart {
+  side?: 'left' | 'right'
+  colour: HairColour
+  type?: HairType
   twofold?: boolean
 }
 
@@ -51,6 +56,12 @@ export type GlassesLensProps = {
 export type Skin = {
   colour: SkinColour
   type?: BodyType
+}
+
+export interface Ear extends AdjustableBodyPart {
+  colour: SkinColour
+  type?: EarsType
+  boxShadow?: string
 }
 
 export type BodyType = SLIM | PLUMP
@@ -88,6 +99,9 @@ type MouthEmotion = MOUTH_EMOTIONS[keyof MOUTH_EMOTIONS]
 
 export type NoseTypeKey = keyof typeof NOSE_ITEMS
 type NoseType = NOSE_ITEMS[keyof NOSE_ITEMS]
+
+export type EarsTypeKey = keyof typeof EARS_TYPES
+type EarsType = EARS_TYPES[keyof EARS_TYPES]
 
 export type Background = {
   colour?: string
@@ -130,4 +144,5 @@ export type Avatar = {
   [MOUTH]: MouthColour
   [NOSE]: NoseType
   [HAIR]: HairColour
+  [EARS]: EarsType
 }

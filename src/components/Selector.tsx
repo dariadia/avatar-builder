@@ -15,6 +15,7 @@ import {
   NOSE,
   HAIR,
   TYPE,
+  EARS,
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
@@ -37,6 +38,7 @@ import {
   HAIR_ITEMS_TYPES,
   HAIR_ITEMS_COLOURS,
   NOSE_ITEMS,
+  EARS_ITEMS,
 } from '.'
 
 import type {
@@ -122,6 +124,12 @@ const NavigationOptions = () => {
       id: HAIR,
       value: HAIR,
       children: <NavigationWrapper>{t(HAIR, { count: 1 })}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: EARS,
+      value: EARS,
+      children: <NavigationWrapper>{t(EARS, { count: 1 })}</NavigationWrapper>,
     },
   ] as SelectorItemProps[]
 }
@@ -315,6 +323,15 @@ const Selection = ({
             item: t(`avatar:${HAIR}`, { count: 0 }),
           })}
           chooseColourHeading={colourHeading}
+        />
+      )
+    case EARS:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={EARS_ITEMS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${EARS}`)}
         />
       )
     default:
