@@ -186,6 +186,7 @@ export const SKIN_COLOURS = {
   PALE_BLUE: '#AFEEEE',
   PALE_GREEN: '#98FB98',
   OLIVE: '#BAB86C',
+  LILAC: '#DDD3EE',
 }
 
 export const CLOTHES_COLOURS = {
