@@ -252,7 +252,15 @@ export const EARS_ITEMS = (): SelectorItem[] => {
       id: `${EARS}:${ear}`,
       children: (
         <Sample colour={EARS_TYPES[ear as EarsTypeKey]}>
-          <Box sx={{ position: 'absolute' }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              transform: 'scale(0.6)',
+              top: ear === CAT || ear === KITTY ? '-38px' : '-60px',
+              left: '-43px',
+              zIndex: baseTheme.zIndices.above,
+            }}
+          >
             {EAR_SAMPLES[ear as keyof typeof EAR_SAMPLES]}
           </Box>
         </Sample>
