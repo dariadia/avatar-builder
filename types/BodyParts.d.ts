@@ -61,6 +61,7 @@ export type Skin = {
 export interface Ear extends AdjustableBodyPart {
   colour: SkinColour
   type?: EarsType
+  boxShadow?: string
 }
 
 export type BodyType = SLIM | PLUMP

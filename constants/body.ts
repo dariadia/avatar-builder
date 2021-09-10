@@ -81,6 +81,7 @@ export const DUMPLING = 'DUMPLING'
 export const PIZZA = 'PIZZA'
 export const BUN = 'BUN'
 export const WITCH = 'WITCH'
+export const VEE = 'VEE'
 export const ELF = 'ELF'
 export const SANATA_S_ELF = 'SANATA_S_ELF'
 export const EARS_TYPES = [
