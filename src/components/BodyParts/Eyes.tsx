@@ -103,11 +103,11 @@ const TriangularEyes: React.FC<TriangleProps> = ({
 }) => (
   <Flex
     sx={{
-      width: '60px',
+      width: '70px',
       justifyContent: 'space-between',
       position: 'absolute',
       top: '30px',
-      left: '5px',
+      left: '0',
     }}
   >
     <TriangleUp {...{ left, right, bottom, colour }} />
@@ -124,11 +124,11 @@ const TriangularDownEyes: React.FC<TriangleProps & Record<string, string>> = ({
 }) => (
   <Flex
     sx={{
-      width: '60px',
+      width: '70px',
       justifyContent: 'space-between',
       position: 'absolute',
       top: eyesPosition,
-      left: '5px',
+      left: '0',
     }}
   >
     <TriangleDown {...{ left, right, top, colour }} />
