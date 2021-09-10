@@ -48,7 +48,7 @@ const EarPointy: React.FC<EarProps> = styled(Box)<EarProps>`
   left: ${({ left = '120px' }) => left};
   top: ${({ top = '105px' }) => top};
   ${({ rotate = '-38' }) => (rotate ? `transform: rotate(${rotate}deg)` : '')};
-  ${({ boxShadow }) => (boxShadow ? boxShadow : '')};
+  ${({ boxShadow }) => (boxShadow ? `box-shadow: ${boxShadow}` : '')};
 `
 
 export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
@@ -93,7 +93,7 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
         <>
           <EarPointy
             colour={colour}
-            type={type}
+            type={WITCH}
             rotate="-20"
             left="95px"
             boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
@@ -149,8 +149,8 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             height="50px"
             left="85px"
             top="70px"
-            rotate="-20"
-            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
+            rotate="-80"
+            boxShadow="inset 0 8px 12px 6px rgb(0 0 0 / 60%)"
           />
           <EarPointy
             colour={colour}
@@ -159,7 +159,7 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             left="185px"
             top="70px"
             rotate="20"
-            boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
+            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
           />
         </>
       )
@@ -172,8 +172,8 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             height="50px"
             left="85px"
             top="70px"
-            rotate="-60"
-            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
+            rotate="-110"
+            boxShadow="inset -10px 10px 12px 4px rgb(0 0 0 / 60%)"
           />
           <EarPointy
             colour={colour}
@@ -182,7 +182,7 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             left="185px"
             top="70px"
             rotate="60"
-            boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
+            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
           />
         </>
       )

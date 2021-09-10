@@ -91,6 +91,7 @@ export const EARS_TYPES = [
   PIZZA,
   BUN,
   WITCH,
+  VEE,
   ELF,
   SANATA_S_ELF,
   VULCAN,
