@@ -75,13 +75,25 @@ export const HAIR_TYPES = [
 ]
 
 export const ROUND = 'ROUND'
-export const DOVE = 'DOVE'
 export const VULCAN = 'VULCAN'
 export const KITTY = 'KITTY'
 export const DUMPLING = 'DUMPLING'
 export const PIZZA = 'PIZZA'
 export const BUN = 'BUN'
-export const EARS_TYPES = [ROUND, DUMPLING, PIZZA, BUN, DOVE, VULCAN, KITTY]
+export const WITCH = 'WITCH'
+export const ELF = 'ELF'
+export const SANATA_S_ELF = 'SANATA_S_ELF'
+export const EARS_TYPES = [
+  ROUND,
+  DUMPLING,
+  PIZZA,
+  BUN,
+  WITCH,
+  ELF,
+  SANATA_S_ELF,
+  VULCAN,
+  KITTY,
+]
 
 export const SKIN_OUTLINE = '1px solid rgba(0, 0, 0, 0.08)'
 

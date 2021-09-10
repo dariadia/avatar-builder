@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  DOVE,
   ROUND,
   VULCAN,
   KITTY,
@@ -11,6 +10,9 @@ import {
   EARS_TYPES,
   PIZZA,
   BUN,
+  WITCH,
+  ELF,
+  SANATA_S_ELF,
 } from 'constants/body'
 import { Box, baseTheme } from 'danni-s-design-system'
 import { Sample } from './Sample'
@@ -27,11 +29,23 @@ const EarRound: React.FC<EarProps> = styled(Box)<EarProps>`
   width: ${({ width }) => (width ? width : '20px')};
   height: ${({ height }) => (height ? height : '35px')};
   left: ${({ left }) => left};
-  top: ${({ top }) => (top ? top : '114px')};
+  top: ${({ top = '114px' }) => top};
   position: absolute;
   border-radius: ${baseTheme.radii.circle}px;
   background: ${({ colour }) => colour};
   ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg)` : '')};
+`
+
+const EarPointy: React.FC<EarProps> = styled(Box)<EarProps>`
+  width: ${({ width }) => (width ? width : '20px')};
+  height: ${({ height }) => (height ? height : '40px')};
+  position: absolute;
+  background: ${({ colour }) => colour};
+  border-radius: ${({ type }) =>
+    type === WITCH ? '0 200px 0 200px' : '200px 0 200px'};
+  left: ${({ left = '120px' }) => left};
+  top: ${({ top = '105px' }) => top};
+  ${({ rotate = '-38' }) => (rotate ? `transform: rotate(${rotate}deg)` : '')};
 `
 
 export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
@@ -64,10 +78,46 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
           <EarRound colour={colour} left="187px" rotate="25" />
         </>
       )
-    case DOVE:
-      return <div>hello</div>
+    case WITCH:
+      return (
+        <>
+          <EarPointy colour={colour} type={type} rotate="-20" left="95px" />
+          <EarPointy colour={colour} type={VULCAN} rotate="20" left="185px" />
+        </>
+      )
+    case ELF:
+      return (
+        <>
+          <EarPointy colour={colour} type={WITCH} rotate="-38" left="95px" />
+          <EarPointy colour={colour} type={VULCAN} rotate="42" left="184px" />
+        </>
+      )
+    case SANATA_S_ELF:
+      return (
+        <>
+          <EarPointy colour={colour} type={WITCH} rotate="-30" left="88px" />
+          <EarPointy colour={colour} type={VULCAN} rotate="30" left="192px" />
+        </>
+      )
     case VULCAN:
-      return <div>{colour}</div>
+      return (
+        <>
+          <EarPointy
+            colour={colour}
+            type={type}
+            rotate="-38"
+            left="95px"
+            top="105px"
+          />
+          <EarPointy
+            colour={colour}
+            type={WITCH}
+            rotate="42"
+            left="184px"
+            top="107px"
+          />
+        </>
+      )
     case KITTY:
       return <div>hello</div>
     default:
