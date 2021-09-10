@@ -14,6 +14,7 @@ import {
   ELF,
   SANATA_S_ELF,
   VEE,
+  CAT,
 } from 'constants/body'
 import { Box, baseTheme } from 'danni-s-design-system'
 import { Sample } from './Sample'
@@ -139,6 +140,29 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
           />
         </>
       )
+    case CAT:
+      return (
+        <>
+          <EarPointy
+            colour={colour}
+            width="35px"
+            height="50px"
+            left="85px"
+            top="70px"
+            rotate="-20"
+            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
+          />
+          <EarPointy
+            colour={colour}
+            width="35px"
+            height="50px"
+            left="185px"
+            top="70px"
+            rotate="20"
+            boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
+          />
+        </>
+      )
     case KITTY:
       return (
         <>
@@ -148,6 +172,7 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             height="50px"
             left="85px"
             top="70px"
+            rotate="-60"
             boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
           />
           <EarPointy
@@ -156,6 +181,7 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
             height="50px"
             left="185px"
             top="70px"
+            rotate="60"
             boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
           />
         </>

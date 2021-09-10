@@ -84,6 +84,7 @@ export const WITCH = 'WITCH'
 export const VEE = 'VEE'
 export const ELF = 'ELF'
 export const SANATA_S_ELF = 'SANATA_S_ELF'
+export const CAT = 'CAT'
 export const EARS_TYPES = [
   ROUND,
   DUMPLING,
@@ -93,6 +94,7 @@ export const EARS_TYPES = [
   ELF,
   SANATA_S_ELF,
   VULCAN,
+  CAT,
   KITTY,
 ]
 
