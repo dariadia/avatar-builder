@@ -142,8 +142,22 @@ export const EarPair: React.FC<EarProps> = ({ colour, type }) => {
     case KITTY:
       return (
         <>
-          <EarPointy colour={colour} width="35px" height="50px" rotate="82" />
-          <EarPointy colour={colour} width="35px" height="50px" />
+          <EarPointy
+            colour={colour}
+            width="35px"
+            height="50px"
+            left="85px"
+            top="70px"
+            boxShadow="inset 0 10px 12px 4px rgb(0 0 0 / 60%)"
+          />
+          <EarPointy
+            colour={colour}
+            width="35px"
+            height="50px"
+            left="185px"
+            top="70px"
+            boxShadow="inset 8px 8px rgb(0 0 0 / 60%)"
+          />
         </>
       )
     default:
