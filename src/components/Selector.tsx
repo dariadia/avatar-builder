@@ -440,13 +440,11 @@ const StyledInput = styled('input')`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  &:not(:checked) {
+  &:not(:checked) + label {
+    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-  &:not(:checked) + label {
-    cursor: pointer;
   }
   &:checked + label {
     filter: brightness(0.8);
