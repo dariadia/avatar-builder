@@ -437,11 +437,17 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
 )
 
 const StyledInput = styled('input')`
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  -ms-appearance: none !important;
-  appearance: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
   &:not(:checked) + label {
     cursor: pointer;
+  }
+  &:checked + label {
+    filter: brightness(0.8);
+  }
+  &:checked + label > div {
+    box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
   }
 `
