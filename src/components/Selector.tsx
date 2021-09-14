@@ -439,6 +439,7 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
 const StyledInput = styled('input')`
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   &:not(:checked) + label {
     cursor: pointer;
