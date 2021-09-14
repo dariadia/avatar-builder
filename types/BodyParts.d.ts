@@ -49,6 +49,11 @@ export type Eyebrow = {
   colour: HairColour
 }
 
+export type FacialHair = {
+  type: string
+  colour: HairColour
+}
+
 export type GlassesLensProps = {
   side: 'left' | 'right'
 }
