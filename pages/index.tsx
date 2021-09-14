@@ -70,18 +70,6 @@ const HomePage: Page<SinglePageProps> = () => {
         </Grid>
       </Media>
       <Media lessThan="tablet">
-        <Grid p="m" sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.m }}>
-          <Avatar {...avatar} />
-          <Box>
-            <HeadingH3 as="h1" kind="serif">
-              {t('builder_heading')}
-            </HeadingH3>
-            <Selector {...{ avatar, setAvatarItem }} />
-            <StyledSaveButton mx="auto">{t('save')}</StyledSaveButton>
-          </Box>
-        </Grid>
-      </Media>
-      <Media lessThan="mobile">
         <Grid sx={{ gridTemplateColumns: '1fr', gap: baseTheme.space.xs }}>
           <Avatar {...avatar} />
           <Box>
