@@ -444,12 +444,6 @@ const StyledInput = styled('input')`
   &:not(:checked) + label {
     cursor: pointer;
   }
-  &:not(:checked) {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-  }
   &:checked + label {
     filter: brightness(0.8);
   }
