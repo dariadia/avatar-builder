@@ -444,10 +444,4 @@ const StyledInput = styled('input')`
   &:not(:checked) + label {
     cursor: pointer;
   }
-  &:checked + label {
-    filter: brightness(0.8);
-  }
-  &:checked + label > div {
-    box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
-  }
 `
