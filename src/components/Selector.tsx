@@ -446,7 +446,9 @@ const StyledInput = styled('input')`
   }
   &:checked + label {
     filter: brightness(0.8);
-    color: red;
+  }
+  &:not(:checked) + label > div {
+    box-shadow: inherit;
   }
   &:checked + label > div {
     box-shadow: 0 0 2px 1px ${mainTheme.colours.complementaryDark};
