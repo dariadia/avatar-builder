@@ -354,6 +354,6 @@ export const defaultAvatarState = {
   [EYEBROWS]: 'DEFAULT:PERSIAN_SUN',
   [MOUTH]: 'SLIM:CHOCOLATE',
   [NOSE]: 'BUTTON',
-  [HAIR]: 'WAVES:GARNET',
+  [HAIR]: 'UHURA:GARNET',
   [EARS]: 'EARS:PIZZA',
 }
