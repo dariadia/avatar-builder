@@ -442,9 +442,6 @@ const StyledInput = styled('input')`
   appearance: none;
   &:not(:checked) + label {
     cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
   }
   &:checked + label {
     filter: brightness(0.8);
