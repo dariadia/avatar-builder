@@ -9,6 +9,7 @@ export const MOUTH = 'mouth'
 export const NOSE = 'nose'
 export const HAIR = 'hair'
 export const EARS = 'ears'
+export const FACIAL_HAIR = 'facial_hair'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -18,7 +19,13 @@ export const DEFAULT = 'DEFAULT'
 export const TYPE = 'TYPE'
 export const COLOUR = 'COLOUR'
 
+export const MOUSTACHE = 'MOUSTACHE'
+export const BEARD = 'BEARD'
+export const PENCIL = 'PENCIL'
+export const GOATY = 'GOATY'
+
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
+export const FACIAL_HAIR_TYPES = [MOUSTACHE, BEARD, PENCIL, GOATY]
 export const SAD = 'SAD'
 export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
@@ -111,6 +118,7 @@ export const SELECTOR_NAMES = [
   NOSE,
   HAIR,
   EARS,
+  FACIAL_HAIR,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
