@@ -16,6 +16,7 @@ import {
   HAIR,
   TYPE,
   EARS,
+  FACIAL_HAIR,
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
@@ -37,6 +38,8 @@ import {
   MOUTH_ITEMS_COLOURS,
   HAIR_ITEMS_TYPES,
   HAIR_ITEMS_COLOURS,
+  FACIAL_HAIR_ITEMS_COLOURS,
+  FACIAL_HAIR_ITEMS_TYPES,
   NOSE_ITEMS,
   EARS_ITEMS,
 } from '.'
@@ -124,6 +127,14 @@ const NavigationOptions = () => {
       id: HAIR,
       value: HAIR,
       children: <NavigationWrapper>{t(HAIR, { count: 1 })}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: FACIAL_HAIR,
+      value: FACIAL_HAIR,
+      children: (
+        <NavigationWrapper>{t(FACIAL_HAIR, { count: 1 })}</NavigationWrapper>
+      ),
     },
     {
       name: 'selector',
@@ -282,6 +293,21 @@ const Selection = ({
           heading={t('avatar:select_type', {
             count: 2,
             item: t(`avatar:${EYEBROWS}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
+        />
+      )
+    case FACIAL_HAIR:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={FACIAL_HAIR_ITEMS_TYPES()}
+          selectorItemsOptions={FACIAL_HAIR_ITEMS_COLOURS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${FACIAL_HAIR}`, { count: 0 })}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${FACIAL_HAIR}`, { count: 0 }),
           })}
           chooseColourHeading={colourHeading}
         />
