@@ -51,7 +51,7 @@ export type Eyebrow = {
   colour: HairColour
 }
 
-export type FacialHair = {
+export interface FacialHair extends AdjustableBodyPart {
   type?: FacialHairType
   colour: HairColour
 }
