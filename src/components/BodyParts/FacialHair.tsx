@@ -30,35 +30,37 @@ import type {
   EyebrowsColourKey,
 } from 'types'
 
-const Moustache: React.FC<Pick<FacialHairProps, 'colour'>> = styled(Box)<
-  Pick<FacialHairProps, 'colour'>
->`
-  width: 5px;
-  height: 5px;
+const Moustache: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
+  width: ${({ width }) => (width ? width : '15px')};
+  height: ${({ height }) => (height ? height : '5px')};
   background: ${({ colour }) => darken(0.2, colour)};
   border: ${SKIN_OUTLINE};
-  &::after {
-    content: '';
-    margin-top: -2px;
-    margin-left: 10px;
-    display: block;
-    width: 10px;
-    height: 5px;
-    background: ${({ colour }) => darken(0.2, colour)};
-    border: ${SKIN_OUTLINE};
-  }
 `
 
 const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
   switch (type) {
     case MOUSTACHE:
-      return <Moustache colour={colour} />
+      return (
+        <>
+          <Moustache colour={colour} />
+          <Moustache colour={colour} />
+        </>
+      )
     default:
       return <></>
   }
 }
 
-export const Eyebrows: React.FC<FacialHairProps> = styled(Flex).attrs(
+const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
+  switch (type) {
+    case MOUSTACHE:
+      return `top: 77px; left: 17px; width: 40px;`
+    default:
+      return ``
+  }
+}
+
+export const FacialHair: React.FC<FacialHairProps> = styled(Flex).attrs(
   (props: FacialHairProps) => ({
     children: FACIAL_HAIR_ITEMS({
       colour: props.colour,
@@ -66,10 +68,9 @@ export const Eyebrows: React.FC<FacialHairProps> = styled(Flex).attrs(
     }),
   }),
 )<FacialHairProps>`
-  width: 70px;
   justify-content: space-between;
   position: absolute;
-  top: 20px;
+  ${({ type }) => FACIAL_HAIR_SX(type)}
 `
 
 const EyebrowSample: React.FC<ConstrainedBoxProps> = styled(Box).attrs(
