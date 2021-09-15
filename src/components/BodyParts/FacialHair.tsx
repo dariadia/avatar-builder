@@ -18,6 +18,9 @@ import {
   LAMPSHADE,
   WALRUS,
   PAINTERS,
+  PYRAMID,
+  INFINITY,
+  HORSESHOE,
 } from 'constants/body'
 
 import type {
@@ -31,6 +34,41 @@ const Moustache: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
   height: ${({ height }) => (height ? height : '5px')};
   background: ${({ colour }) => darken(0.2, colour)};
   border: ${SKIN_OUTLINE};
+  ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg);` : '')}
+  ${({ sx }) => (sx ? `${sx}` : '')}
+`
+
+const InfinityMoustache: React.FC<FacialHairProps> = styled(Box)<
+  FacialHairProps
+>`
+  width: 33px;
+  height: 14px;
+  box-sizing: content-box;
+  &:before,
+  &:after {
+    content: '';
+    box-sizing: content-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid ${({ colour }) => colour};
+    border-radius: 7px 7px 0 7px;
+    transform: rotate(-45deg);
+  }
+  &:after {
+    left: auto;
+    right: 0;
+    border-radius: 7px 7px 7px 0;
+    transform: rotate(45deg);
+  }
+`
+
+const CurlMoustache: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
+  width: ${({ width }) => (width ? width : '40px')};
+  height: ${({ height }) => (height ? height : '40px')};
+  border-radius: 50%;
   ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg);` : '')}
   ${({ sx }) => (sx ? `${sx}` : '')}
 `
@@ -82,6 +120,23 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
           />
         </>
       )
+    case PYRAMID:
+      return (
+        <>
+          <Moustache
+            colour={colour}
+            sx="border-top-left-radius: 4px;"
+            height="3px"
+            rotate="-20"
+          />
+          <Moustache
+            colour={colour}
+            sx="border-top-right-radius: 4px;"
+            height="3px"
+            rotate="20"
+          />
+        </>
+      )
     case LAMPSHADE:
       return (
         <>
@@ -120,6 +175,16 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
           />
         </>
       )
+    case INFINITY:
+      return <InfinityMoustache colour={colour} />
+    case HORSESHOE:
+      return (
+        <CurlMoustache
+          colour={colour}
+          rotate="-135"
+          sx={`box-shadow: 5px 5px 0 0 ${colour};`}
+        />
+      )
     default:
       return <></>
   }
@@ -139,6 +204,12 @@ const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
       return `left: 11px; width: 50px;`
     case PAINTERS:
       return `left: 13px; width: 45px;`
+    case PYRAMID:
+      return `top: 80px; left: 13px; width: 45px;`
+    case INFINITY:
+      return `top: 74px; left: 19px;`
+    case HORSESHOE:
+      return `top: 84px; left: 16px;`
     default:
       return `left: 16px; width: 40px;`
   }
