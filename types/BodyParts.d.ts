@@ -20,6 +20,7 @@ import {
   MOUTH_EMOTIONS,
   HAIR_TYPES,
   EARS_TYPES,
+  FACIAL_HAIR_TYPES,
 } from 'constants/body'
 
 import {
@@ -50,7 +51,7 @@ export type Eyebrow = {
 }
 
 export type FacialHair = {
-  type: string
+  type: FacialHairType
   colour: HairColour
 }
 
@@ -95,6 +96,9 @@ export type HairColour = HAIR_COLOURS[keyof HAIR_COLOURS]
 
 export type EyebrowsColourKey = keyof typeof EYEBROWS_COLOURS
 export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
+
+export type FacialHairTypeKey = keyof typeof FACIAL_HAIR_TYPES
+export type FacialHairType = FACIAL_HAIR_TYPES[keyof FACIAL_HAIR_TYPES]
 
 export type MouthColourKey = keyof typeof MOUTH_COLOURS
 type MouthColour = MOUTH_COLOURS[keyof MOUTH_COLOURS]
