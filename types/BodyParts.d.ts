@@ -21,6 +21,7 @@ import {
   HAIR_TYPES,
   EARS_TYPES,
   FACIAL_HAIR_TYPES,
+  FACIAL_HAIR,
 } from 'constants/body'
 
 import {
@@ -51,7 +52,7 @@ export type Eyebrow = {
 }
 
 export type FacialHair = {
-  type: FacialHairType
+  type?: FacialHairType
   colour: HairColour
 }
 
@@ -154,4 +155,5 @@ export type Avatar = {
   [NOSE]: NoseType
   [HAIR]: HairColour
   [EARS]: EarsType
+  [FACIAL_HAIR]: FacialHairType
 }
