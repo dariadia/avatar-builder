@@ -23,9 +23,26 @@ export const MOUSTACHE = 'MOUSTACHE'
 export const BEARD = 'BEARD'
 export const PENCIL = 'PENCIL'
 export const GOATY = 'GOATY'
+export const MOUSE = 'MOUSE'
+export const NONE = 'NONE'
+export const DOUG = 'DOUG'
+export const LAMPSHADE = 'LAMPSHADE'
+export const PAINTERS = 'PAINTERS'
+export const WALRUS = 'WALRUS'
 
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
-export const FACIAL_HAIR_TYPES = [MOUSTACHE, BEARD, PENCIL, GOATY]
+export const FACIAL_HAIR_TYPES = [
+  MOUSTACHE,
+  PENCIL,
+  MOUSE,
+  DOUG,
+  LAMPSHADE,
+  PAINTERS,
+  WALRUS,
+  BEARD,
+  GOATY,
+  NONE,
+]
 export const SAD = 'SAD'
 export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
@@ -48,7 +65,6 @@ export const STICKY_BUNS = 'STICKY_BUNS'
 export const GLIMMER = 'GLIMMER'
 export const MADDIE = 'MADDIE'
 export const BREEZE = 'BREEZE'
-export const MOUSE = 'MOUSE'
 
 export const SHORT = 'SHORT'
 export const MIDDLE = 'MIDDLE'

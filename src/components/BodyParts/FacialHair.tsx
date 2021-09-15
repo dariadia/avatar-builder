@@ -13,6 +13,11 @@ import {
   FACIAL_HAIR,
   MOUSTACHE,
   PENCIL,
+  MOUSE,
+  DOUG,
+  LAMPSHADE,
+  WALRUS,
+  PAINTERS,
 } from 'constants/body'
 
 import type {
@@ -26,6 +31,8 @@ const Moustache: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
   height: ${({ height }) => (height ? height : '5px')};
   background: ${({ colour }) => darken(0.2, colour)};
   border: ${SKIN_OUTLINE};
+  ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg);` : '')}
+  ${({ sx }) => (sx ? `${sx}` : '')}
 `
 
 const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
@@ -44,6 +51,75 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
           <Moustache colour={colour} height="2px" width="20px" />
         </>
       )
+    case MOUSE:
+      return (
+        <>
+          <Moustache colour={colour} width="5px" />
+          <Moustache colour={colour} width="5px" />
+        </>
+      )
+    case DOUG:
+      return (
+        <>
+          <Moustache colour={colour} sx="border-top-left-radius: 4px;" />
+          <Moustache colour={colour} sx="border-top-right-radius: 4px;" />
+        </>
+      )
+    case PAINTERS:
+      return (
+        <>
+          <Moustache
+            colour={colour}
+            sx="border-top-left-radius: 4px;"
+            height="7px"
+            rotate="-20"
+          />
+          <Moustache
+            colour={colour}
+            sx="border-top-right-radius: 4px;"
+            height="7px"
+            rotate="20"
+          />
+        </>
+      )
+    case LAMPSHADE:
+      return (
+        <>
+          <Moustache
+            colour={colour}
+            sx="border-top-left-radius: 4px;"
+            height="7px"
+          />
+          <Moustache
+            colour={colour}
+            sx="border-top-right-radius: 4px;"
+            height="7px"
+          />
+        </>
+      )
+    case WALRUS:
+      return (
+        <>
+          <Moustache
+            colour={colour}
+            sx={`border-top-left-radius: 4px; box-shadow: inset 0 5px 2px 0 ${darken(
+              0.15,
+              colour,
+            )}`}
+            height="10px"
+            width="25px"
+          />
+          <Moustache
+            colour={colour}
+            sx={`border-top-right-radius: 4px; box-shadow: inset 0 5px 2px 0 ${darken(
+              0.15,
+              colour,
+            )}`}
+            height="10px"
+            width="25px"
+          />
+        </>
+      )
     default:
       return <></>
   }
@@ -52,11 +128,19 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
 const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
   switch (type) {
     case MOUSTACHE:
-      return `top: 77px; left: 17px; width: 40px;`
+      return `left: 16px; width: 40px;`
     case PENCIL:
-      return `top: 77px; left: 10px; width: 50px;`
+      return `left: 10px; width: 50px;`
+    case MOUSE:
+      return `left: 26px; width: 20px;`
+    case LAMPSHADE:
+      return `left: 21px; width: 30px;`
+    case WALRUS:
+      return `left: 11px; width: 50px;`
+    case PAINTERS:
+      return `left: 13px; width: 45px;`
     default:
-      return ``
+      return `left: 16px; width: 40px;`
   }
 }
 
@@ -70,6 +154,7 @@ export const FacialHair: React.FC<FacialHairProps> = styled(Flex).attrs(
 )<FacialHairProps>`
   justify-content: space-between;
   position: absolute;
+  top: 77px;
   ${({ type }) => FACIAL_HAIR_SX(type)}
 `
 
