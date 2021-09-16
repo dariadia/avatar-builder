@@ -21,6 +21,8 @@ import {
   PYRAMID,
   INFINITY,
   HORSESHOE,
+  DALI,
+  FOX,
 } from 'constants/body'
 
 import type {
@@ -71,6 +73,15 @@ const CurlMoustache: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
   border-radius: 50%;
   ${({ rotate }) => (rotate ? `transform: rotate(${rotate}deg);` : '')}
   ${({ sx }) => (sx ? `${sx}` : '')}
+`
+
+export const DaliMoustache: React.FC<FacialHairProps> = styled(Box)<
+  FacialHairProps
+>`
+  width: ${({ width }) => (width ? width : '50px')};
+  height: ${({ height }) => (height ? height : '40px')};
+  border-radius: 60%;
+  border-bottom: 3px solid ${({ colour }) => darken(0.1, colour)};
 `
 
 const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
@@ -185,6 +196,15 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
           sx={`box-shadow: 5px 5px 0 0 ${colour};`}
         />
       )
+    case DALI:
+      return <DaliMoustache colour={colour} />
+    case FOX:
+      return (
+        <>
+          <DaliMoustache colour={colour} width="20px" height="20px" />
+          <DaliMoustache colour={colour} width="20px" height="20px" />
+        </>
+      )
     default:
       return <></>
   }
@@ -210,6 +230,10 @@ const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
       return `top: 74px; left: 19px;`
     case HORSESHOE:
       return `top: 84px; left: 16px;`
+    case DALI:
+      return `top: 45px; left: 10px;`
+    case FOX:
+      return `top: 65px; left: 15px; width: 40px;`
     default:
       return `left: 16px; width: 40px;`
   }

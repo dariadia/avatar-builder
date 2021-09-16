@@ -32,6 +32,8 @@ export const WALRUS = 'WALRUS'
 export const PYRAMID = 'PYRAMID'
 export const INFINITY = 'INFINITY'
 export const HORSESHOE = 'HORSESHOE'
+export const DALI = 'DALI'
+export const FOX = 'FOX'
 
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
 export const FACIAL_HAIR_TYPES = [
@@ -44,6 +46,8 @@ export const FACIAL_HAIR_TYPES = [
   PYRAMID,
   WALRUS,
   HORSESHOE,
+  FOX,
+  DALI,
   INFINITY,
   BEARD,
   GOATY,
