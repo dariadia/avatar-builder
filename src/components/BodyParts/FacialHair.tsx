@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { darken } from 'polished'
 
 import { Sample } from './Sample'
-import { Box, Flex } from 'danni-s-design-system'
+import { Box, Flex, Text } from 'danni-s-design-system'
 import {
   TYPE,
   SKIN_OUTLINE,
@@ -28,6 +28,7 @@ import {
   MASTER,
   GOATY,
   GLAZE,
+  NONE,
 } from 'constants/body'
 
 import type {
@@ -289,7 +290,7 @@ const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
     case BOW:
       return `top: 90px; left: 16px;`
     case BEARD:
-      return `top: 60px; left: 5px;`
+      return `top: 60px; left: 6px;`
     case GLAZE:
       return `top: 80px; left: 3px;`
     case GOATY:
@@ -324,7 +325,19 @@ export const FACIAL_HAIR_ITEMS_TYPES = (): SelectorItem[] => {
       id: `${TYPE}:${type}`,
       children: (
         <Sample>
-          <FacialHair type={type} colour="black" />
+          <Box
+            sx={{
+              transform: 'scale(0.5)',
+              position: 'absolute',
+              top: type === NONE ? '-4px' : '-20px',
+            }}
+          >
+            {type === NONE ? (
+              <Text fontSize="40px">❌</Text>
+            ) : (
+              <FacialHair type={type} colour="black" />
+            )}
+          </Box>
         </Sample>
       ),
     })
