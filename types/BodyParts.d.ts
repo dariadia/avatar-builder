@@ -55,6 +55,8 @@ export interface FacialHair extends AdjustableBodyPart {
   type?: FacialHairType
   colour: HairColour
   sx?: string
+  bottom?: number
+  radii?: string
 }
 
 export type GlassesLensProps = {
