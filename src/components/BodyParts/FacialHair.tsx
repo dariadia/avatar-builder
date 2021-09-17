@@ -23,6 +23,11 @@ import {
   HORSESHOE,
   DALI,
   FOX,
+  BEARD,
+  BOW,
+  MASTER,
+  GOATY,
+  GLAZE,
 } from 'constants/body'
 
 import type {
@@ -82,6 +87,15 @@ export const DaliMoustache: React.FC<FacialHairProps> = styled(Box)<
   height: ${({ height }) => (height ? height : '40px')};
   border-radius: 60%;
   border-bottom: 3px solid ${({ colour }) => darken(0.1, colour)};
+`
+
+export const Beard: React.FC<FacialHairProps> = styled(Box)<FacialHairProps>`
+  width: ${({ width }) => (width ? width : '40px')};
+  height: ${({ height }) => (height ? height : '20px')};
+  border-radius: ${({ radii }) => (radii ? radii : '60%')};
+  border-bottom: ${({ colour, bottom = 10 }) =>
+    `${bottom}px solid ${darken(0.1, colour)}`};
+  ${({ sx }) => (sx ? `${sx}` : '')}
 `
 
 const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
@@ -205,6 +219,44 @@ const FACIAL_HAIR_ITEMS: React.FC<FacialHairProps> = ({ type, colour }) => {
           <DaliMoustache colour={colour} width="20px" height="20px" />
         </>
       )
+    case BOW:
+      return (
+        <>
+          <Beard colour={colour} />
+        </>
+      )
+    case BEARD:
+      return (
+        <>
+          <Beard colour={colour} width="60px" height="49px" radii="35%" />
+        </>
+      )
+    case GLAZE:
+      return (
+        <>
+          <Beard colour={colour} width="64px" height="30px" bottom={4} />
+        </>
+      )
+    case MASTER:
+      return (
+        <>
+          <CurlMoustache
+            colour={colour}
+            rotate="-135"
+            sx={`box-shadow: 5px 5px 0 0 ${colour}; position: absolute;`}
+          />
+          <Beard
+            colour={colour}
+            sx={`position: absolute; left: 0; top: 7px;`}
+          />
+        </>
+      )
+    case GOATY:
+      return (
+        <>
+          <Beard colour={colour} width="20px" height="15px" radii="35%" />
+        </>
+      )
     default:
       return <></>
   }
@@ -231,9 +283,19 @@ const FACIAL_HAIR_SX = (type: Pick<FacialHairProps, 'type'>): string => {
     case HORSESHOE:
       return `top: 84px; left: 16px;`
     case DALI:
-      return `top: 45px; left: 10px;`
+      return `top: 43px; left: 10px;`
     case FOX:
       return `top: 65px; left: 15px; width: 40px;`
+    case BOW:
+      return `top: 90px; left: 16px;`
+    case BEARD:
+      return `top: 60px; left: 5px;`
+    case GLAZE:
+      return `top: 80px; left: 3px;`
+    case GOATY:
+      return `top: 95px; left: 26px;`
+    case MASTER:
+      return `top: 83px; left: 16px; position: relative;`
     default:
       return `left: 16px; width: 40px;`
   }

@@ -34,6 +34,9 @@ export const INFINITY = 'INFINITY'
 export const HORSESHOE = 'HORSESHOE'
 export const DALI = 'DALI'
 export const FOX = 'FOX'
+export const MASTER = 'MASTER'
+export const BOW = 'BOW'
+export const GLAZE = 'GLAZE'
 
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
 export const FACIAL_HAIR_TYPES = [
@@ -49,8 +52,11 @@ export const FACIAL_HAIR_TYPES = [
   FOX,
   DALI,
   INFINITY,
+  BOW,
   BEARD,
+  MASTER,
   GOATY,
+  GLAZE,
   NONE,
 ]
 export const SAD = 'SAD'
