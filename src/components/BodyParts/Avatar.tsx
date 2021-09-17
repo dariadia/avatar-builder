@@ -10,6 +10,7 @@ import {
   Nose,
   Hair,
   Ears,
+  FacialHair,
 } from '@/components'
 import { Box } from 'danni-s-design-system'
 
@@ -40,6 +41,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
     nose,
     hair,
     ears,
+    facial_hair,
   } = avatar
 
   const [skinType, skinHue] = skin.split(':')
@@ -47,6 +49,9 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
 
   const [eyebrowsType, eyebrowsHue] = eyebrows.split(':')
   const eyebrowsColour = HAIR_COLOURS[eyebrowsHue as HairColourKey]
+
+  const [facialHairType, facialHairHue] = facial_hair.split(':')
+  const facialHairColour = HAIR_COLOURS[facialHairHue as HairColourKey]
 
   const [mouthType, mouthHue] = mouth.split(':')
   const mouthColour = MOUTH_COLOURS[mouthHue as MouthColourKey] || mouthHue
@@ -67,6 +72,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           {Eyes[eyes as EyesTypeKey]}
           <Nose colour={skinColour} type={nose} />
           <Mouth type={mouthType} colour={mouthColour} />
+          <FacialHair type={facialHairType} colour={facialHairColour} />
         </Skin>
         <Hair colour={hairColour} type={hairType} />
         <Ears colour={skinColour} type={earType} />

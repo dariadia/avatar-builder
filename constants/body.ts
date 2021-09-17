@@ -9,6 +9,7 @@ export const MOUTH = 'mouth'
 export const NOSE = 'nose'
 export const HAIR = 'hair'
 export const EARS = 'ears'
+export const FACIAL_HAIR = 'facial_hair'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -18,7 +19,46 @@ export const DEFAULT = 'DEFAULT'
 export const TYPE = 'TYPE'
 export const COLOUR = 'COLOUR'
 
+export const MOUSTACHE = 'MOUSTACHE'
+export const BEARD = 'BEARD'
+export const PENCIL = 'PENCIL'
+export const GOATY = 'GOATY'
+export const MOUSE = 'MOUSE'
+export const NONE = 'NONE'
+export const DOUG = 'DOUG'
+export const LAMPSHADE = 'LAMPSHADE'
+export const PAINTERS = 'PAINTERS'
+export const WALRUS = 'WALRUS'
+export const PYRAMID = 'PYRAMID'
+export const INFINITY = 'INFINITY'
+export const HORSESHOE = 'HORSESHOE'
+export const DALI = 'DALI'
+export const FOX = 'FOX'
+export const MASTER = 'MASTER'
+export const BOW = 'BOW'
+export const GLAZE = 'GLAZE'
+
 export const EYEBROWS_TYPES = [DEFAULT, BUSHY, SLIM, DASHED]
+export const FACIAL_HAIR_TYPES = [
+  MOUSTACHE,
+  PENCIL,
+  MOUSE,
+  DOUG,
+  LAMPSHADE,
+  PAINTERS,
+  PYRAMID,
+  WALRUS,
+  HORSESHOE,
+  FOX,
+  DALI,
+  INFINITY,
+  BOW,
+  BEARD,
+  MASTER,
+  GOATY,
+  GLAZE,
+  NONE,
+]
 export const SAD = 'SAD'
 export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
@@ -41,7 +81,6 @@ export const STICKY_BUNS = 'STICKY_BUNS'
 export const GLIMMER = 'GLIMMER'
 export const MADDIE = 'MADDIE'
 export const BREEZE = 'BREEZE'
-export const MOUSE = 'MOUSE'
 
 export const SHORT = 'SHORT'
 export const MIDDLE = 'MIDDLE'
@@ -111,6 +150,7 @@ export const SELECTOR_NAMES = [
   NOSE,
   HAIR,
   EARS,
+  FACIAL_HAIR,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
@@ -356,4 +396,5 @@ export const defaultAvatarState = {
   [NOSE]: 'BUTTON',
   [HAIR]: 'UHURA:GARNET',
   [EARS]: 'EARS:PIZZA',
+  [FACIAL_HAIR]: 'MOUSTACHE:PERSIAN_SUN',
 }
