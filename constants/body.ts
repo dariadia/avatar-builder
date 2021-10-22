@@ -375,7 +375,7 @@ export const MOUTH_EMOTIONS_EMOJI = {
   SLIM: '😐',
   SMILE: '🙂',
   PLUMP: '👄',
-  SAD: '☹️',
+  SAD: '🙁',
   CONFUSED: '😕',
   SHOCKED: '😮',
 }
