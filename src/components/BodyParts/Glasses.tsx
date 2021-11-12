@@ -52,18 +52,20 @@ const Shine = styled(Box).attrs({ className: 'shine' })`
   }
 `
 
-const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs({
-  children: (
-    <>
-      <GlassesLens side={LEFT}>
-        <Shine />
-      </GlassesLens>
-      <GlassesLens side={RIGHT}>
-        <Shine />
-      </GlassesLens>
-    </>
-  ),
-})<GlassesProps>`
+const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
+  (props: GlassesProps) => ({
+    children: (
+      <>
+        <GlassesLens side={LEFT} size={props.size} left={props.left}>
+          <Shine />
+        </GlassesLens>
+        <GlassesLens side={RIGHT} size={props.size} right={props.right}>
+          <Shine />
+        </GlassesLens>
+      </>
+    ),
+  }),
+)<GlassesProps>`
   position: relative;
   width: 5px;
   height: 2px;
@@ -89,14 +91,13 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
       return <GlassesFrame colour={colour} />
     case GUILLERMO:
       return (
-        <GlassesFrame colour={colour}>
-          <GlassesLens side={LEFT}>
-            <Shine />
-          </GlassesLens>
-          <GlassesLens side={RIGHT}>
-            <Shine />
-          </GlassesLens>
-        </GlassesFrame>
+        <GlassesFrame
+          colour={colour}
+          size={30}
+          left={-32}
+          right={10}
+          top={-7}
+        />
       )
     default:
       return null
