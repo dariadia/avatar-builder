@@ -75,10 +75,10 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs({
     top: ${({ top = -22 }) => `${top}px`};
     border-radius: ${({ radius = 100 }) => `${radius}%`};
   }
-  > .lens&.left {
+  > .lens.left {
     left: ${({ left = -50 }) => `${left}px`};
   }
-  > .lens&.right {
+  > .lens.right {
     left: ${({ right = 4 }) => `${right}px`};
   }
 `
