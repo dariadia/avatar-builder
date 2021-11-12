@@ -10,6 +10,7 @@ export const NOSE = 'nose'
 export const HAIR = 'hair'
 export const EARS = 'ears'
 export const FACIAL_HAIR = 'facial_hair'
+export const FRECKLES = 'freckles'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -59,6 +60,25 @@ export const FACIAL_HAIR_TYPES = [
   GLAZE,
   NONE,
 ]
+
+export const SUN_TOUCHED = 'SUN_TOUCHED'
+export const SUN_KISSED = 'SUN_KISSED'
+export const SUN_STRUCK = 'SUN_STRUCK'
+export const MARILYN_MONROE = 'MARILYN_MONROE'
+export const LA_BOUFF = 'LA_BOUFF'
+export const ARISTOCRAT = 'ARISTOCRAT'
+export const GENTRY = 'GENTRY'
+
+export const FRECKLES_TYPES = [
+  SUN_TOUCHED,
+  SUN_KISSED,
+  SUN_STRUCK,
+  MARILYN_MONROE,
+  LA_BOUFF,
+  ARISTOCRAT,
+  GENTRY,
+]
+
 export const SAD = 'SAD'
 export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
@@ -151,6 +171,7 @@ export const SELECTOR_NAMES = [
   HAIR,
   EARS,
   FACIAL_HAIR,
+  FRECKLES,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
@@ -397,4 +418,5 @@ export const defaultAvatarState = {
   [HAIR]: 'UHURA:GARNET',
   [EARS]: 'EARS:PIZZA',
   [FACIAL_HAIR]: 'MOUSTACHE:PERSIAN_SUN',
+  [FRECKLES]: '',
 }
