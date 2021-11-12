@@ -6,6 +6,8 @@ import {
   HAIR_COLOURS,
   EYEBROWS_COLOURS,
   MOUTH_COLOURS,
+  GLASSES_COLOURS,
+  GLASSES_TYPES,
   PLUMP,
   SLIM,
   BACKGROUND,
@@ -13,6 +15,7 @@ import {
   SKIN,
   CLOTHES,
   MOUTH,
+  GLASSES,
   EYES,
   NOSE,
   HAIR,
@@ -106,6 +109,12 @@ export type EyebrowsColour = EYEBROWS_COLOURS[keyof EYEBROWS_COLOURS]
 export type FacialHairTypeKey = keyof typeof FACIAL_HAIR_TYPES
 export type FacialHairType = FACIAL_HAIR_TYPES[keyof FACIAL_HAIR_TYPES]
 
+export type GlassesColourKey = keyof typeof GLASSES_COLOURS
+type GlassesColour = GLASSES_COLOURS[keyof GLASSES_COLOURS]
+
+export type GlassesTypeKey = keyof typeof GLASSES_TYPES
+type GlassesType = GLASSES_TYPES[keyof GLASSES_TYPES]
+
 export type MouthColourKey = keyof typeof MOUTH_COLOURS
 type MouthColour = MOUTH_COLOURS[keyof MOUTH_COLOURS]
 
@@ -146,6 +155,11 @@ export type Mouth = {
   transform?: string
 } & ConstrainedBoxProps
 
+export type Glasses = {
+  colour?: GlassesColour
+  type?: GlassesType
+} & ConstrainedBoxProps
+
 export type Nose = {
   colour?: SkinColour
   type?: NoseType
@@ -174,4 +188,5 @@ export type Avatar = {
   [EARS]: EarsType
   [FACIAL_HAIR]: FacialHairType
   [FRECKLES]: FrecklesType
+  [GLASSES]: GlassesType
 }
