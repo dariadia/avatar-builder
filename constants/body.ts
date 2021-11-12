@@ -115,6 +115,7 @@ export const GLASSES_TYPES = [
   CHARLOTTE_HARRIS,
   JUNIOR,
   SENIOR,
+  '',
 ]
 
 export const WAVES = 'WAVES'

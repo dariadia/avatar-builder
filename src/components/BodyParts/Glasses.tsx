@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { baseTheme, Box } from 'danni-s-design-system'
+import { baseTheme, Box, Text } from 'danni-s-design-system'
 import {
   GLASSES,
   LEFT,
@@ -284,7 +284,11 @@ export const GLASSES_ITEMS_TYPES = (): SelectorItem[] => {
               left: '7px',
             }}
           >
-            <Glasses type={glasses} colour="black" />
+            {glasses ? (
+              <Glasses type={glasses} colour="black" />
+            ) : (
+              <Text fontSize="24px">❌</Text>
+            )}
           </Box>
         </Sample>
       ),
