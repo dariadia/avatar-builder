@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
 
-import { FRECKLES, FRECKLES_TYPES, SUN_TOUCHED } from 'constants/body'
+import { FRECKLES, FRECKLES_TYPES, SUN_TOUCHED, LA_BOUFF } from 'constants/body'
 import { baseTheme, Box } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
@@ -10,23 +10,36 @@ import type { Freckles as FrecklesProps, SelectorItem } from 'types'
 
 const FrecklesWrapper = styled(Box)<FrecklesProps>`
   position: relative;
+  width: 90px;
+  height: 120px;
+  margin-left: -10px;
   > div {
-    background: ${({ colour }) =>
-      `inset 0px 16px 0px 0px ${darken(0.3, colour)}`};
+    background: ${({ colour }) => `${darken(0.3, colour)}`};
   }
 `
 
 const Freckle: React.FC<FrecklesProps> = styled(Box)<FrecklesProps>`
   width: ${({ width = 5 }) => `${width}px`};
   height: ${({ height = 4 }) => `${height}px`};
-  top: ${({ top = 4 }) => `${top}px`};
-  left: ${({ left = 4 }) => `${left}px`};
+  top: ${({ top = 70 }) => `${top}px`};
+  left: ${({ left = 20 }) => `${left}px`};
   border-radius: 10px;
+  position: absolute;
 `
 
 export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
   switch (type) {
     case SUN_TOUCHED:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle />
+          <Freckle />
+          <Freckle />
+          <Freckle />
+          <Freckle />
+        </FrecklesWrapper>
+      )
+    case LA_BOUFF:
       return (
         <FrecklesWrapper colour={colour}>
           <Freckle />
@@ -36,6 +49,12 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
       return null
   }
 }
+
+// SUN_KISSED,
+// SUN_STRUCK,
+// MARILYN_MONROE,
+// ARISTOCRAT,
+// GENTRY,
 
 export const FRECKLES_ITEMS = (): SelectorItem[] => {
   const frecklesNodesArray = []
