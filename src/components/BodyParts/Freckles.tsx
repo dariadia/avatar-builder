@@ -135,6 +135,14 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
   }
 }
 
+const SampleBox = styled(Box)<{ top: string }>`
+  position: absolute;
+  top: ${({ top }) => top};
+  left: -19px;
+  overflow: hidden;
+  transform: scale(0.4);
+`
+
 export const FRECKLES_ITEMS = (): SelectorItem[] => {
   const frecklesNodesArray = []
 
@@ -144,15 +152,9 @@ export const FRECKLES_ITEMS = (): SelectorItem[] => {
       id: mark,
       children: (
         <Sample>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '6px',
-              left: '7px',
-            }}
-          >
+          <SampleBox top={mark === EARL ? '-27px' : '-47px'}>
             <Freckles colour="black" type={mark} />
-          </Box>
+          </SampleBox>
         </Sample>
       ),
     })
