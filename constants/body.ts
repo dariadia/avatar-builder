@@ -418,5 +418,5 @@ export const defaultAvatarState = {
   [HAIR]: 'UHURA:GARNET',
   [EARS]: 'EARS:PIZZA',
   [FACIAL_HAIR]: 'MOUSTACHE:PERSIAN_SUN',
-  [FRECKLES]: '',
+  [FRECKLES]: 'LA_BOUFF',
 }
