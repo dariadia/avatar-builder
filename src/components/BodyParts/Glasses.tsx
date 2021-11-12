@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { baseTheme, Box, Circle } from 'danni-s-design-system'
+import { baseTheme, Box } from 'danni-s-design-system'
 import {
   GLASSES,
   LEFT,
@@ -26,14 +26,17 @@ import {
   Glasses as GlassesProps,
 } from 'types'
 
-const GlassesLens = styled(Circle).attrs((props: GlassesLensProps) => ({
-  size: `${props.size || 50}px`,
+const GlassesLens = styled(Box).attrs((props: GlassesLensProps) => ({
   className: `lens ${props.side}`,
 }))<GlassesLensProps>`
   position: absolute;
   background: transparent;
   overflow: hidden;
   z-index: ${baseTheme.zIndices.above};
+  ${({ width, height = 30, size = 50 }) =>
+    width
+      ? `width: ${width}px; height: ${height}px;`
+      : `width: ${size}px; height: ${size}px;`};
 `
 
 const Shine = styled(Box).attrs({ className: 'shine' })`
@@ -60,10 +63,22 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
   (props: GlassesProps) => ({
     children: (
       <>
-        <GlassesLens side={LEFT} size={props.size} left={props.left}>
+        <GlassesLens
+          side={LEFT}
+          size={props.size}
+          left={props.left}
+          width={props.width}
+          height={props.height}
+        >
           <Shine />
         </GlassesLens>
-        <GlassesLens side={RIGHT} size={props.size} right={props.right}>
+        <GlassesLens
+          side={RIGHT}
+          size={props.size}
+          right={props.right}
+          width={props.width}
+          height={props.height}
+        >
           <Shine />
         </GlassesLens>
       </>
@@ -130,7 +145,9 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
       return (
         <GlassesFrame
           colour={colour}
-          size={30}
+          radius={40}
+          width={40}
+          height={20}
           left={-27}
           right={16}
           top={-7}
