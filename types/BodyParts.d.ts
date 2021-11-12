@@ -22,6 +22,7 @@ import {
   EARS_TYPES,
   FACIAL_HAIR_TYPES,
   FACIAL_HAIR,
+  FRECKLES,
 } from 'constants/body'
 
 import {
@@ -172,4 +173,5 @@ export type Avatar = {
   [HAIR]: HairColour
   [EARS]: EarsType
   [FACIAL_HAIR]: FacialHairType
+  [FRECKLES]: FrecklesType
 }
