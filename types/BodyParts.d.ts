@@ -157,6 +157,8 @@ export type Freckles = {
   type?: FrecklesType
   top?: string
   left?: string
+  width?: number
+  height?: number
 }
 
 export type Avatar = {
