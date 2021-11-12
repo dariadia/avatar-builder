@@ -163,6 +163,7 @@ export type Glasses = {
   right?: number
   top?: number
   radius?: number
+  frame?: { width: number; height: number; left: number; top: number }
 } & ConstrainedBoxProps
 
 export type Nose = {

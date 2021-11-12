@@ -67,11 +67,11 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
   }),
 )<GlassesProps>`
   position: relative;
-  width: 5px;
-  height: 2px;
+  width: ${({ frame }) => `${frame?.width || 5}px`};
+  height: ${({ frame }) => `${frame?.height || 2}px`};
   background: ${({ colour }) => colour};
-  left: 32px;
-  top: 46px;
+  left: ${({ frame }) => `${frame?.left || 32}px`};
+  top: ${({ frame }) => `${frame?.top || 46}px`};
   > .lens {
     border: 2px solid ${({ colour }) => colour};
     top: ${({ top = -22 }) => `${top}px`};
