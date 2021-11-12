@@ -66,7 +66,8 @@ export interface FacialHair extends AdjustableBodyPart {
 
 export type GlassesLensProps = {
   side: 'left' | 'right'
-}
+  size?: number
+} & ConstrainedBoxProps
 
 export type Skin = {
   colour: SkinColour
@@ -158,6 +159,10 @@ export type Mouth = {
 export type Glasses = {
   colour?: GlassesColour
   type?: GlassesType
+  left?: number
+  right?: number
+  top?: number
+  radius?: number
 } & ConstrainedBoxProps
 
 export type Nose = {

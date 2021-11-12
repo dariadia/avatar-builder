@@ -10,7 +10,8 @@ import {
   COLOUR,
   GLASSES_TYPES,
   TYPE,
-  COLIN_ROBINSON,
+  FISH,
+  GUILLERMO,
 } from 'constants/body'
 import { Sample } from './Sample'
 
@@ -21,26 +22,12 @@ import {
   Glasses as GlassesProps,
 } from 'types'
 
-const GlassesFrame: React.FC<GlassesProps> = styled(Box)<GlassesProps>`
-  position: relative;
-  width: 5px;
-  height: 2px;
-  background: ${({ colour }) => colour};
-  left: 32px;
-  top: 46px;
-  > div {
-    border: 2px solid ${({ colour }) => colour};
-  }
-`
-
-const GlassesLens: React.FC<GlassesLensProps> = styled(Circle).attrs({
-  size: '50px',
-})<GlassesLensProps>`
+const GlassesLens = styled(Circle).attrs((props: GlassesLensProps) => ({
+  size: `${props.size || 50}px`,
+  className: `lens ${props.side}`,
+}))<GlassesLensProps>`
   position: absolute;
   background: transparent;
-  border-radius: 100%;
-  left: ${({ side }) => (side === LEFT ? '-50px' : '4px')};
-  top: -22px;
   overflow: hidden;
   z-index: ${baseTheme.zIndices.above};
 `
@@ -65,9 +52,42 @@ const Shine = styled(Box).attrs({ className: 'shine' })`
   }
 `
 
+const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs({
+  children: (
+    <>
+      <GlassesLens side={LEFT}>
+        <Shine />
+      </GlassesLens>
+      <GlassesLens side={RIGHT}>
+        <Shine />
+      </GlassesLens>
+    </>
+  ),
+})<GlassesProps>`
+  position: relative;
+  width: 5px;
+  height: 2px;
+  background: ${({ colour }) => colour};
+  left: 32px;
+  top: 46px;
+  > .lens {
+    border: 2px solid ${({ colour }) => colour};
+    top: ${({ top = -22 }) => `${top}px`};
+    border-radius: ${({ radius = 100 }) => `${radius}%`};
+  }
+  > .lens&.left {
+    left: ${({ left = -50 }) => `${left}px`};
+  }
+  > .lens&.right {
+    left: ${({ right = 4 }) => `${right}px`};
+  }
+`
+
 export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
   switch (type) {
-    case COLIN_ROBINSON:
+    case FISH:
+      return <GlassesFrame colour={colour} />
+    case GUILLERMO:
       return (
         <GlassesFrame colour={colour}>
           <GlassesLens side={LEFT}>
