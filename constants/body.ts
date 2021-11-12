@@ -68,6 +68,9 @@ export const MARILYN_MONROE = 'MARILYN_MONROE'
 export const LA_BOUFF = 'LA_BOUFF'
 export const ARISTOCRAT = 'ARISTOCRAT'
 export const GENTRY = 'GENTRY'
+export const EARL = 'EARL'
+export const VISCOUNT = 'VISCOUNT'
+export const PARSON = 'PARSON'
 
 export const FRECKLES_TYPES = [
   SUN_TOUCHED,
@@ -77,6 +80,9 @@ export const FRECKLES_TYPES = [
   LA_BOUFF,
   ARISTOCRAT,
   GENTRY,
+  EARL,
+  VISCOUNT,
+  PARSON,
 ]
 
 export const SAD = 'SAD'

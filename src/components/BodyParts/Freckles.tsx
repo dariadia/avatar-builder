@@ -12,6 +12,9 @@ import {
   MARILYN_MONROE,
   ARISTOCRAT,
   GENTRY,
+  EARL,
+  VISCOUNT,
+  PARSON,
 } from 'constants/body'
 import { baseTheme, Box } from 'danni-s-design-system'
 import { Sample } from './Sample'
@@ -92,19 +95,39 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
     case MARILYN_MONROE:
       return (
         <FrecklesWrapper colour={colour}>
-          <Freckle />
+          <Freckle top={80} left={66} />
         </FrecklesWrapper>
       )
     case ARISTOCRAT:
       return (
         <FrecklesWrapper colour={colour}>
-          <Freckle />
+          <Freckle top={58} left={9} />
         </FrecklesWrapper>
       )
     case GENTRY:
       return (
         <FrecklesWrapper colour={colour}>
-          <Freckle />
+          <Freckle top={60} left={9} />
+          <Freckle top={70} left={9} width={4} height={3} />
+        </FrecklesWrapper>
+      )
+    case EARL:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle top={11} left={10} width={4} height={3} />
+        </FrecklesWrapper>
+      )
+    case VISCOUNT:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle top={60} left={78} />
+          <Freckle top={70} left={65} width={4} height={3} />
+        </FrecklesWrapper>
+      )
+    case PARSON:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle top={98} left={53} />
         </FrecklesWrapper>
       )
     default:
