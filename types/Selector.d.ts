@@ -23,6 +23,7 @@ export type AvatarOptions = {
   nose: string | React.Node | React.Node[]
   hair: string[]
   ears: string | React.Node | React.Node[]
+  freckles: string | React.Node | React.Node[]
 }
 
 export type AvatarOptionKey = keyof AvatarOptions
