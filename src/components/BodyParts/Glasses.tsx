@@ -102,9 +102,17 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
   }
   > .lens.left {
     left: ${({ left = -50 }) => `${left}px`};
+    ${({ frame }) =>
+      frame?.borderCut
+        ? `border-bottom-right-radius: ${frame?.borderCut}%;`
+        : ''};
   }
   > .lens.right {
     left: ${({ right = 4 }) => `${right}px`};
+    ${({ frame }) =>
+      frame?.borderCut
+        ? `border-bottom-left-radius: ${frame?.borderCut}px;`
+        : ''};
   }
 `
 

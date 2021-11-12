@@ -172,6 +172,7 @@ export type Glasses = {
     left?: number
     top?: number
     border?: number
+    borderCut?: number
   }
   size?: number
 } & ConstrainedBoxProps
