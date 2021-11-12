@@ -1,10 +1,10 @@
 import React from 'react'
 import { baseTheme, Circle } from 'danni-s-design-system'
 
-import { MouthColour, EyebrowsColour, SkinColour } from 'types'
+import { MouthColour, EyebrowsColour, SkinColour, GlassesColour } from 'types'
 
 export const Sample: React.FC<{
-  colour?: EyebrowsColour | MouthColour | SkinColour
+  colour?: EyebrowsColour | MouthColour | SkinColour | GlassesColour
   boxShadow?: string
 }> = ({ colour = 'white', children, boxShadow }) => (
   <Circle
