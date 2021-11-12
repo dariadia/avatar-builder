@@ -1,8 +1,12 @@
 import React from 'react'
+// import styled from 'styled-components'
+// import { darken } from 'polished'
 
-import { Box } from 'danni-s-design-system'
+import { FRECKLES, FRECKLES_TYPES } from 'constants/body'
+import { baseTheme, Box } from 'danni-s-design-system'
 
-export const Freckles: React.FC = () => <Box>Freckles</Box>
+import type { Freckles as FrecklesProps, SelectorItem } from 'types'
+import { Sample } from './Sample'
 
 // const Freckles = styled(Flex)`
 //   width: 75px;
@@ -23,3 +27,42 @@ export const Freckles: React.FC = () => <Box>Freckles</Box>
 //     margin-left: 5px;
 //   }
 // `
+
+export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
+  switch (type) {
+    case 'BUTTON':
+      return <div>button {colour} </div>
+    case 'OVAL':
+      return <div>oval {colour} </div>
+    default:
+      return null
+  }
+}
+
+export const FRECKLES_ITEMS = (): SelectorItem[] => {
+  const frecklesNodesArray = []
+
+  for (const mark of FRECKLES_TYPES) {
+    frecklesNodesArray.push({
+      name: FRECKLES,
+      id: mark,
+      children: (
+        <Sample>
+          <Box
+            sx={{
+              position: 'absolute',
+              fontSize: `${baseTheme.space.xl}px`,
+              top: '6px',
+              left: '7px',
+            }}
+          >
+            hello world
+            {/* {MOUTH_EMOTIONS_EMOJI[mouth as keyof typeof MOUTH_EMOTIONS_EMOJI]} */}
+          </Box>
+        </Sample>
+      ),
+    })
+  }
+
+  return frecklesNodesArray
+}
