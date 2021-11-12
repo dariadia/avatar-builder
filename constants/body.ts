@@ -92,11 +92,20 @@ export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
 export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
 
-export const FISH = 'FISH'
+export const DARIA = 'DARIA'
 export const GUILLERMO = 'GUILLERMO'
 export const COLIN_ROBINSON = 'COLIN_ROBINSON'
 export const CHARLOTTE_HARRIS = 'CHARLOTTE_HARRIS'
-export const GLASSES_TYPES = [FISH, GUILLERMO, COLIN_ROBINSON, CHARLOTTE_HARRIS]
+export const OFFICE = 'OFFICE'
+export const NEW_KID = 'NEW_KID'
+export const GLASSES_TYPES = [
+  DARIA,
+  GUILLERMO,
+  OFFICE,
+  NEW_KID,
+  COLIN_ROBINSON,
+  CHARLOTTE_HARRIS,
+]
 
 export const WAVES = 'WAVES'
 export const TIDE = 'TIDE'

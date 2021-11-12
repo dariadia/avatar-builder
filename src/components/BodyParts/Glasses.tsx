@@ -10,8 +10,12 @@ import {
   COLOUR,
   GLASSES_TYPES,
   TYPE,
-  FISH,
+  DARIA,
   GUILLERMO,
+  COLIN_ROBINSON,
+  CHARLOTTE_HARRIS,
+  OFFICE,
+  NEW_KID,
 } from 'constants/body'
 import { Sample } from './Sample'
 
@@ -87,16 +91,61 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
 
 export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
   switch (type) {
-    case FISH:
+    case DARIA:
       return <GlassesFrame colour={colour} />
     case GUILLERMO:
       return (
         <GlassesFrame
           colour={colour}
           size={30}
-          left={-32}
-          right={10}
+          left={-27}
+          right={16}
           top={-7}
+          frame={{ width: 18, left: 26 }}
+        />
+      )
+    case OFFICE:
+      return (
+        <GlassesFrame
+          colour={colour}
+          size={30}
+          left={-27}
+          right={16}
+          top={-7}
+          frame={{ width: 18, left: 26, top: 40 }}
+        />
+      )
+    case NEW_KID:
+      return (
+        <GlassesFrame
+          colour={colour}
+          size={32}
+          left={-30}
+          right={15}
+          top={-7}
+          frame={{ width: 16, left: 28, top: 43, height: 6 }}
+        />
+      )
+    case COLIN_ROBINSON:
+      return (
+        <GlassesFrame
+          colour={colour}
+          size={30}
+          left={-27}
+          right={16}
+          top={-7}
+          frame={{ width: 18, left: 26 }}
+        />
+      )
+    case CHARLOTTE_HARRIS:
+      return (
+        <GlassesFrame
+          colour={colour}
+          size={30}
+          left={-27}
+          right={16}
+          top={-7}
+          frame={{ width: 18, left: 26 }}
         />
       )
     default:
