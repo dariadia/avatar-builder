@@ -32,11 +32,11 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
     case SUN_TOUCHED:
       return (
         <FrecklesWrapper colour={colour}>
-          <Freckle />
-          <Freckle />
-          <Freckle />
-          <Freckle />
-          <Freckle />
+          <Freckle top={66} left={11} width={3} height={3} />
+          <Freckle top={80} left={15} width={3} height={3} />
+          <Freckle top={80} left={30} width={3} height={3} />
+          <Freckle top={74} left={63} width={3} height={3} />
+          <Freckle top={82} left={75} width={3} height={3} />
         </FrecklesWrapper>
       )
     case LA_BOUFF:

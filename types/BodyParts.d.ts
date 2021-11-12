@@ -156,8 +156,8 @@ export type Nose = {
 export type Freckles = {
   colour?: SkinColour
   type?: FrecklesType
-  top?: string
-  left?: string
+  top?: number
+  left?: number
   width?: number
   height?: number
 }
