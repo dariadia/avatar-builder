@@ -16,6 +16,9 @@ import {
   CHARLOTTE_HARRIS,
   OFFICE,
   NEW_KID,
+  FRESHMAN,
+  CARL_FREDRICKSEN,
+  SOPHOMORE,
 } from 'constants/body'
 import { Sample } from './Sample'
 
@@ -92,7 +95,8 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
   left: ${({ frame }) => `${frame?.left || 32}px`};
   top: ${({ frame }) => `${frame?.top || 46}px`};
   > .lens {
-    border: 2px solid ${({ colour }) => colour};
+    border: ${({ frame }) => `${frame?.border || 2}px`} solid
+      ${({ colour }) => colour};
     top: ${({ top = -22 }) => `${top}px`};
     border-radius: ${({ radius = 100 }) => `${radius}%`};
   }
@@ -127,7 +131,7 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
           left={-27}
           right={16}
           top={-7}
-          frame={{ width: 18, left: 26, top: 40 }}
+          frame={{ width: 18, left: 26, top: 40, border: 3 }}
         />
       )
     case NEW_KID:
@@ -136,9 +140,22 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
           colour={colour}
           size={32}
           left={-30}
-          right={15}
+          right={14}
           top={-7}
           frame={{ width: 16, left: 28, top: 43, height: 6 }}
+        />
+      )
+    case FRESHMAN:
+      return (
+        <GlassesFrame
+          colour={colour}
+          radius={40}
+          width={40}
+          height={25}
+          left={-38}
+          right={9}
+          top={-7}
+          frame={{ width: 11, left: 30, height: 3 }}
         />
       )
     case COLIN_ROBINSON:
@@ -147,17 +164,44 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
           colour={colour}
           radius={40}
           width={40}
-          height={20}
-          left={-27}
-          right={16}
+          height={25}
+          left={-38}
+          right={9}
           top={-7}
-          frame={{ width: 18, left: 26 }}
+          frame={{ width: 11, left: 30, top: 40, height: 5, border: 3 }}
+        />
+      )
+    case CARL_FREDRICKSEN:
+      return (
+        <GlassesFrame
+          colour={colour}
+          radius={10}
+          width={40}
+          height={25}
+          left={-38}
+          right={9}
+          top={-7}
+          frame={{ width: 11, left: 30, top: 44, height: 4, border: 4 }}
+        />
+      )
+    case SOPHOMORE:
+      return (
+        <GlassesFrame
+          colour={colour}
+          radius={10}
+          width={40}
+          height={25}
+          left={-38}
+          right={9}
+          top={-7}
+          frame={{ width: 11, left: 30, top: 44, height: 4 }}
         />
       )
     case CHARLOTTE_HARRIS:
       return (
         <GlassesFrame
           colour={colour}
+          radius={40}
           size={30}
           left={-27}
           right={16}
