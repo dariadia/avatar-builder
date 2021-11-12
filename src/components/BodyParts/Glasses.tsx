@@ -279,12 +279,12 @@ export const GLASSES_ITEMS_TYPES = (): SelectorItem[] => {
           <Box
             sx={{
               position: 'absolute',
-              fontSize: `${baseTheme.space.xl}px`,
-              top: '6px',
+              transform: 'scale(0.3)',
+              top: '5px',
               left: '7px',
             }}
           >
-            item
+            <Glasses type={glasses} colour="black" />
           </Box>
         </Sample>
       ),
