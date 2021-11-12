@@ -19,6 +19,8 @@ import {
   FRESHMAN,
   CARL_FREDRICKSEN,
   SOPHOMORE,
+  JUNIOR,
+  SENIOR,
 } from 'constants/body'
 import { Sample } from './Sample'
 
@@ -111,7 +113,7 @@ const GlassesFrame: React.FC<GlassesProps> = styled(Box).attrs(
     left: ${({ right = 4 }) => `${right}px`};
     ${({ frame }) =>
       frame?.borderCut
-        ? `border-bottom-left-radius: ${frame?.borderCut}px;`
+        ? `border-bottom-left-radius: ${frame?.borderCut}%;`
         : ''};
   }
 `
@@ -209,12 +211,39 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
       return (
         <GlassesFrame
           colour={colour}
-          radius={40}
-          size={30}
-          left={-27}
-          right={16}
+          radius={20}
+          height={30}
+          width={40}
+          left={-38}
+          right={12}
           top={-7}
-          frame={{ width: 18, left: 26 }}
+          frame={{ width: 12, left: 29, borderCut: 60 }}
+        />
+      )
+    case JUNIOR:
+      return (
+        <GlassesFrame
+          colour={colour}
+          radius={20}
+          height={25}
+          width={35}
+          left={-34}
+          right={10}
+          top={-9}
+          frame={{ width: 12, left: 29, borderCut: 60, height: 3 }}
+        />
+      )
+    case SENIOR:
+      return (
+        <GlassesFrame
+          colour={colour}
+          radius={10}
+          height={30}
+          width={40}
+          left={-38}
+          right={12}
+          top={-7}
+          frame={{ width: 12, left: 29, borderCut: 40, border: 3 }}
         />
       )
     default:

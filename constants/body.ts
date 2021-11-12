@@ -100,6 +100,8 @@ export const OFFICE = 'OFFICE'
 export const NEW_KID = 'NEW_KID'
 export const FRESHMAN = 'FRESHMAN'
 export const SOPHOMORE = 'SOPHOMORE'
+export const JUNIOR = 'JUNIOR'
+export const SENIOR = 'SENIOR'
 export const CARL_FREDRICKSEN = 'CARL_FREDRICKSEN'
 export const GLASSES_TYPES = [
   DARIA,
@@ -111,6 +113,8 @@ export const GLASSES_TYPES = [
   SOPHOMORE,
   CARL_FREDRICKSEN,
   CHARLOTTE_HARRIS,
+  JUNIOR,
+  SENIOR,
 ]
 
 export const WAVES = 'WAVES'
