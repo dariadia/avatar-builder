@@ -2,7 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
 
-import { FRECKLES, FRECKLES_TYPES, SUN_TOUCHED, LA_BOUFF } from 'constants/body'
+import {
+  FRECKLES,
+  FRECKLES_TYPES,
+  SUN_TOUCHED,
+  LA_BOUFF,
+  SUN_KISSED,
+  SUN_STRUCK,
+  MARILYN_MONROE,
+  ARISTOCRAT,
+  GENTRY,
+} from 'constants/body'
 import { baseTheme, Box } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
@@ -39,7 +49,59 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
           <Freckle top={82} left={75} width={3} height={3} />
         </FrecklesWrapper>
       )
+    case SUN_KISSED:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle top={67} left={12} width={4} height={3} />
+          <Freckle top={81} left={15} width={4} height={3} />
+          <Freckle top={69} left={24} />
+          <Freckle top={82} left={75} width={3} height={2} />
+          <Freckle top={74} left={63} width={4} height={3} />
+          <Freckle top={93} left={70} width={3} height={2} />
+          <Freckle top={66} left={76} />
+          <Freckle top={60} left={78} width={4} height={3} />
+          <Freckle top={56} left={8} width={4} height={3} />
+        </FrecklesWrapper>
+      )
+    case SUN_STRUCK:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle top={67} left={12} width={4} height={3} />
+          <Freckle top={81} left={15} width={4} height={3} />
+          <Freckle top={69} left={24} />
+          <Freckle top={82} left={75} width={3} height={2} />
+          <Freckle top={74} left={63} width={4} height={3} />
+          <Freckle top={93} left={70} width={3} height={2} />
+          <Freckle top={66} left={76} />
+          <Freckle top={60} left={78} width={4} height={3} />
+          <Freckle top={6} left={15} width={3} height={2} />
+          <Freckle top={11} left={19} width={3} height={2} />
+          <Freckle top={54} left={4} />
+          <Freckle top={56} left={18} width={4} height={3} />
+          <Freckle top={93} left={30} width={3} height={2} />
+          <Freckle top={69} left={30} width={3} height={2} />
+          <Freckle top={68} left={67} width={3} height={2} />
+        </FrecklesWrapper>
+      )
     case LA_BOUFF:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle />
+        </FrecklesWrapper>
+      )
+    case MARILYN_MONROE:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle />
+        </FrecklesWrapper>
+      )
+    case ARISTOCRAT:
+      return (
+        <FrecklesWrapper colour={colour}>
+          <Freckle />
+        </FrecklesWrapper>
+      )
+    case GENTRY:
       return (
         <FrecklesWrapper colour={colour}>
           <Freckle />
@@ -49,12 +111,6 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
       return null
   }
 }
-
-// SUN_KISSED,
-// SUN_STRUCK,
-// MARILYN_MONROE,
-// ARISTOCRAT,
-// GENTRY,
 
 export const FRECKLES_ITEMS = (): SelectorItem[] => {
   const frecklesNodesArray = []
