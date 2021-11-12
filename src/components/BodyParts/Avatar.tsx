@@ -7,6 +7,7 @@ import {
   Eyes,
   Eyebrows,
   Mouth,
+  Glasses,
   Nose,
   Hair,
   Ears,
@@ -20,6 +21,7 @@ import {
   HAIR_COLOURS,
   SKIN_COLOURS,
   MOUTH_COLOURS,
+  GLASSES_COLOURS,
 } from 'constants/body'
 
 import {
@@ -29,6 +31,7 @@ import {
   EyesTypeKey,
   HairColourKey,
   MouthColourKey,
+  GlassesColourKey,
 } from 'types'
 
 export const Avatar: React.FC<AvatarProps> = avatar => {
@@ -44,6 +47,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
     hair,
     ears,
     facial_hair,
+    glasses,
   } = avatar
 
   const [skinType, skinHue] = skin.split(':')
@@ -63,6 +67,10 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
 
   const [, earType] = ears.split(':')
 
+  const [glassesType, glassesHue] = glasses.split(':')
+  const glassesColour =
+    GLASSES_COLOURS[glassesHue as GlassesColourKey] || glassesHue
+
   return (
     <Box my="m" mx="auto" width="300px" height="300px">
       <Background
@@ -74,6 +82,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           {Eyes[eyes as EyesTypeKey]}
           <Nose colour={skinColour} type={nose} />
           <Mouth type={mouthType} colour={mouthColour} />
+          <Glasses type={glassesType} colour={glassesColour} />
           <FacialHair type={facialHairType} colour={facialHairColour} />
           <Freckles colour={skinColour} type={freckles} />
         </Skin>

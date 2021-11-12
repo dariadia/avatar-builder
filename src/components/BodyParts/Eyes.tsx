@@ -24,6 +24,7 @@ const OvalEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
   position: absolute;
   top: ${({ top }) => (top ? top : '32px')};
   left: -7px;
+  z-index: ${baseTheme.zIndices.above};
   &::before,
   &::after {
     background: black;
@@ -41,6 +42,7 @@ const RoundEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
   position: absolute;
   top: ${({ top }) => (top ? top : '40px')};
   left: -7px;
+  z-index: ${baseTheme.zIndices.above};
   &::before,
   &::after {
     background: black;
@@ -58,6 +60,7 @@ const NarrowEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
   position: absolute;
   top: ${({ top }) => (top ? top : '42px')};
   left: -16px;
+  z-index: ${baseTheme.zIndices.above};
   &::before,
   &::after {
     background: black;
@@ -75,6 +78,7 @@ const WinkingEyes: React.FC<EyesProps> = styled(Flex)<EyesProps>`
   position: absolute;
   top: ${({ top }) => (top ? top : '42px')};
   left: -12px;
+  z-index: ${baseTheme.zIndices.above};
   &::before {
     background: black;
     display: inline-block;
@@ -108,6 +112,7 @@ const TriangularEyes: React.FC<TriangleProps> = ({
       position: 'absolute',
       top: '30px',
       left: '0',
+      zIndex: baseTheme.zIndices.above,
     }}
   >
     <TriangleUp {...{ left, right, bottom, colour }} />
@@ -129,6 +134,7 @@ const TriangularDownEyes: React.FC<TriangleProps & Record<string, string>> = ({
       position: 'absolute',
       top: eyesPosition,
       left: '0',
+      zIndex: baseTheme.zIndices.above,
     }}
   >
     <TriangleDown {...{ left, right, top, colour }} />
@@ -140,7 +146,7 @@ const StarEyes: React.FC<StarProps & Record<string, string>> = ({
   colour,
   transform,
 }) => (
-  <>
+  <Box sx={{ zIndex: baseTheme.zIndices.above, position: 'absolute' }}>
     <Star
       colour={colour}
       transform={transform}
@@ -151,7 +157,7 @@ const StarEyes: React.FC<StarProps & Record<string, string>> = ({
       transform={transform}
       sx={{ position: 'absolute', top: '-155px', left: '-42px' }}
     />
-  </>
+  </Box>
 )
 
 const HeartEyes: React.FC<HeartProps & Record<string, string>> = ({
@@ -166,6 +172,7 @@ const HeartEyes: React.FC<HeartProps & Record<string, string>> = ({
       position: 'absolute',
       left,
       top: '10px',
+      zIndex: baseTheme.zIndices.above,
     }}
   >
     <Heart transform={transform} />

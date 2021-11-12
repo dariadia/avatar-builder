@@ -11,6 +11,7 @@ export const HAIR = 'hair'
 export const EARS = 'ears'
 export const FACIAL_HAIR = 'facial_hair'
 export const FRECKLES = 'freckles'
+export const GLASSES = 'glasses'
 
 export const SLIM = 'SLIM'
 export const PLUMP = 'PLUMP'
@@ -90,6 +91,31 @@ export const CONFUSED = 'CONFUSED'
 export const SHOCKED = 'SHOCKED'
 export const SMILE = 'SMILE'
 export const MOUTH_TYPES = [SLIM, SMILE, PLUMP, SAD, CONFUSED, SHOCKED]
+
+export const DARIA = 'DARIA'
+export const GUILLERMO = 'GUILLERMO'
+export const COLIN_ROBINSON = 'COLIN_ROBINSON'
+export const CHARLOTTE_HARRIS = 'CHARLOTTE_HARRIS'
+export const OFFICE = 'OFFICE'
+export const NEW_KID = 'NEW_KID'
+export const FRESHMAN = 'FRESHMAN'
+export const SOPHOMORE = 'SOPHOMORE'
+export const JUNIOR = 'JUNIOR'
+export const SENIOR = 'SENIOR'
+export const CARL_FREDRICKSEN = 'CARL_FREDRICKSEN'
+export const GLASSES_TYPES = [
+  DARIA,
+  GUILLERMO,
+  OFFICE,
+  NEW_KID,
+  FRESHMAN,
+  COLIN_ROBINSON,
+  SOPHOMORE,
+  CARL_FREDRICKSEN,
+  CHARLOTTE_HARRIS,
+  JUNIOR,
+  SENIOR,
+]
 
 export const WAVES = 'WAVES'
 export const TIDE = 'TIDE'
@@ -178,6 +204,7 @@ export const SELECTOR_NAMES = [
   EARS,
   FACIAL_HAIR,
   FRECKLES,
+  GLASSES,
 ]
 export type SelectorName = keyof typeof SELECTOR_NAMES
 
@@ -398,6 +425,31 @@ export const MOUTH_COLOURS = {
   VELVET: '#8240AD',
 }
 
+export const GLASSES_COLOURS = {
+  ESPRESSO: '#030303',
+  BLACK_OLIVE: '#3D3D3D',
+  ARGENT: '#C0C0C0',
+  GHOST_WHITE: '#F9F7FD',
+  CADET: '#253354',
+  CYAN: '#3264C8',
+  JORDY: '#9BB3EB',
+  AERO_BLUE: '#D9FFEE',
+  DARK_MINT: '#3EB489',
+  LANTERN: '#00FF00',
+  SLYTHERIN: '#1A472A',
+  GRAPES: '#B266B2',
+  VELVET: '#8240AD',
+  METALIC_ORANGE: '#DA680F',
+  ORANGE: '#FF5500',
+  FIRE: 'red',
+  PALE_PEACH: '#FFCB8E',
+  MAIZE: '#FFCC47',
+  SALMON: 'salmon',
+  STRAWBERRY: '#FC5A8D',
+  ROSE: '#FF66CD',
+  JAZZBERRY: '#AB155F',
+}
+
 export const MOUTH_EMOTIONS_EMOJI = {
   SLIM: '😐',
   SMILE: '🙂',
@@ -425,4 +477,5 @@ export const defaultAvatarState = {
   [EARS]: 'EARS:PIZZA',
   [FACIAL_HAIR]: 'MOUSTACHE:PERSIAN_SUN',
   [FRECKLES]: 'LA_BOUFF',
+  [GLASSES]: 'GUILLERMO:LANTERN',
 }
