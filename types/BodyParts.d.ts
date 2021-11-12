@@ -179,6 +179,7 @@ export type Freckles = {
   left?: number
   width?: number
   height?: number
+  isSample?: boolean
 }
 
 export type Avatar = {

@@ -16,16 +16,18 @@ import {
   VISCOUNT,
   PARSON,
 } from 'constants/body'
-import { Box } from 'danni-s-design-system'
+import { baseTheme, Box } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
 import type { Freckles as FrecklesProps, SelectorItem } from 'types'
 
 const FrecklesWrapper = styled(Box)<FrecklesProps>`
-  position: relative;
+  position: ${({ isSample }) => (isSample ? 'relative' : 'absolute')};
+  top: 0;
   width: 90px;
   height: 120px;
   margin-left: -10px;
+  z-index: ${baseTheme.zIndices.default};
   > div {
     background: ${({ colour }) => `${darken(0.3, colour)}`};
   }
@@ -40,11 +42,15 @@ const Freckle: React.FC<FrecklesProps> = styled(Box)<FrecklesProps>`
   position: absolute;
 `
 
-export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
+export const Freckles: React.FC<FrecklesProps> = ({
+  colour,
+  type,
+  isSample,
+}) => {
   switch (type) {
     case SUN_TOUCHED:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={66} left={11} width={3} height={3} />
           <Freckle top={80} left={15} width={3} height={3} />
           <Freckle top={80} left={30} width={3} height={3} />
@@ -54,7 +60,7 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
       )
     case SUN_KISSED:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={67} left={12} width={4} height={3} />
           <Freckle top={81} left={15} width={4} height={3} />
           <Freckle top={69} left={24} />
@@ -68,7 +74,7 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
       )
     case SUN_STRUCK:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={67} left={12} width={4} height={3} />
           <Freckle top={81} left={15} width={4} height={3} />
           <Freckle top={69} left={24} />
@@ -88,45 +94,45 @@ export const Freckles: React.FC<FrecklesProps> = ({ colour, type }) => {
       )
     case LA_BOUFF:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle />
         </FrecklesWrapper>
       )
     case MARILYN_MONROE:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={80} left={66} />
         </FrecklesWrapper>
       )
     case ARISTOCRAT:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={58} left={9} />
         </FrecklesWrapper>
       )
     case GENTRY:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={60} left={9} />
           <Freckle top={70} left={9} width={4} height={3} />
         </FrecklesWrapper>
       )
     case EARL:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={11} left={10} width={4} height={3} />
         </FrecklesWrapper>
       )
     case VISCOUNT:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={60} left={78} />
           <Freckle top={70} left={65} width={4} height={3} />
         </FrecklesWrapper>
       )
     case PARSON:
       return (
-        <FrecklesWrapper colour={colour}>
+        <FrecklesWrapper colour={colour} isSample={isSample}>
           <Freckle top={98} left={53} />
         </FrecklesWrapper>
       )
@@ -153,7 +159,7 @@ export const FRECKLES_ITEMS = (): SelectorItem[] => {
       children: (
         <Sample>
           <SampleBox top={mark === EARL ? '-27px' : '-47px'}>
-            <Freckles colour="black" type={mark} />
+            <Freckles colour="black" type={mark} isSample />
           </SampleBox>
         </Sample>
       ),
