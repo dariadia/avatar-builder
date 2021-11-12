@@ -313,6 +313,7 @@ export const FacialHair: React.FC<FacialHairProps> = styled(Flex).attrs(
   justify-content: space-between;
   position: absolute;
   top: 77px;
+  z-index: 3;
   ${({ type }) => FACIAL_HAIR_SX(type)}
 `
 

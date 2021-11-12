@@ -11,6 +11,7 @@ import {
   Hair,
   Ears,
   FacialHair,
+  Freckles,
 } from '@/components'
 import { Box } from 'danni-s-design-system'
 
@@ -39,6 +40,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
     eyebrows,
     mouth,
     nose,
+    freckles,
     hair,
     ears,
     facial_hair,
@@ -73,6 +75,7 @@ export const Avatar: React.FC<AvatarProps> = avatar => {
           <Nose colour={skinColour} type={nose} />
           <Mouth type={mouthType} colour={mouthColour} />
           <FacialHair type={facialHairType} colour={facialHairColour} />
+          <Freckles colour={skinColour} type={freckles} />
         </Skin>
         <Hair colour={hairColour} type={hairType} />
         <Ears colour={skinColour} type={earType} />

@@ -22,6 +22,7 @@ import {
   EARS_TYPES,
   FACIAL_HAIR_TYPES,
   FACIAL_HAIR,
+  FRECKLES,
 } from 'constants/body'
 
 import {
@@ -29,6 +30,7 @@ import {
   EYES_TYPES,
   EyebrowSamples,
   NOSE_ITEMS,
+  FRECKLES_ITEMS,
 } from '@/components'
 
 export interface AdjustableBodyPart {
@@ -113,6 +115,9 @@ type MouthEmotion = MOUTH_EMOTIONS[keyof MOUTH_EMOTIONS]
 export type NoseTypeKey = keyof typeof NOSE_ITEMS
 type NoseType = NOSE_ITEMS[keyof NOSE_ITEMS]
 
+export type FrecklesTypeKey = keyof typeof FRECKLES_ITEMS
+type FrecklesType = FRECKLES_ITEMS[keyof FRECKLES_ITEMS]
+
 export type EarsTypeKey = keyof typeof EARS_TYPES
 type EarsType = EARS_TYPES[keyof EARS_TYPES]
 
@@ -148,6 +153,15 @@ export type Nose = {
   left?: string
 }
 
+export type Freckles = {
+  colour?: SkinColour
+  type?: FrecklesType
+  top?: number
+  left?: number
+  width?: number
+  height?: number
+}
+
 export type Avatar = {
   [BACKGROUND]: BackgroundColour
   [SKIN]: SkinColour
@@ -159,4 +173,5 @@ export type Avatar = {
   [HAIR]: HairColour
   [EARS]: EarsType
   [FACIAL_HAIR]: FacialHairType
+  [FRECKLES]: FrecklesType
 }
