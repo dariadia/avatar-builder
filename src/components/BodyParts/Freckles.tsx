@@ -16,7 +16,7 @@ import {
   VISCOUNT,
   PARSON,
 } from 'constants/body'
-import { baseTheme, Box } from 'danni-s-design-system'
+import { Box } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
 import type { Freckles as FrecklesProps, SelectorItem } from 'types'
@@ -147,13 +147,11 @@ export const FRECKLES_ITEMS = (): SelectorItem[] => {
           <Box
             sx={{
               position: 'absolute',
-              fontSize: `${baseTheme.space.xl}px`,
               top: '6px',
               left: '7px',
             }}
           >
-            hello world
-            {/* {MOUTH_EMOTIONS_EMOJI[mouth as keyof typeof MOUTH_EMOTIONS_EMOJI]} */}
+            <Freckles colour="black" type={mark} />
           </Box>
         </Sample>
       ),
