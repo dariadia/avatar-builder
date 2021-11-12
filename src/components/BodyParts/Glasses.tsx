@@ -10,6 +10,7 @@ import {
   COLOUR,
   GLASSES_TYPES,
   TYPE,
+  COLIN_ROBINSON,
 } from 'constants/body'
 import { Sample } from './Sample'
 
@@ -20,20 +21,24 @@ import {
   Glasses as GlassesProps,
 } from 'types'
 
-const GlassesFrame = styled(Box)`
+const GlassesFrame: React.FC<GlassesProps> = styled(Box)<GlassesProps>`
   position: relative;
   width: 5px;
   height: 2px;
-  background: ${GLASSES};
-  left: 6.5%;
-  top: 25px;
+  background: ${({ colour }) => colour};
+  left: 32px;
+  top: 46px;
+  > div {
+    border: 2px solid ${({ colour }) => colour};
+  }
 `
 
-const GlassesLens = styled(Circle).attrs({ size: '50px' })<GlassesLensProps>`
+const GlassesLens: React.FC<GlassesLensProps> = styled(Circle).attrs({
+  size: '50px',
+})<GlassesLensProps>`
   position: absolute;
   background: transparent;
   border-radius: 100%;
-  border: 2px solid ${GLASSES};
   left: ${({ side }) => (side === LEFT ? '-50px' : '4px')};
   top: -22px;
   overflow: hidden;
@@ -62,10 +67,9 @@ const Shine = styled(Box).attrs({ className: 'shine' })`
 
 export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
   switch (type) {
-    default:
-      console.log(colour)
+    case COLIN_ROBINSON:
       return (
-        <GlassesFrame>
+        <GlassesFrame colour={colour}>
           <GlassesLens side={LEFT}>
             <Shine />
           </GlassesLens>
@@ -74,6 +78,8 @@ export const Glasses: React.FC<GlassesProps> = ({ type, colour }) => {
           </GlassesLens>
         </GlassesFrame>
       )
+    default:
+      return null
   }
 }
 
