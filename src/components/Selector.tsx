@@ -18,6 +18,7 @@ import {
   EARS,
   FACIAL_HAIR,
   FRECKLES,
+  GLASSES,
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
@@ -35,6 +36,8 @@ import {
   EYES_ITEMS,
   EYEBROWS_ITEMS_TYPES,
   EYEBROWS_ITEMS_COLOURS,
+  GLASSES_ITEMS_TYPES,
+  GLASSES_ITEMS_COLOURS,
   MOUTH_ITEMS_TYPES,
   MOUTH_ITEMS_COLOURS,
   HAIR_ITEMS_TYPES,
@@ -150,6 +153,14 @@ const NavigationOptions = () => {
       value: FRECKLES,
       children: (
         <NavigationWrapper>{t(FRECKLES, { count: 1 })}</NavigationWrapper>
+      ),
+    },
+    {
+      name: 'selector',
+      id: GLASSES,
+      value: GLASSES,
+      children: (
+        <NavigationWrapper>{t(GLASSES, { count: 1 })}</NavigationWrapper>
       ),
     },
   ] as SelectorItemProps[]
@@ -333,6 +344,21 @@ const Selection = ({
           heading={t('avatar:select_type', {
             count: 2,
             item: t(`avatar:${MOUTH}`, { count: 0 }),
+          })}
+          chooseColourHeading={colourHeading}
+        />
+      )
+    case GLASSES:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => withOptionsSelect(event?.target?.id)}
+          selectorItems={GLASSES_ITEMS_TYPES()}
+          selectorItemsOptions={GLASSES_ITEMS_COLOURS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${GLASSES}`)}
+          heading={t('avatar:select_type', {
+            count: 2,
+            item: t(`avatar:${GLASSES}`, { count: 0 }),
           })}
           chooseColourHeading={colourHeading}
         />
