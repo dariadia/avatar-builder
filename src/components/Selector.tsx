@@ -17,6 +17,7 @@ import {
   TYPE,
   EARS,
   FACIAL_HAIR,
+  FRECKLES,
 } from 'constants/body'
 import { CHECKBOX, RADIO } from 'constants/inputs'
 
@@ -42,6 +43,7 @@ import {
   FACIAL_HAIR_ITEMS_TYPES,
   NOSE_ITEMS,
   EARS_ITEMS,
+  FRECKLES_ITEMS,
 } from '.'
 
 import type {
@@ -141,6 +143,14 @@ const NavigationOptions = () => {
       id: EARS,
       value: EARS,
       children: <NavigationWrapper>{t(EARS, { count: 1 })}</NavigationWrapper>,
+    },
+    {
+      name: 'selector',
+      id: FRECKLES,
+      value: FRECKLES,
+      children: (
+        <NavigationWrapper>{t(FRECKLES, { count: 1 })}</NavigationWrapper>
+      ),
     },
   ] as SelectorItemProps[]
 }
@@ -358,6 +368,15 @@ const Selection = ({
           selectorItems={EARS_ITEMS()}
           role={t('common:navigation')}
           ariaLabel={t(`avatar:${EARS}`)}
+        />
+      )
+    case FRECKLES:
+      return (
+        <SelectorRow
+          onSelect={(event: Event) => select(event?.target?.id)}
+          selectorItems={FRECKLES_ITEMS()}
+          role={t('common:navigation')}
+          ariaLabel={t(`avatar:${FRECKLES}`)}
         />
       )
     default:
