@@ -84,6 +84,7 @@ export const FRECKLES_TYPES = [
   EARL,
   VISCOUNT,
   PARSON,
+  NONE,
 ]
 
 export const SAD = 'SAD'
@@ -328,6 +329,7 @@ export const EYEBROWS_COLOURS = {
   BEER: '#FF9321',
   METALIC_ORANGE: '#DA680F',
   ORANGE: '#FF5500',
+  DARK_ORANGE: '#AF3E12',
   PERSIAN_SUN: '#D4392D',
   BURN: '#C20507',
   IVORY: '#FEFFEC',
