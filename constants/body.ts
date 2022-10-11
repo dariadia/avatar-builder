@@ -84,6 +84,7 @@ export const FRECKLES_TYPES = [
   EARL,
   VISCOUNT,
   PARSON,
+  NONE,
 ]
 
 export const SAD = 'SAD'
@@ -242,6 +243,15 @@ const WITCHING_HOUR = 'linear-gradient(to right, #c31432, #240b36)'
 const ULTRA_VIOLET = 'linear-gradient(to right, #654ea3, #eaafc8)'
 const RASTAFARI = 'linear-gradient(to right, #1e9600, #fff200, #ff0000)'
 const BEYOND = 'linear-gradient(to right, #f0f2f0, #000c40)'
+const SWAMP = 'linear-gradient(to bottom, #6a9113, #141517)'
+const OCEAN_BLUES = 'linear-gradient(to left, #373b44, #4286f4)'
+const DJ_SHINE = 'linear-gradient(to left, #12c2e9, #c471ed, #f64f59)'
+const YODA_RAVE = 'linear-gradient(to right, #ff0099, #493240)'
+const SEA_HUGS = 'linear-gradient(to right, #2b5876, #4e4376)'
+const NOON_TO_DUSK = 'linear-gradient(to right, #ff6e7f, #bfe9ff)'
+const SOVIET = 'linear-gradient(to right, #e52d27, #b31217)'
+const INDIGO_BURN = 'linear-gradient(to right, #aa076b, #61045f)'
+const MIDNIGHT_OUT = 'linear-gradient(to right, #232526, #414345)'
 
 export const BACKGROUND_COLOURS = {
   YELLOW: 'yellow',
@@ -258,6 +268,15 @@ export const BACKGROUND_COLOURS = {
   PURPLE_BLAST,
   AQUALICIOUS,
   KYOOPAL,
+  SWAMP,
+  OCEAN_BLUES,
+  DJ_SHINE,
+  YODA_RAVE,
+  SEA_HUGS,
+  NOON_TO_DUSK,
+  SOVIET,
+  INDIGO_BURN,
+  MIDNIGHT_OUT,
   RAINBOW: RAINBOW_COLOUR,
   NONBINARY: NONBINARY_COLOUR,
   TRANSGENDER: TRANSGENDER_COLOUR,
@@ -275,8 +294,12 @@ export const SKIN_COLOURS = {
   CARAMEL: '#C68642',
   WHISKEY: '#D2996C',
   CONDENSED_MILK: '#E0AC69',
+  CHAK_CHAK: '#E9AE92',
   HONEY: '#F1C27D',
   CREAM: '#FFDBAC',
+  CREAMIER: '#FDE0CD',
+  BURNT_MARSHMALLOW: '#FCF0E9',
+  MARSHMALLOW: '#FBF0EF',
   MILK: '#FDFFF5',
   PALE_BLUE: '#AFEEEE',
   PALE_GREEN: '#98FB98',
@@ -288,10 +311,14 @@ export const CLOTHES_COLOURS = {
   LAWN: mainTheme.colours.complementaryDark,
   BLUE: 'blue',
   SALMON: 'salmon',
+  NINETIES_RED: '#E30B5D',
+  INDIGO: '#4B0082',
+  GOLD: '#FFD700',
   DARK_GREEN: mainTheme.colours.accentDark,
   MAROON: '#800000',
   BLACK: 'black',
   GREY: 'grey',
+  WOLF: '#4C4E52',
   ORANGE: 'orange',
   MILK: '#FDFFF5',
   WITCHING_HOUR,
@@ -316,6 +343,7 @@ export const EYEBROWS_COLOURS = {
   QUICK_SILVER: '#A2A39D',
   DEW: '#F5F7F2',
   GHOST_WHITE: '#F9F7FD',
+  COFFEE: '#463432',
   SPICE: '#8C6448',
   CAPPUCCINO: '#9C836B',
   DEER: '#BD7E5D',
@@ -323,6 +351,7 @@ export const EYEBROWS_COLOURS = {
   BEER: '#FF9321',
   METALIC_ORANGE: '#DA680F',
   ORANGE: '#FF5500',
+  DARK_ORANGE: '#AF3E12',
   PERSIAN_SUN: '#D4392D',
   BURN: '#C20507',
   IVORY: '#FEFFEC',
@@ -378,6 +407,8 @@ export const HAIR_COLOURS = {
   DARK_SIENNA: '#401215',
   SMOKY_TOPAZ: '#9A4442',
   IVORY: '#FEFFEC',
+  WHITE_SAND: '#E7D9B2',
+  PALE_BLOND: '#F9E4B9',
   BLOND: '#FAF0BE',
   CHAMPAGNE: '#FCDEA3',
   PALE_PEACH: '#FFCB8E',

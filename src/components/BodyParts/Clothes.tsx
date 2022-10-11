@@ -161,13 +161,24 @@ export const CLOTHES_PAIR = {
       <ShirtButton colour={ALL_COLOURS.MOONLIT_ASTEROID} />
     </Shirt>
   ),
+  NINETIES_RED: (
+    <Shirt colour={CLOTHES_COLOURS.NINETIES_RED} extraColour="black" />
+  ),
+  INDIGO: (
+    <Shirt
+      colour={CLOTHES_COLOURS.INDIGO}
+      extraColour={CLOTHES_COLOURS.INDIGO}
+    />
+  ),
   MAROON: (
     <Vest colour={CLOTHES_COLOURS.MAROON}>
       <ShirtButton colour={ALL_COLOURS.DUNE_SUNSET} />
     </Vest>
   ),
+  GOLD: <Vest colour={CLOTHES_COLOURS.GOLD} />,
   BLACK: <Vest colour={CLOTHES_COLOURS.BLACK} />,
   GREY: <TShirt colour={CLOTHES_COLOURS.GREY} />,
+  WOLF: <Shirt colour={CLOTHES_COLOURS.WOLF} />,
   ORANGE: <TShirt colour={CLOTHES_COLOURS.ORANGE} />,
   DARK_GREEN: (
     <Shirt colour={CLOTHES_COLOURS.DARK_GREEN}>

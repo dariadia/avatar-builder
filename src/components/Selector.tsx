@@ -503,7 +503,9 @@ const SelectorItem: React.FC<SelectorItemProps> = ({
       name={name}
       value={value ? value : id}
     />
-    <label htmlFor={id}>{children ? children : value}</label>
+    <label title={id} htmlFor={id}>
+      {children ? children : value}
+    </label>
   </>
 )
 

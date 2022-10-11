@@ -15,8 +15,9 @@ import {
   EARL,
   VISCOUNT,
   PARSON,
+  NONE,
 } from 'constants/body'
-import { baseTheme, Box } from 'danni-s-design-system'
+import { baseTheme, Box, Text } from 'danni-s-design-system'
 import { Sample } from './Sample'
 
 import type { Freckles as FrecklesProps, SelectorItem } from 'types'
@@ -158,8 +159,16 @@ export const FRECKLES_ITEMS = (): SelectorItem[] => {
       id: mark,
       children: (
         <Sample>
-          <SampleBox top={mark === EARL ? '-27px' : '-47px'}>
-            <Freckles colour="black" type={mark} isSample />
+          <SampleBox
+            top={mark === EARL ? '-27px' : mark === NONE ? '-4px' : '-47px'}
+          >
+            {mark === NONE ? (
+              <Text fontSize="40px" pl="xl">
+                ❌
+              </Text>
+            ) : (
+              <Freckles colour="black" type={mark} isSample />
+            )}
           </SampleBox>
         </Sample>
       ),
