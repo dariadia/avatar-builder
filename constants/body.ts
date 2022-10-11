@@ -243,6 +243,15 @@ const WITCHING_HOUR = 'linear-gradient(to right, #c31432, #240b36)'
 const ULTRA_VIOLET = 'linear-gradient(to right, #654ea3, #eaafc8)'
 const RASTAFARI = 'linear-gradient(to right, #1e9600, #fff200, #ff0000)'
 const BEYOND = 'linear-gradient(to right, #f0f2f0, #000c40)'
+const SWAMP = 'linear-gradient(to bottom, #6a9113, #141517)'
+const OCEAN_BLUES = 'linear-gradient(to left, #373b44, #4286f4)'
+const DJ_SHINE = 'linear-gradient(to left, #12c2e9, #c471ed, #f64f59)'
+const YODA_RAVE = 'linear-gradient(to right, #ff0099, #493240)'
+const SEA_HUGS = 'linear-gradient(to right, #2b5876, #4e4376)'
+const NOON_TO_DUSK = 'linear-gradient(to right, #ff6e7f, #bfe9ff)'
+const SOVIET = 'linear-gradient(to right, #e52d27, #b31217)'
+const INDIGO_BURN = 'linear-gradient(to right, #aa076b, #61045f)'
+const MIDNIGHT_OUT = 'linear-gradient(to right, #232526, #414345)'
 
 export const BACKGROUND_COLOURS = {
   YELLOW: 'yellow',
@@ -259,6 +268,15 @@ export const BACKGROUND_COLOURS = {
   PURPLE_BLAST,
   AQUALICIOUS,
   KYOOPAL,
+  SWAMP,
+  OCEAN_BLUES,
+  DJ_SHINE,
+  YODA_RAVE,
+  SEA_HUGS,
+  NOON_TO_DUSK,
+  SOVIET,
+  INDIGO_BURN,
+  MIDNIGHT_OUT,
   RAINBOW: RAINBOW_COLOUR,
   NONBINARY: NONBINARY_COLOUR,
   TRANSGENDER: TRANSGENDER_COLOUR,
