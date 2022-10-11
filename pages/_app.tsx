@@ -67,4 +67,6 @@ const App: React.FC<ApplicationProps> = ({ Component, pageProps }) => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export default appWithTranslation(App)

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { HoverableText, Text, Link, Flex } from 'danni-s-design-system'
-import { DANNI_GITHUB, DANNI_LOGIN } from 'constants/locations'
+import { DANNI_GITHUB, DANNI_LOGIN, TELEGRAM, TELEGRAM_LOGIN } from 'constants/locations'
 
 const TTO = 2021
 
@@ -18,7 +18,17 @@ export const Footer: React.FC = () => {
           sx={{ textDecoration: 'none' }}
           inlineBlock
         >
-          <HoverableText>{DANNI_LOGIN} ©</HoverableText>
+          <HoverableText>{DANNI_LOGIN} </HoverableText>
+        </Link>
+        {' '}x{' '}
+        <Link
+          target="_blank"
+          href={TELEGRAM}
+          color="black"
+          sx={{ textDecoration: 'none' }}
+          inlineBlock
+        >
+          <HoverableText>{TELEGRAM_LOGIN} ©</HoverableText>
         </Link>
         <Text color="black" ml="s" inlineBlock>
           2021{currentYear !== TTO && ` – ${currentYear}`}
