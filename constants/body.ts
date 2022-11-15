@@ -26,6 +26,7 @@ export const BEARD = 'BEARD'
 export const PENCIL = 'PENCIL'
 export const GOATY = 'GOATY'
 export const MOUSE = 'MOUSE'
+export const DEVIL = 'DEVIL'
 export const NONE = 'NONE'
 export const DOUG = 'DOUG'
 export const LAMPSHADE = 'LAMPSHADE'
@@ -157,6 +158,7 @@ export const MIDDLE_HAIR_TYPES = [
   BREEZE,
   EBB,
   MOUSE,
+  DEVIL,
 ]
 export const LONG_HAIR_TYPES = [WAVES, TIDE, BUSHY]
 export const SPECIAL_HAIR_TYPES = [HAMILTON, STICKY_BUNS]

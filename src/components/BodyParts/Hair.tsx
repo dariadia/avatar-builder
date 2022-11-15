@@ -30,6 +30,7 @@ import {
   GIDEON,
   BREEZE,
   MOUSE,
+  DEVIL,
   LONG,
   MIDDLE,
   SPECIAL,
@@ -62,6 +63,22 @@ const HairBackBushy: React.FC<HairProps> = styled(Box).attrs(props => ({
     right: -8%;
   }`
       : ''}
+`
+
+const HairBackBuns: React.FC<HairProps> = styled(Box).attrs(props => ({
+  width: props.width || baseTheme.space.elephant,
+  height: props.height || '120px',
+}))<HairProps>`
+  position: absolute;
+  left: ${({ side, left }) => (left ? left : side === LEFT ? '20%' : '59%')};
+  top: 13%;
+  border-radius: 200px;
+  transform: rotate(90deg);
+  width: 60px;
+  height: 60px;
+  background: ${({ colour }) => colour};
+  box-shadow: inset 2px -25px 24px 0 ${({ colour }) => darken(0.15, colour)};
+  border-radius: 300px;
 `
 
 const HairBackWavy: React.FC<HairProps> = styled(Box).attrs({
@@ -317,6 +334,15 @@ export const Hair: React.FC<HairProps> = ({ colour, type }) => {
           <BangsWillow colour={colour} />
         </>
       )
+    case DEVIL:
+      return (
+        <>
+          <HairBackBuns colour={colour} side={LEFT} height="30px" />
+          <HairBackBuns colour={colour} height="30px" />
+          <HairTop colour={colour} />
+          <HairStrand colour={colour} />,
+        </>
+      )
     case BUSHY:
       return (
         <>
@@ -383,6 +409,7 @@ const HAIR_ITEMS_SAMPLES = {
   BREEZE: <BangsCurl colour="black" />,
   EBB: <HairStrand colour="black" />,
   MOUSE: <BangsWillow colour="black" />,
+  DEVIL: <HairStrand colour="black" />,
   WAVES: <HairStrand colour="black" />,
   TIDE: <BangsLuz colour="black" />,
   BUSHY: <HairStrand colour="black" />,
@@ -408,6 +435,7 @@ const getHairLengthType = (hairType: string): string => {
     case BREEZE:
     case EBB:
     case MOUSE:
+    case DEVIL:
       return MIDDLE
     case WAVES:
     case TIDE:
