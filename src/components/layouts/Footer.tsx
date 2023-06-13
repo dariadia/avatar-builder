@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
         >
           <HoverableText>{DANNI_LOGIN} </HoverableText>
         </Link>{' '}
-        x{' '}
+        aka{' '}
         <Link
           target="_blank"
           href={TELEGRAM}
